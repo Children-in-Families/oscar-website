@@ -49,6 +49,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    appsignal (2.4.0)
+      rack
     arel (8.0.0)
     aws-sdk (2.10.82)
       aws-sdk-resources (= 2.10.82)
@@ -241,6 +243,7 @@ PLATFORMS
 
 DEPENDENCIES
   activemodel-serializers-xml!
+  appsignal
   byebug
   camaleon_cms (~> 2.4, >= 2.4.2)
   camaleon_post_order (~> 0.0.2)
