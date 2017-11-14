@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'public/**/*'
+    - 'log/**/*'
+    - 'db/**/*'
+    - 'Guardfile'
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+
+LineLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false

@@ -18,11 +18,15 @@ gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-se
 gem 'draper',             '~> 3'
 gem 'camaleon_post_order','~> 0.0.2'
 gem 'appsignal'
+gem 'paper_trail'
+gem 'dotenv', '~> 2.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara',         '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'brakeman', :require => false
+  gem 'rubocop', '~> 0.48.1'
 end
 
 group :development do
@@ -30,6 +34,10 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen',  '~> 2.0.0'
+
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rvm'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
