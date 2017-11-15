@@ -1,4 +1,4 @@
-lock '3.4.0'
+lock '3.10.0'
 
 set :application, 'oscar-website'
 set :repo_url, "git@github.com:rotati/#{fetch(:application)}.git"
