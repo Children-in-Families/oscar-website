@@ -28,19 +28,15 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console',        '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen',  '~> 2.0.0'
-
-  gem 'capistrano-rails',      '~> 1.2', '>= 1.2.1'
-  gem 'capistrano-passenger',  '~> 0.2.0'
-  gem 'capistrano-rvm',        '~> 0.1.2'
+  gem 'capistrano-rails', '~> 1.3'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rvm', '~> 0.1.2'
 end
 
 group :production do
   gem 'asset_sync',            '~> 2.0'
   gem 'fog',                   '~> 1.42'
+  gem 's3'
   gem 'appsignal',             '~> 2.0', '>= 2.0.4'
 end
 
