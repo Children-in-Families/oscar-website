@@ -18,6 +18,7 @@ gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-se
 gem 'draper',             '~> 3'
 gem 'camaleon_post_order','~> 0.0.2'
 gem 'dotenv-rails',       '~> 2.1', '>= 2.1.1'
+gem 'paper_trail'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
