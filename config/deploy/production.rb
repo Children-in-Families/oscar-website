@@ -1,3 +1,9 @@
+set :production
+
+set :app_name, 'oscar-website'
+
+server '52.74.9.136', user: 'deployer', roles: %w{app web db}
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
