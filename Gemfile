@@ -17,9 +17,7 @@ gem 'camaleon_cms',       '~> 2.4', '>= 2.4.2'
 gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-serializers-xml'
 gem 'draper',             '~> 3'
 gem 'camaleon_post_order','~> 0.0.2'
-gem 'appsignal'
-gem 'paper_trail'
-gem 'dotenv', '~> 2.2'
+gem 'dotenv-rails',       '~> 2.1', '>= 2.1.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -35,9 +33,15 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen',  '~> 2.0.0'
 
-  gem 'capistrano-rails', '~> 1.1.1'
-  gem 'capistrano-passenger'
-  gem 'capistrano-rvm'
+  gem 'capistrano-rails',      '~> 1.2', '>= 1.2.1'
+  gem 'capistrano-passenger',  '~> 0.2.0'
+  gem 'capistrano-rvm',        '~> 0.1.2'
+end
+
+group :production do
+  gem 'asset_sync',            '~> 2.0'
+  gem 'fog',                   '~> 1.42'
+  gem 'appsignal',             '~> 2.0', '>= 2.0.4'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
