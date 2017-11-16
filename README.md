@@ -5,7 +5,7 @@
 
 * Postgres(>= 10.0)
 * Ruby(2.4.1)
-* Rails(5.1.4)psql --  PostgreSQL interactive terminal
+* Rails(5.1.4)
 
 ### Getting Start
 
