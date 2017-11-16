@@ -1,18 +1,20 @@
-lock '3.10.0'
+lock "3.10.0"
 
 set :application, 'oscar-website'
 set :repo_url, "git@github.com:rotati/#{fetch(:application)}.git"
 
-ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+if ENV['CISERVER']
+  set :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+else
+  ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+end
 
 set :deploy_to, "/var/www/#{fetch(:application)}"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets')
 set :linked_files, fetch(:linked_files, []).push('.env')
 
-set :scm, :git
-
-set :pty, true
+set :pty, false
 
 set :keep_releases, 5
 
@@ -26,3 +28,7 @@ namespace :deploy do
 
   before :updated, :cleanup_assets
 end
+
+set :passenger_restart_with_touch, true
+
+require 'appsignal/capistrano'
