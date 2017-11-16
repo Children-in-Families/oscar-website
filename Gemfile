@@ -25,6 +25,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'brakeman', :require => false
   gem 'rubocop', '~> 0.48.1'
+  gem 'listen',                '~> 3.0.5'
 end
 
 group :development do
