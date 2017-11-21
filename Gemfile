@@ -19,6 +19,10 @@ gem 'draper',             '~> 3'
 gem 'camaleon_post_order','~> 0.0.2'
 gem 'dotenv-rails',       '~> 2.1', '>= 2.1.1'
 
+gem 'haml',               '~> 5.0', '>= 5.0.4'
+gem 'bootstrap-sass',     '~> 3.3', '>= 3.3.7'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara',         '~> 2.13'

@@ -1,0 +1,28 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
+
+/*Vendor CSS */
+@import 'vendor/animate/animate.min.css';
+@import 'vendor/magnific-popup/magnific-popup.min.css';
+@import 'vendor/owl.carousel/owl.carousel.min.css';
+@import 'vendor/owl.carousel/owl.theme.default.min.css';
+@import 'vendor/simple-line-icons/simple-line-icons.min.css';
+
+/*Theme CSS*/
+@import 'theme/theme-blog.css';
+@import 'theme/theme-elements.css';
+@import 'theme/theme-shop.css';
+@import 'theme/theme.css';
+
+/*Current Page CSS*/
+@import 'vendor/plugin/layers.css';
+@import 'vendor/plugin/navigation.css';
+@import 'vendor/plugin/settings.css';
+@import 'vendor/circle-flip-slideshow/component.css';
+
+/*Skin CSS*/
+@import 'skins/default.css';
+
+/*Theme Custom CSS*/
+@import 'custom.css';
