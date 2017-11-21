@@ -1,0 +1,14 @@
+{
+  "name" : "Oscar Website",
+  "description" : "",
+  "thumb" : "images/image.png",
+  "helpers": [
+    "Themes::OscarWebsite::MainHelper"
+  ],
+  "hooks": {
+    "on_active": ["oscar_website_on_install_theme"],
+    "on_inactive": ["oscar_website_on_uninstall_theme"],
+    "on_theme_settings": ["oscar_website_settings"]
+    //here all your hooks
+  }
+}
