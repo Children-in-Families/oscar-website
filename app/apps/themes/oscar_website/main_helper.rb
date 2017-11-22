@@ -1,6 +1,6 @@
 module Themes::OscarWebsite::MainHelper
   def self.included(klass)
-    # klass.helper_method [:my_helper_method] rescue "" # here your methods accessible from views
+    klass.helper_method [:oscar_get_nav_menu] rescue "" # here your methods accessible from views
   end
 
   def oscar_website_settings(theme)
@@ -9,16 +9,35 @@ module Themes::OscarWebsite::MainHelper
 
   # callback called after theme installed
   def oscar_website_on_install_theme(theme)
-    # # Sample Custom Field
-    # unless theme.get_field_groups.where(slug: "fields").any?
-    #   group = theme.add_field_group({name: "Main Settings", slug: "fields", description: ""})
-    #   group.add_field({"name"=>"Background color", "slug"=>"bg_color"},{field_key: "colorpicker"})
-    #   group.add_field({"name"=>"Links color", "slug"=>"links_color"},{field_key: "colorpicker"})
-    #   group.add_field({"name"=>"Background image", "slug"=>"bg"},{field_key: "image"})
-    # end
+    oscar_add_customize_theme_setting(theme)
+  end
 
-    # # Sample Meta Value
-    # theme.set_meta("installed_at", Time.current.to_s) # save a custom value
+  def oscar_add_customize_theme_setting(theme)
+    if theme.get_field_groups.where(slug: 'social-media').blank?
+      group = theme.add_field_group({name: 'Social Media', slug: 'social-media'})
+      group.add_field({ name: 'Facebook Url', slug: 'facebook-url' }, { field_key: 'url', require: false })
+      group.add_field({ name: 'Twitter Url', slug: 'twitter-url' }, { field_key: 'url' })
+      group.add_field({ name: 'Linkedin Url', slug: 'linkedin-url' }, { field_key: 'url' })
+
+    end
+  end
+
+  def oscar_get_nav_menu(key = 'main_menu', class_name = "navigation")
+    option = {
+      menu_slug: key,
+      container_class: class_name,
+      container_id: 'main-menu-ul',
+      item_class_parent: 'dropdown mega-dropdown',
+      sub_class:        'dropdown-menu mega-dropdown-menu row',
+      callback_item: lambda do |args|
+        args[:link_attrs] = "data-title='#{args[:link][:name].parameterize}'"
+        if args[:has_children]
+          args[:settings][:after] = "<span class='dropdown-icon'><i class='fa fa-angle-down' aria-hidden='true'></i></span>"
+          args[:link_attrs] += "data-toggle='dropdown'"
+        end
+      end
+    }
+    draw_menu(option)
   end
 
   # callback executed after theme uninstalled

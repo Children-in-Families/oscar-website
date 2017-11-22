@@ -15,6 +15,9 @@
 @import 'theme/theme-shop.css';
 @import 'theme/theme.css';
 
+// Demo CSS
+@import 'demos/demo-digital-agency.css';
+
 /*Current Page CSS*/
 @import 'vendor/plugin/layers.css';
 @import 'vendor/plugin/navigation.css';
@@ -22,7 +25,8 @@
 @import 'vendor/circle-flip-slideshow/component.css';
 
 /*Skin CSS*/
-@import 'skins/default.css';
+// @import 'skins/default.css';
+@import 'skins/skin-digital-agency.css';
 
 /*Theme Custom CSS*/
 @import 'custom.css';
