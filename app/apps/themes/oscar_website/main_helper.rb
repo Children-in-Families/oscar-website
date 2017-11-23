@@ -10,6 +10,36 @@ module Themes::OscarWebsite::MainHelper
   # callback called after theme installed
   def oscar_website_on_install_theme(theme)
     oscar_add_customize_theme_setting(theme)
+    oscar_add_default_pages
+    oscar_add_fields_to_home_page
+  end
+
+  def oscar_add_default_pages
+    page_post_type = current_site.the_post_type('page')
+    if page_post_type.present?
+      pages = ['Home']
+
+      pages.each do |page|
+        formatted_page = page.downcase.parameterize
+        exist_page = current_site.the_post_type('page').the_posts.where("slug like '%#{formatted_page}%'")
+        unless exist_page.present?
+          page_post_type.add_post(title: page, content: 'lorem_ipsum')
+        end
+      end
+    end
+  end
+
+  def oscar_add_fields_to_home_page
+    page = current_site.the_post_type('page').the_post('home')
+
+    if page.get_field_groups.where(slug: 'home-introduction').blank?
+      home_field_group = page.add_field_group({ name: 'Home Introduction', slug: 'home-introduction' })
+      home_field_group.add_field({ name: 'Introduction Sentence', slug: 'introdution-sentence' }, { field_key: 'text_box', required: true, default_value: 'The fastest way to grow your business with the leader in'})
+      home_field_group.add_field({ name: 'Big Word', slug: 'big-word' }, { field_key: 'text_box', required: true, default_value: 'Technology'})
+      home_field_group.add_field({ name: 'Option And Feature', slug: 'option-and-feature' }, { field_key: 'text_box', required: true, default_value: 'Check out our options and features included.'})
+      home_field_group.add_field({ name: 'Get Start Now', slug: 'get-start-now' }, { field_key: 'url', required: true, default_value: 'https://www.google.com.kh/'})
+      home_field_group.add_field({ name: 'Learn More', slug: 'learn-more' }, { field_key: 'url', required: true, default_value: 'https://www.google.com.kh/'})
+    end
   end
 
   def oscar_add_customize_theme_setting(theme)

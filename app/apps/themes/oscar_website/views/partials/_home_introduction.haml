@@ -1,0 +1,16 @@
+#home-intro.home-intro
+  .container
+    .row.align-items-center
+      .col-lg-8
+        %p
+          = current_site.the_post('home').the_field('introdution-sentence')
+          %em
+            = current_site.the_post('home').the_field('big-word')
+          %span
+            = current_site.the_post('home').the_field('option-and-feature')
+      .col-lg-4
+        .get-started.text-left.text-lg-right
+          = link_to 'Get Started Now!', current_site.the_post('home').the_field('get-start-now'), class: 'btn btn-lg btn-primary'
+          .learn-more
+            or
+            = link_to 'learn more.', current_site.the_post('home').the_field('learn-more')
