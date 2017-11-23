@@ -40,6 +40,14 @@ module Themes::OscarWebsite::MainHelper
       home_field_group.add_field({ name: 'Get Start Now', slug: 'get-start-now' }, { field_key: 'url', required: true, default_value: 'https://www.google.com.kh/'})
       home_field_group.add_field({ name: 'Learn More', slug: 'learn-more' }, { field_key: 'url', required: true, default_value: 'https://www.google.com.kh/'})
     end
+
+    if page.get_field_groups.where(slug: 'home-concept').blank?
+      home_field_group = page.add_field_group({ name: 'Home Concept', slug: 'home-concept' })
+      home_field_group.add_field({ name: 'Project Name', slug: 'project-name' }, { field_key: 'text_box', required: true, default_value: 'Oscar Website'})
+      home_field_group.add_field({ name: 'Slide Word', slug: 'slide-word' }, { field_key: 'text_box', required: true, default_value: 'Website', miltiple: true})
+      home_field_group.add_field({ name: 'Project Meaning', slug: 'project-meaning' }, { field_key: 'text_box', required: true, default_value: 'help children in Cambodia'})
+      home_field_group.add_field({ name: 'Concept Description', slug: 'concept-description' }, { field_key: 'text_box', required: true, default_value: 'We help all children in Camodia'})
+    end
   end
 
   def oscar_add_customize_theme_setting(theme)
