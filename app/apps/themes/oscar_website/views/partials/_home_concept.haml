@@ -1,0 +1,54 @@
+.container
+  .row.text-center
+    .col
+      %h1.mb-2.word-rotator-title
+        Porto is
+        %strong.inverted
+          %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
+            %span.word-rotator-items
+              %span incredibly
+              %span especially
+              %span extremely
+        beautiful and fully responsive.
+      %p.lead
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo. vamus suscipit molestie vestibulum.
+
+.home-concept.mt-5
+  .container
+    .row.text-center
+      %span.sun
+      %span.cloud
+      .col-lg-2.ml-lg-auto
+        .process-image
+          = image_tag theme_asset_url('images/img/home-concept-item-1.png')
+          / %img{:alt => "", :src => "./img/home-concept-item-1.png"}/
+          %strong Strategy
+      .col-lg-2
+        .process-image
+          = image_tag theme_asset_url('images/img/home-concept-item-2.png')
+          / %img{:alt => "", :src => "./img/home-concept-item-2.png"}/
+          %strong Planning
+      .col-lg-2
+        .process-image
+          = image_tag theme_asset_url('images/img/home-concept-item-3.png')
+          / %img{:alt => "", :src => "./img/home-concept-item-3.png"}/
+          %strong Build
+      .col-lg-4.ml-lg-auto
+        .project-image
+          #fcSlideshow.fc-slideshow
+            %ul.fc-slides
+              %li
+                %a{:href => "portfolio-single-small-slider.html"}
+                  = image_tag(theme_asset_url('images/img/projects/project-home-1.jpg'), :class => 'img-responsive')
+                  / %img.img-responsive{:alt => "", :src => "./img/projects/project-home-1.jpg"}/
+              %li
+                %a{:href => "portfolio-single-small-slider.html"}
+                  = image_tag(theme_asset_url('images/img/projects/project-home-2.jpg'), :class => 'img-responsive')
+
+                  / %img.img-responsive{:alt => "", :src => "./img/projects/project-home-2.jpg"}/
+              %li
+                %a{:href => "portfolio-single-small-slider.html"}
+                  = image_tag(theme_asset_url('images/img/projects/project-home-3.jpg'), :class => 'img-responsive')
+
+                  / %img.img-responsive{:alt => "", :src => "./img/projects/project-home-3.jpg"}/
+          %strong.our-work Our Work

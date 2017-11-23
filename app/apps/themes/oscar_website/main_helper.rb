@@ -20,6 +20,15 @@ module Themes::OscarWebsite::MainHelper
       group.add_field({ name: 'Linkedin Url', slug: 'linkedin-url' }, { field_key: 'url' })
 
     end
+
+    if theme.get_field_groups.where(slug: 'home-slider').blank?
+      group = theme.add_field_group({name: 'Home Slider', slug: 'home-slider'})
+      group.add_field({ name: 'Image Slider', slug: 'image-slider' }, { field_key: 'image', require: true })
+      group.add_field({ name: 'Video Slider', slug: 'video-slider' }, { field_key: 'video', require: false })
+      group.add_field({ name: 'First Text Load', slug: 'first-text-load' }, { field_key: 'text_box' })
+      group.add_field({ name: 'Second Text Load', slug: 'second-text-load' }, { field_key: 'text_box' })
+      group.add_field({ name: 'Third Text Load', slug: 'third-text-load' }, { field_key: 'text_box' })
+    end
   end
 
   def oscar_get_nav_menu(key = 'main_menu', class_name = "navigation")

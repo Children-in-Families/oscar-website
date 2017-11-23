@@ -1,0 +1,32 @@
+.col-lg-6
+  %h2
+    %strong What
+    Client’s Say
+  .row
+    .owl-carousel.owl-theme.mb-0{"data-plugin-options" => "{'items': 1}"}
+      %div
+        .col
+          .testimonial.testimonial-primary
+            %blockquote
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat.  Donec hendrerit vehicula est, in consequat.  Donec hendrerit vehicula est, in consequat.
+            .testimonial-arrow-down
+            .testimonial-author
+              .testimonial-author-thumbnail.img-thumbnail
+                = image_tag theme_asset_url('images/img/clients/client-1.jpg')
+                / %img{:alt => "", :src => "./img/clients/client-1.jpg"}/
+              %p
+                %strong John Smith
+                %span CEO &amp; Founder - Okler
+      %div
+        .col
+          .testimonial.testimonial-primary
+            %blockquote
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat.
+            .testimonial-arrow-down
+            .testimonial-author
+              .testimonial-author-thumbnail.img-thumbnail
+                = image_tag theme_asset_url('images/img/clients/client-1.jpg')
+                / %img{:alt => "", :src => "./img/clients/client-1.jpg"}/
+              %p
+                %strong John Smith
+                %span CEO &amp; Founder - Okler
