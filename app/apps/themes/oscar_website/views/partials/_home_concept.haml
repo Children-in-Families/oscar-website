@@ -6,9 +6,9 @@
         %strong.inverted
           %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
             %span.word-rotator-items
-              %span incredibly
-              %span especially
-              %span extremely
+              - @post.the_fields('concept-slide-word').each do |word|
+                %span
+                  = word
         = current_site.the_post('home').the_field('project-meaning')
       %p.lead
         = current_site.the_post('home').the_field('concept-description')

@@ -1,29 +1,19 @@
 .row.text-center.pt-4
   .col
     %h2.mb-2.word-rotator-title
-      We're not the only ones
+      = current_site.the_post('home').the_field('main-first-description')
       %strong
         %span.word-rotator{"data-plugin-options" => "{'delay': 3500, 'animDelay': 400}"}
           %span.word-rotator-items
-            %span excited
-            %span happy
-      about Porto Template...
-    %h4.heading-primary.lead.tall 25,000 customers in 100 countries use Porto Template. Meet our customers.
+            - @post.the_fields('customer-description-slide-word').each do |word|
+              %span
+                = word
+      = current_site.the_post('home').the_field('main-second-description')
+    %h4.heading-primary.lead.tall
+      = current_site.the_post('home').the_field('sub-description')
 .row.text-center
-  .owl-carousel.owl-theme{"data-plugin-options" => "{'items': 6, 'autoplay': true, 'autoplayTimeout': 3000}"}
-    %div
-      = image_tag theme_asset_url('images/img/logos/logo-1.png'), class: 'img-fluid'
-    %div
-      = image_tag theme_asset_url('images/img/logos/logo-2.png'), class: 'img-fluid'
-    %div
-      = image_tag theme_asset_url('images/img/logos/logo-4.png'), class: 'img-fluid'
-    %div
-      = image_tag theme_asset_url('images/img/logos/logo-4.png'), class: 'img-fluid'
-    %div
-      = image_tag theme_asset_url('images/img/logos/logo-5.png'), class: 'img-fluid'
-    %div
-      = image_tag theme_asset_url('images/img/logos/logo-6.png'), class: 'img-fluid'
-    %div
-      = image_tag theme_asset_url('images/img/logos/logo-4.png'), class: 'img-fluid'
-    %div
-      = image_tag theme_asset_url('images/img/logos/logo-2.png'), class: 'img-fluid'
+  - item = current_site.the_post_type('home-customer-image').the_posts.count
+  .owl-carousel.owl-theme{"data-plugin-options" => "{'items': #{item}, 'autoplay': true, 'autoplayTimeout': 3000}"}
+    - current_site.the_post_type('home-customer-image').the_posts.visible_frontend.decorate.each do |image|
+      #customer_images
+        = image_tag image.the_field('customer-logo'), class: 'img-fluid'

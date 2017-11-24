@@ -6,52 +6,12 @@
       %br/
       %br/
   .row.mt-5
-    .col-lg-4
-      .feature-box
-        .feature-box-icon
-          %i.fa.fa-group
-        .feature-box-info
-          %h4.heading-primary.mb-1 Customer Support
-          %p
-            Lorem ipsum dolor sit amet, consectetur adipiscing
-            %span.alternative-font metus.
-            elit. Quisque rutrum pellentesque imperdiet.
-    .col-lg-4
-      .feature-box
-        .feature-box-icon
-          %i.fa.fa-film
-        .feature-box-info
-          %h4.heading-primary.mb-1 Sliders
-          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.
-    .col-lg-4
-      .feature-box
-        .feature-box-icon
-          %i.fa.fa-bars
-        .feature-box-info
-          %h4.heading-primary.mb-1 Buttons
-          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.
-  .row.mt-4
-    .col-lg-4
-      .feature-box
-        .feature-box-icon
-          %i.fa.fa-file
-        .feature-box-info
-          %h4.heading-primary.mb-1 HTML5 / CSS3 / JS
-          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.
-    .col-lg-4
-      .feature-box
-        .feature-box-icon
-          %i.fa.fa-check
-        .feature-box-info
-          %h4.heading-primary.mb-1 Icons
-          %p
-            Lorem ipsum dolor sit amet, consectetur adipiscing
-            %span.alternative-font metus.
-            elit. Quisque rutrum pellentesque imperdiet.
-    .col-lg-4
-      .feature-box
-        .feature-box-icon
-          %i.fa.fa-desktop
-        .feature-box-info
-          %h4.heading-primary.mb-1 Lightbox
-          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla.
+    - current_site.the_post_type('home-feature').the_posts.visible_frontend.decorate.each do |feature|
+      .col-lg-4
+        .feature-box
+          = image_tag feature.the_field('feature-icon'), size: "40x40"
+          .feature-box-info
+            %h4.heading-primary.mb-1
+              = link_to "#{feature.the_title}", feature.the_field("feature-url")
+            %p
+              = raw(feature.the_content)

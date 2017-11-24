@@ -36,6 +36,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.3'
   gem 'capistrano-passenger', '~> 0.2.0'
   gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'pry', '~> 0.11.3'
 end
 
 group :production do

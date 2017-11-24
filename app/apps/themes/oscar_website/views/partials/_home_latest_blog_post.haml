@@ -5,78 +5,55 @@
       %strong Blog
       Posts
     .owl-carousel.owl-theme.mb-0{"data-plugin-options" => "{'items': 1}"}
-      .row
-        .col-lg-6
-          %article
-            .date
-              %span.day 15
-              %span.month Jan
-            %h4.heading-primary
-              %a{:href => "blog-post.html"} Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            %p
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat libero.
-              %a.read-more{:href => "/"}
-                read more
-                %i.fa.fa-angle-right
-        .col-lg-6
-          %article
-            .date
-              %span.day 15
-              %span.month Jan
-            %h4.heading-primary
-              %a{:href => "blog-post.html"} Lorem ipsum dolor
-            %p
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat.
-              %a.read-more{:href => "/"}
-                read more
-                %i.fa.fa-angle-right
-      .row
-        .col-lg-6
-          %article
-            .date
-              %span.day 12
-              %span.month Jan
-            %h4.heading-primary
-              %a{:href => "blog-post.html"} Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            %p
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat libero.
-              %a.read-more{:href => "/"}
-                read more
-                %i.fa.fa-angle-right
-        .col-lg-6
-          %article
-            .date
-              %span.day 11
-              %span.month Jan
-            %h4.heading-primary
-              %a{:href => "blog-post.html"} Lorem ipsum dolor
-            %p
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              %a.read-more{:href => "/"}
-                read more
-                %i.fa.fa-angle-right
-      .row
-        .col-lg-6
-          %article
-            .date
-              %span.day 15
-              %span.month Jan
-            %h4.heading-primary
-              %a{:href => "blog-post.html"} Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            %p
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat libero.
-              %a.read-more{:href => "/"}
-                read more
-                %i.fa.fa-angle-right
-        .col-lg-6
-          %article
-            .date
-              %span.day 15
-              %span.month Jan
-            %h4.heading-primary
-              %a{:href => "blog-post.html"} Lorem ipsum dolor
-            %p
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat.
-              %a.read-more{:href => "/"}
-                read more
-                %i.fa.fa-angle-right
+      - posts = current_site.the_post_type('home-latest-blog-post').the_posts.visible_frontend.decorate
+      / loop posts 1 time, step 2
+      - (0..posts.length).step(2).each do |i|
+        / if the no post, break
+        - if i == posts.length
+          -  break
+
+        .row
+          .col-lg-6
+            %article
+              .date
+                - post = posts[i]
+                - tweetDate = post.the_field('date').split('-')
+                - day = tweetDate[2]
+                - month = Date::MONTHNAMES[tweetDate[1].to_i][0..2]
+                %span.day
+                  = day
+                %span.month
+                  = month
+              %h4.heading-primary
+                = link_to post.the_field('post-title'), post.the_field('post-url')
+              %p
+                - tweetContent = post.the_field('post-content')
+                / if words longer than 150, show read more
+                = tweetContent[0..149]
+                - if tweetContent.size > 149
+                  = link_to post.the_field('post-url'), class: 'read-more' do
+                    read more
+                    %i.fa.fa-angle-right
+
+          - if i + 1 < posts.length
+            - nextPosition = i + 1
+            - post = posts[nextPosition]
+            .col-lg-6
+              %article
+                .date
+                  - tweetDate = post.the_field('date').split('-')
+                  - day = tweetDate[2]
+                  - month = Date::MONTHNAMES[tweetDate[1].to_i][0..2]
+                  %span.day
+                    = day
+                  %span.month
+                    = month
+                %h4.heading-primary
+                  = link_to post.the_field('post-title'), post.the_field('post-url')
+                %p
+                  - tweetContent = post.the_field('post-content')
+                  = tweetContent[0..149]
+                  - if tweetContent.size > 149
+                    = link_to post.the_field('post-url'), class: 'read-more' do
+                      read more
+                      %i.fa.fa-angle-right
