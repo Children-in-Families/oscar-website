@@ -3,23 +3,23 @@
     .row
       .footer-ribbon
         %span Get in Touch
-      .col-lg-3
-        .newsletter
-          %h4 Newsletter
-          %p Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.
-          #newsletterSuccess.alert.alert-success.d-none
-            %strong Success!
-            You've been added to our email list.
-          #newsletterError.alert.alert-danger.d-none
-          %form#newsletterForm{:action => "php/newsletter-subscribe.php", :method => "POST"}
-            .input-group
-              %input#newsletterEmail.form-control.form-control-sm{:name => "newsletterEmail", :placeholder => "Email Address", :type => "text"}/
-              %span.input-group-btn
-                %button.btn.btn-light{:type => "submit"} Go!
-      .col-lg-3
-        %h4 Latest Tweets
-        #tweet.twitter{"data-plugin-options" => "{'username': '', 'count': 2}", "data-plugin-tweets" => ""}
-          %p Please wait...
+      / .col-lg-3
+      /   .newsletter
+      /     %h4 Newsletter
+      /     %p Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.
+      /     #newsletterSuccess.alert.alert-success.d-none
+      /       %strong Success!
+      /       You've been added to our email list.
+      /     #newsletterError.alert.alert-danger.d-none
+      /     %form#newsletterForm{:action => "php/newsletter-subscribe.php", :method => "POST"}
+      /       .input-group
+      /         %input#newsletterEmail.form-control.form-control-sm{:name => "newsletterEmail", :placeholder => "Email Address", :type => "text"}/
+      /         %span.input-group-btn
+      /           %button.btn.btn-light{:type => "submit"} Go!
+      / .col-lg-3
+      /   %h4 Latest Tweets
+      /   #tweet.twitter{"data-plugin-options" => "{'username': '', 'count': 2}", "data-plugin-tweets" => ""}
+      /     %p Please wait...
       .col-lg-4
         .contact-details
           %h4 Contact Us
@@ -28,36 +28,37 @@
               %p
                 %i.fa.fa-map-marker
                 %strong Address:
-                1234 Street Name, City Name, United States
+                = current_theme.the_field('contact-address')
             %li
               %p
                 %i.fa.fa-phone
                 %strong Phone:
-                (123) 456-789
+                = current_theme.the_field('contact-phone')
             %li
               %p
                 %i.fa.fa-envelope
                 %strong Email:
-                %a{:href => "mailto:mail@example.com"} mail@example.com
+                = link_to current_theme.the_field('contact-email'), target: "_blank" do
+                  = current_theme.the_field('contact-email')
       .col-lg-2
         %h4 Follow Us
         %ul.social-icons
           %li.social-icons-facebook
-            %a{:href => "http://www.facebook.com/", :target => "_blank", :title => "Facebook"}
-              %i.fa.fa-facebook
+            = link_to current_theme.the_field('facebook-url'), target: "_blank" do
+              = fa_icon 'facebook'
           %li.social-icons-twitter
-            %a{:href => "http://www.twitter.com/", :target => "_blank", :title => "Twitter"}
-              %i.fa.fa-twitter
+            = link_to current_theme.the_field('twitter-url'), target: "_blank" do
+              = fa_icon 'twitter'
           %li.social-icons-linkedin
-            %a{:href => "http://www.linkedin.com/", :target => "_blank", :title => "Linkedin"}
-              %i.fa.fa-linkedin
+            = link_to current_theme.the_field('linkedin-url'), target: "_blank" do
+              = fa_icon 'linkedin'
   .footer-copyright
     .container
       .row
-        .col-lg-1
+        .col-lg-2
           %a.logo{:href => "index.html"}
-            %img.img-fluid{:alt => "Porto Website Template", :src => "./img/logo-footer.png"}/
-        .col-lg-7
+            = image_tag current_site.the_logo, class: 'img-responsive img-logo', alt: "OSCar Logo"
+        .col-lg-6
           %p © Copyright 2017. All Rights Reserved.
         .col-lg-4
           %nav#sub-menu

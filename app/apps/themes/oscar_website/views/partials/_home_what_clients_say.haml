@@ -4,29 +4,20 @@
     Client’s Say
   .row
     .owl-carousel.owl-theme.mb-0{"data-plugin-options" => "{'items': 1}"}
-      %div
-        .col
-          .testimonial.testimonial-primary
-            %blockquote
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat.  Donec hendrerit vehicula est, in consequat.  Donec hendrerit vehicula est, in consequat.
-            .testimonial-arrow-down
-            .testimonial-author
-              .testimonial-author-thumbnail.img-thumbnail
-                = image_tag theme_asset_url('images/img/clients/client-1.jpg')
-                / %img{:alt => "", :src => "./img/clients/client-1.jpg"}/
-              %p
-                %strong John Smith
-                %span CEO &amp; Founder - Okler
-      %div
-        .col
-          .testimonial.testimonial-primary
-            %blockquote
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat.
-            .testimonial-arrow-down
-            .testimonial-author
-              .testimonial-author-thumbnail.img-thumbnail
-                = image_tag theme_asset_url('images/img/clients/client-1.jpg')
-                / %img{:alt => "", :src => "./img/clients/client-1.jpg"}/
-              %p
-                %strong John Smith
-                %span CEO &amp; Founder - Okler
+      - posts = current_site.the_post_type('home-what-clients-say').the_posts.visible_frontend.decorate
+      - posts.each do |client_say|
+        %div
+          .col
+            .testimonial.testimonial-primary
+              %blockquote
+                %p
+                  = client_say.the_field('what-client-say')
+              .testimonial-arrow-down
+              .testimonial-author
+                .testimonial-author-thumbnail.img-thumbnail
+                  = image_tag client_say.the_field('client-image')
+                %p
+                  %strong
+                    = client_say.the_field('client-name')
+                  %span
+                    = client_say.the_field('client-position')

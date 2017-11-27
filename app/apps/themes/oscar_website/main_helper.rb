@@ -61,6 +61,11 @@ module Themes::OscarWebsite::MainHelper
       home_field_group.add_field({ name: 'Main Scecond Description', slug: 'main-second-description' }, { field_key: 'text_box', required: true, default_value: 'to help children in Cambodia'})
       home_field_group.add_field({ name: 'Sub Description', slug: 'sub-description' }, { field_key: 'text_box', required: true, default_value: '25,000 customers in 100 countries use Porto Template. Meet our customers.'})
     end
+
+    if page.get_field_groups.where(slug: 'home-customer-background-image').blank?
+      home_field_group = page.add_field_group({ name: 'Home Customer Background Image', slug: 'home-customer-background-image' })
+      home_field_group.add_field({ name: 'Background Image', slug: 'home-background-image' }, { field_key: 'image', required: true})
+    end
   end
 
   def oscar_add_home_feature_post_type
@@ -149,8 +154,8 @@ module Themes::OscarWebsite::MainHelper
         contents_route_format: 'post_of_posttype'
       }
       post.set_meta('_default', options)
-      if post.get_field_groups.where(slug: 'home-what-clients-say-feilds').blank?
-        post_field_group = post.add_field_group({ name: 'Home What Clients Say fields', slug: 'home-what-clients-say-feilds' } )
+      if post.get_field_groups.where(slug: 'home-what-clients-say-fields').blank?
+        post_field_group = post.add_field_group({ name: 'Home What Clients Say fields', slug: 'home-what-clients-say-fields' } )
         post_field_group.add_field({ name: 'What Client Say', slug: 'what-client-say' }, { field_key: 'text_area', required: true } )
         post_field_group.add_field({ name: 'Client Image', slug: 'client-image' }, { field_key: 'image', required: true } )
         post_field_group.add_field({ name: 'Client Name', slug: 'client-name' }, { field_key: 'text_box', required: true } )

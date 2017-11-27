@@ -8,7 +8,7 @@
       - posts = current_site.the_post_type('home-latest-blog-post').the_posts.visible_frontend.decorate
       / loop posts 1 time, step 2
       - (0..posts.length).step(2).each do |i|
-        / if the no post, break
+        / if no post, break
         - if i == posts.length
           -  break
 
@@ -35,8 +35,8 @@
                     read more
                     %i.fa.fa-angle-right
 
-          - if i + 1 < posts.length
-            - nextPosition = i + 1
+          - nextPosition = i + 1
+          - if nextPosition < posts.length
             - post = posts[nextPosition]
             .col-lg-6
               %article
