@@ -1,6 +1,6 @@
 .slider-container.light.rev_slider_wrapper
-  #revolutionSlider.slider.rev_slider{"data-plugin-options" => "{'delay': 9000, 'gridwidth': 500, 'gridheight': 600, 'responsiveLevels': [4096,1200,992,500]}", "data-plugin-revolution-slider" => ""}
-    %ul
+  #revolutionSlider.slider.rev_slider{"data-plugin-options" => "{'delay': 9000, 'gridwidth': 500, 'gridheight': 500, 'responsiveLevels': [4096,1200,992,500]}", "data-plugin-revolution-slider" => ""}
+    %ul{style: "margin-top: 50px !important;"}
       %li{"data-transition" => "fade"}
         = image_tag current_theme.the_field('image-slider'), "data-bgfit" => "cover", "data-bgposition" => "center center", "data-bgrepeat" => "no-repeat", class: 'rev-slidebg'
 
