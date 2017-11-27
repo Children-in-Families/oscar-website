@@ -4,7 +4,7 @@
       %li{"data-transition" => "fade"}
         = image_tag current_theme.the_field('image-slider'), "data-bgfit" => "cover", "data-bgposition" => "center center", "data-bgrepeat" => "no-repeat", class: 'rev-slidebg'
 
-        - video = current_theme.the_fields('video-silder')
+        - video = current_theme.the_fields('video-slider')
         .rs-background-video-layer{"data-aspectratio" => "16:9", "data-autoplay" => "true", "data-autoplayonlyfirsttime" => "false", "data-forcecover" => "1", "data-forcerewind" => "on", "data-nextslideatend" => "true", "data-videoheight" => "100%", "data-videoloop" => "loop", "data-videomp4" => "#{video}", "data-videopreload" => "preload", "data-videowidth" => "100%", "data-volume" => "mute"}
         .tp-caption{"data-hoffset" => "-150", "data-start" => "1000", "data-transform_in" => "x:[-300%];opacity:0;s:500;", "data-x" => "center", "data-y" => "188", :style => "z-index: 5"}
 
