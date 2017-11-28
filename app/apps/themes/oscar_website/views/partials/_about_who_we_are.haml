@@ -1,0 +1,100 @@
+.container
+  .row.mt-5
+    .col-lg-5
+      %h2
+        %strong Who
+        We Are
+      %p
+        = @post.the_field('about-who-we-are-content')
+    .col-lg-7
+      .progress-bars.mt-4
+        - current_site.the_post_type('about-who-we-are-progress').the_posts.visible_frontend.decorate.each do |progress|
+          .progress-label
+            %span
+              = progress.the_field('about-who-we-are-progress-title')
+          .progress.mb-2
+            - percent = "#{progress.the_field('about-who-we-are-progress-percent')}%"
+            .progress-bar.progress-bar-primary{"data-appear-progress-animation" => percent}
+              %span.progress-bar-tooltip
+                = percent
+  .row.mt-5.mb-5
+    .col-sm-6.col-lg-3.mb-4.mb-lg-0
+      %span.thumb-info.thumb-info-hide-wrapper-bg
+        %span.thumb-info-wrapper
+          %a{:href => "about-me.html"}
+            %img.img-fluid{:alt => "", :src => "img/team/team-1.jpg"}/
+            %span.thumb-info-title
+              %span.thumb-info-inner John Doe
+              %span.thumb-info-type CEO
+        %span.thumb-info-caption
+          %span.thumb-info-caption-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan
+          %span.thumb-info-social-icons
+            %a{:href => "http://www.facebook.com", :target => "_blank"}
+              %i.fa.fa-facebook
+              %span Facebook
+            %a{:href => "http://www.twitter.com"}
+              %i.fa.fa-twitter
+              %span Twitter
+            %a{:href => "http://www.linkedin.com"}
+              %i.fa.fa-linkedin
+              %span Linkedin
+    .col-sm-6.col-lg-3.mb-4.mb-lg-0
+      %span.thumb-info.thumb-info-hide-wrapper-bg
+        %span.thumb-info-wrapper
+          %a{:href => "about-me.html"}
+            %img.img-fluid{:alt => "", :src => "img/team/team-2.jpg"}/
+            %span.thumb-info-title
+              %span.thumb-info-inner Jessica Doe
+              %span.thumb-info-type Marketing
+        %span.thumb-info-caption
+          %span.thumb-info-caption-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan
+          %span.thumb-info-social-icons
+            %a{:href => "http://www.facebook.com", :target => "_blank"}
+              %i.fa.fa-facebook
+              %span Facebook
+            %a{:href => "http://www.twitter.com"}
+              %i.fa.fa-twitter
+              %span Twitter
+            %a{:href => "http://www.linkedin.com"}
+              %i.fa.fa-linkedin
+              %span Linkedin
+    .col-sm-6.col-lg-3.mb-4.mb-sm-0
+      %span.thumb-info.thumb-info-hide-wrapper-bg
+        %span.thumb-info-wrapper
+          %a{:href => "about-me.html"}
+            %img.img-fluid{:alt => "", :src => "img/team/team-3.jpg"}/
+            %span.thumb-info-title
+              %span.thumb-info-inner Rick Edward Doe
+              %span.thumb-info-type Developer
+        %span.thumb-info-caption
+          %span.thumb-info-caption-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan
+          %span.thumb-info-social-icons
+            %a{:href => "http://www.facebook.com", :target => "_blank"}
+              %i.fa.fa-facebook
+              %span Facebook
+            %a{:href => "http://www.twitter.com"}
+              %i.fa.fa-twitter
+              %span Twitter
+            %a{:href => "http://www.linkedin.com"}
+              %i.fa.fa-linkedin
+              %span Linkedin
+    .col-sm-6.col-lg-3
+      %span.thumb-info.thumb-info-hide-wrapper-bg
+        %span.thumb-info-wrapper
+          %a{:href => "about-me.html"}
+            %img.img-fluid{:alt => "", :src => "img/team/team-4.jpg"}/
+            %span.thumb-info-title
+              %span.thumb-info-inner Melinda Wolosky
+              %span.thumb-info-type Design
+        %span.thumb-info-caption
+          %span.thumb-info-caption-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan
+          %span.thumb-info-social-icons
+            %a{:href => "http://www.facebook.com", :target => "_blank"}
+              %i.fa.fa-facebook
+              %span Facebook
+            %a{:href => "http://www.twitter.com"}
+              %i.fa.fa-twitter
+              %span Twitter
+            %a{:href => "http://www.linkedin.com"}
+              %i.fa.fa-linkedin
+              %span Linkedin

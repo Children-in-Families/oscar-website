@@ -1,0 +1,20 @@
+/* navbar */
+
+.header-logo {
+  width: 120px;
+}
+
+#customer_images {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.feature-box{
+  &:hover{
+    background: #336666;
+    & > .feature-box-info > h4 > a, p {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}

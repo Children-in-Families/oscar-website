@@ -17,7 +17,7 @@
 #= require ./vendor/vide/vide.min.js
 #= require ./vendor/rs-plugin/js/jquery.themepunch.tools.min.js
 #= require ./vendor/rs-plugin/js/jquery.themepunch.revolution.min.js
-#= require ./vendor/circle-flip-slideshow/js/jquery.flipshow.min.js
+#= require ./vendor/circle-flip-slideshow/js/flipshow.min.js
 
 #= require ./js/theme.js
 #= require ./js/views/view.home.js

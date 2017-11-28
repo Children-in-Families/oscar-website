@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-lg-12.text-center
+      %h2.word-rotator-title.mb-4
+        = @post.the_field('about-title')
+        %strong.inverted.inverted-primary
+          %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
+            %span.word-rotator-items
+              - @post.the_fields('about-slider').each do |word|
+                %span
+                  = word
+      %p.lead
+        = @post.the_field('about-content-text')
