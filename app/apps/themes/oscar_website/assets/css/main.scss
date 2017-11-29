@@ -32,3 +32,12 @@
 /*Theme Custom CSS*/
 @import 'custom.css';
 
+
+html, body {
+  height: 100%;
+
+  .oscar-content {
+    min-height: 60%;
+    position: relative;
+  }
+}
