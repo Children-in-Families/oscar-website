@@ -1,19 +1,8 @@
 %section.call-to-action.call-to-action-default.with-button-arrow.content-align-center.call-to-action-in-footer
   .container
     .row
-      .col-md-9.col-lg-9
-        .call-to-action-content
-          %h3
-            Porto is
-            %strong everything
-            you need to create an
-            %strong awesome
-            website!
-          %p.mb-0
-            The
-            %strong #1 Selling
-            HTML Site Template on ThemeForest
-      .col-md-3.col-lg-3
-        .call-to-action-btn
-          %a.btn.btn-lg.btn-primary{:href => "http://themeforest.net/item/porto-responsive-html5-template/4106987", :target => "_blank"} Buy Now!
-          %span.arrow.hlb.d-none.d-md-block{"data-appear-animation" => "rotateInUpLeft", :style => "top: -40px; left: 70%;"}}
+      .call-to-action-content
+        %h3
+          = @post.the_field('about-footer-main-sentence-content')
+        %p.mb-0
+          = @post.the_field('about-footer-sub-sentence-content')

@@ -20,6 +20,7 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_fields_to_about_page
     oscar_add_about_score_post_type
     oscar_add_about_who_we_are_progress_post_type
+    oscar_add_about_us_post_type
   end
 
   def oscar_add_default_pages
@@ -85,6 +86,12 @@ module Themes::OscarWebsite::MainHelper
       about_field_group = page.add_field_group({ name: 'About Who We Are Fields', slug: 'about-who-we-are-fields' })
       about_field_group.add_field({ name: 'Content', slug: 'about-who-we-are-content' }, { field_key: 'text_area', required: true, default_value: 'About Who We Are Content'})
     end
+
+    if page.get_field_groups.where(slug: 'about-footer-fields').blank?
+      about_field_group = page.add_field_group({ name: 'About Footer', slug: 'about-footer-fields' })
+      about_field_group.add_field({ name: 'Main Sentence', slug: 'about-footer-main-sentence-content' }, { field_key: 'text_box', required: true, default_value: 'Oscar Website is awesome.'})
+      about_field_group.add_field({ name: 'Sub Sentence', slug: 'about-footer-sub-sentence-content' }, { field_key: 'text_box', required: true, default_value: 'Together work with Oscar.'})
+    end
   end
 
   def oscar_add_about_score_post_type
@@ -108,6 +115,35 @@ module Themes::OscarWebsite::MainHelper
         about_field_group.add_field({ name: 'Number', slug: 'about-score-number' }, { field_key: 'numeric', required: true } )
         about_field_group.add_field({ name: 'Sign', slug: 'about-score-sign' }, { field_key: 'text_box', required: false } )
         about_field_group.add_field({ name: 'Text', slug: 'about-score-text' }, { field_key: 'text_box', required: true } )
+      end
+    end
+  end
+
+  def oscar_add_about_us_post_type
+    if current_site.the_post_type('about-us').blank?
+      about = current_site.post_types.create(name: 'About Us', slug: 'about-us')
+      options = {
+        has_category: false,
+        has_content: true,
+        has_tags: false,
+        has_summary: false,
+        has_comments: false,
+        has_picture: false,
+        has_template: false,
+        has_keywords: false,
+        contents_route_format: 'post_of_posttype'
+      }
+      about.set_meta('_default', options)
+      if about.get_field_groups.where(slug: 'about-us-fields').blank?
+        about_field_group = about.add_field_group({ name: 'About Us Fields', slug: 'about-us-fields' } )
+
+        about_field_group.add_field({ name: 'Image', slug: 'about-us-image' }, { field_key: 'image', required: true } )
+        about_field_group.add_field({ name: 'Name', slug: 'about-us-name' }, { field_key: 'text_box', required: true } )
+        about_field_group.add_field({ name: 'Position', slug: 'about-us-position' }, { field_key: 'text_box', required: true } )
+        about_field_group.add_field({ name: 'Description', slug: 'about-us-description' }, { field_key: 'text_area', required: true } )
+        about_field_group.add_field({ name: 'Facebook', slug: 'about-us-facebook' }, { field_key: 'url', required: true } )
+        about_field_group.add_field({ name: 'Twitter', slug: 'about-us-twitter' }, { field_key: 'url', required: true } )
+        about_field_group.add_field({ name: 'Linkedin', slug: 'about-us-linkedin' }, { field_key: 'url', required: true } )
       end
     end
   end
