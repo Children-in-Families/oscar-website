@@ -1,0 +1,28 @@
+.main{:role => "main"}
+  .container
+    %h2
+      Our
+      %strong Services
+    .row.align-items-center
+      %br
+      .col-lg-10
+        %p.lead
+          = @post.the_field('service-welcome-content')
+      .col-lg-2
+        %a.btn.btn-lg.btn-primary{:href => "#"} Contact Us!
+    %hr/
+    .featured-boxes
+      .row
+        - current_site.the_post_type('service').the_posts.visible_frontend.decorate.each do |service|
+          .col-lg-3.col-sm-6
+            .featured-box.featured-box-primary.featured-box-effect-1.mt-0.mt-lg-5{style: 'height: 358px;'}
+              .box-content
+                %i.icon-featured.fa{class: "#{service.the_field('service-font-awesome-icon-name')}", style: 'font-size: 48px; padding-top: 30px;'}
+                %h4.text-uppercase
+                  = service.the_field('service-title')
+                %p
+                  = service.the_field('service-description')
+                %p
+                  %a.lnk-primary.learn-more{:href => "/"}
+                    Learn More
+                    %i.fa.fa-angle-right

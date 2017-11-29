@@ -21,6 +21,8 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_about_score_post_type
     oscar_add_about_who_we_are_progress_post_type
     oscar_add_about_us_post_type
+    oscar_add_fields_to_service_page
+    oscar_add_service_post_type
   end
 
   def oscar_add_default_pages
@@ -91,6 +93,40 @@ module Themes::OscarWebsite::MainHelper
       about_field_group = page.add_field_group({ name: 'About Footer', slug: 'about-footer-fields' })
       about_field_group.add_field({ name: 'Main Sentence', slug: 'about-footer-main-sentence-content' }, { field_key: 'text_box', required: true, default_value: 'Oscar Website is awesome.'})
       about_field_group.add_field({ name: 'Sub Sentence', slug: 'about-footer-sub-sentence-content' }, { field_key: 'text_box', required: true, default_value: 'Together work with Oscar.'})
+    end
+  end
+
+  def oscar_add_fields_to_service_page
+    page = current_site.the_post_type('page').the_post('services')
+
+    if page.get_field_groups.where(slug: 'service-welcome-content-fields').blank?
+      service_field_group = page.add_field_group({ name: 'Service Welcome Content Fields', slug: 'service-welcome-content-fields' })
+      service_field_group.add_field({ name: 'Welcome Content', slug: 'service-welcome-content' }, { field_key: 'text_area', required: true, default_value: 'Our service in Oscar Website'})
+    end
+  end
+
+  def oscar_add_service_post_type
+    if current_site.the_post_type('service').blank?
+      service = current_site.post_types.create(name: 'Service', slug: 'service')
+      options = {
+        has_category: false,
+        has_content: true,
+        has_tags: false,
+        has_summary: false,
+        has_comments: false,
+        has_picture: false,
+        has_template: false,
+        has_keywords: false,
+        contents_route_format: 'post_of_posttype'
+      }
+      service.set_meta('_default', options)
+      if service.get_field_groups.where(slug: 'service-score-fields').blank?
+        service_field_group = service.add_field_group({ name: 'Service Fields', slug: 'service-fields' } )
+
+        service_field_group.add_field({ name: 'Font Awesome Icon Name', slug: 'service-font-awesome-icon-name' }, { field_key: 'text_box', required: true } )
+        service_field_group.add_field({ name: 'Title', slug: 'service-title' }, { field_key: 'text_box', required: true } )
+        service_field_group.add_field({ name: 'Description', slug: 'service-description' }, { field_key: 'text_area', required: true } )
+      end
     end
   end
 
