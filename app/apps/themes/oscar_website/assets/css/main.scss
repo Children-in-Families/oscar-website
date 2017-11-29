@@ -3,6 +3,7 @@
 @import 'font-awesome';
 
 /*Vendor CSS */
+@import 'vendor/bootstrap/css/bootstrap.min.css';
 @import 'vendor/animate/animate.min.css';
 @import 'vendor/magnific-popup/magnific-popup.min.css';
 @import 'vendor/owl.carousel/owl.carousel.min.css';
@@ -22,7 +23,7 @@
 @import 'vendor/plugin/layers.css';
 @import 'vendor/plugin/navigation.css';
 @import 'vendor/plugin/settings.css';
-@import 'vendor/circle-flip-slideshow/component.css';
+@import 'vendor/circle-flip-slideshow/css/component.css';
 
 /*Skin CSS*/
 @import 'skins/default.css';
@@ -30,3 +31,4 @@
 
 /*Theme Custom CSS*/
 @import 'custom.css';
+
