@@ -1,37 +1,7 @@
 #googlemaps.google-map
-.container
+.container.headerMarginTop
   .row
-    .col-lg-6
-      #contactSuccess.alert.alert-success.d-none.mt-4
-        %strong Success!
-        Your message has been sent to us.
-      #contactError.alert.alert-danger.d-none.mt-4
-        %strong Error!
-        There was an error sending your message.
-        %span#mailErrorMessage.text-1.mt-2.d-block
-      %h2.mb-3.mt-2
-        %strong Contact
-        Us
-      %form#contactForm{:action => "php/contact-form.php", :method => "POST"}
-        .form-row
-          .form-group.col-lg-6
-            %label Your name *
-            %input#name.form-control{"data-msg-required" => "Please enter your name.", :maxlength => "100", :name => "name", :required => "", :type => "text", :value => ""}/
-          .form-group.col-lg-6
-            %label Your email address *
-            %input#email.form-control{"data-msg-email" => "Please enter a valid email address.", "data-msg-required" => "Please enter your email address.", :maxlength => "100", :name => "email", :required => "", :type => "email", :value => ""}/
-        .form-row
-          .form-group.col
-            %label Subject
-            %input#subject.form-control{"data-msg-required" => "Please enter the subject.", :maxlength => "100", :name => "subject", :required => "", :type => "text", :value => ""}/
-        .form-row
-          .form-group.col
-            %label Message *
-            %textarea#message.form-control{"data-msg-required" => "Please enter your message.", :maxlength => "5000", :name => "message", :required => "", :rows => "10"}
-        .form-row
-          .form-group.col
-            %input.btn.btn-primary.btn-lg{"data-loading-text" => "Loading...", :type => "submit", :value => "Send Message"}/
-    .col-lg-6
+    .col-lg-12
       %h4.heading-primary.mt-4
         Get in
         %strong Touch
