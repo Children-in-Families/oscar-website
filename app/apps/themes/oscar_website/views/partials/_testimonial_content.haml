@@ -1,0 +1,26 @@
+.container
+  .row
+    .col
+      %h2.text-center Testimonial
+      %br
+%section.parallax.section.section-text-light.section-parallax.section-center.mt-0.mb-0{"data-image-src" => current_site.the_post('testimonials').the_field('testimonial-background-image'), "data-plugin-options" => "{'speed': 1.5}", "data-plugin-parallax" => ""}
+  .container
+    .row.justify-content-center
+      .col-lg-10
+        .owl-carousel.owl-theme.nav-bottom.rounded-nav{"data-plugin-options" => "{'items': 1, 'loop': false}"}
+          - posts = current_site.the_post_type('home-what-clients-say').the_posts.visible_frontend.decorate
+          - posts.each do |client_say|
+            %div
+              .col
+                .testimonial.testimonial-style-2.testimonial-with-quotes.mb-0
+                  .testimonial-author
+                    = image_tag client_say.the_field('client-image'), class: 'img-fluid rounded-circle'
+                    %blockquote
+                      %p
+                        = client_say.the_field('what-client-say')
+                    .testimonial-author
+                      %p
+                        %strong
+                          = client_say.the_field('client-name')
+                        %span
+                          = client_say.the_field('client-position')

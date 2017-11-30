@@ -23,6 +23,7 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_about_us_post_type
     oscar_add_fields_to_service_page
     oscar_add_service_post_type
+    oscar_add_fields_to_testimonial_page
   end
 
   def oscar_add_default_pages
@@ -79,6 +80,15 @@ module Themes::OscarWebsite::MainHelper
     if page.get_field_groups.where(slug: 'home-customer-background-image-fields').blank?
       home_field_group = page.add_field_group({ name: 'Home Customer Background Image Fields', slug: 'home-customer-background-image-fields' })
       home_field_group.add_field({ name: 'Background Image', slug: 'home-background-image' }, { field_key: 'image', required: true})
+    end
+  end
+
+  def oscar_add_fields_to_testimonial_page
+    page = current_site.the_post_type('page').the_post('testimonials')
+
+    if page.get_field_groups.where(slug: 'testimonial-fields').blank?
+      testimonial_field_group = page.add_field_group({ name: 'Testimonial Fields', slug: 'testimonial-fields' })
+      testimonial_field_group.add_field({ name: 'Background Image', slug: 'testimonial-background-image' }, { field_key: 'image', required: true })
     end
   end
 
