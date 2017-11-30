@@ -58,6 +58,14 @@ module Themes::OscarWebsite::MainHelper
       home_field_group.add_field({ name: 'Slide Word', slug: 'concept-slide-word' }, { field_key: 'text_box', required: true, default_value: 'Website', multiple: true})
       home_field_group.add_field({ name: 'Project Meaning', slug: 'project-meaning' }, { field_key: 'text_box', required: true, default_value: 'help children in Cambodia'})
       home_field_group.add_field({ name: 'Concept Description', slug: 'concept-description' }, { field_key: 'text_box', required: true, default_value: 'We help all children in Camodia'})
+      home_field_group.add_field({ name: 'First Image', slug: 'concept-first-image' }, { field_key: 'image', required: true })
+      home_field_group.add_field({ name: 'First Description', slug: 'concept-first-description' }, { field_key: 'text_box', required: true, default_value: 'Strategy' })
+      home_field_group.add_field({ name: 'Second Image', slug: 'concept-second-image' }, { field_key: 'image', required: true })
+      home_field_group.add_field({ name: 'Second Description', slug: 'concept-second-description' }, { field_key: 'text_box', required: true, default_value: 'Planning'})
+      home_field_group.add_field({ name: 'Third Image', slug: 'concept-third-image' }, { field_key: 'image', required: true })
+      home_field_group.add_field({ name: 'Third Description', slug: 'concept-third-description' }, { field_key: 'text_box', required: true, default_value: 'Build'})
+      home_field_group.add_field({ name: 'Big Image', slug: 'concept-big-image' }, { field_key: 'image', required: true, multiple: true})
+      home_field_group.add_field({ name: 'Big Description', slug: 'concept-big-description' }, { field_key: 'text_box', required: true, default_value: 'Our Work'})
     end
 
     if page.get_field_groups.where(slug: 'home-customer-description-fields').blank?
