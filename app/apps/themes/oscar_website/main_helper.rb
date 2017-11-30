@@ -26,6 +26,7 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_fields_to_testimonial_page
     oscar_add_fields_to_pricing_page
     oscar_add_pricing_post_type
+    oscar_add_fields_to_contact_us_page
   end
 
   def oscar_add_default_pages
@@ -82,6 +83,20 @@ module Themes::OscarWebsite::MainHelper
     if page.get_field_groups.where(slug: 'home-customer-background-image-fields').blank?
       home_field_group = page.add_field_group({ name: 'Home Customer Background Image Fields', slug: 'home-customer-background-image-fields' })
       home_field_group.add_field({ name: 'Background Image', slug: 'home-background-image' }, { field_key: 'image', required: true})
+    end
+  end
+
+  def oscar_add_fields_to_contact_us_page
+    page = current_site.the_post_type('page').the_post('contact-us')
+
+    if page.get_field_groups.where(slug: 'contact-get-in-touch-fields').blank?
+      contact_field_group = page.add_field_group({ name: 'Get In Touch', slug: 'contact-get-in-touch-fields' })
+      contact_field_group.add_field({ name: 'Description', slug: 'contact-get-in-touch-decription' }, { field_key: 'text_area', required: true, default_value: 'Please Contact Us!!!'})
+    end
+
+    if page.get_field_groups.where(slug: 'contact-business-hour-fields').blank?
+      contact_field_group = page.add_field_group({ name: 'Business Hours', slug: 'contact-business-hour-fields' })
+      contact_field_group.add_field({ name: 'Business Hour', slug: 'contact-business-hour' }, { field_key: 'text_box', required: true, default_value: 'Monday - Friday - 9am to 5pm', multiple: true})
     end
   end
 
