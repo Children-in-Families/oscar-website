@@ -1,23 +1,19 @@
-%section.video.section.section-text-light.section-video.section-center.mt-0{"data-plugin-options" => "{'posterType': 'jpg', 'position': '50% 50%', 'overlay': true}", "data-plugin-video-background" => "", "data-video-path" => "video/dark"}
+%section.video.section.section-text-light.section-video.section-center.mt-0{"data-plugin-options" => "{'posterType': 'jpg', 'position': '50% 50%', 'overlay': true}", "data-plugin-video-background" => "assets/video/dark", "data-video-path" => "video/dark"}
   .container
     .row
       .col-lg-6
         .owl-carousel.owl-theme.nav-bottom.rounded-nav.mt-4.mb-0{"data-plugin-options" => "{'items': 1, 'loop': false}"}
-          %div
-            .col
-              .testimonial.testimonial-style-6.testimonial-with-quotes.mb-0
-                %blockquote
-                  %p Hello, I want to thank you for creating a great template and for the excellent and quick support and help that you have been providing to me as I begin to work with it.
-                .testimonial-author
-                  %p
-                    %strong John Smith
-                    %span CEO &amp; Founder - Okler
-          %div
-            .col
-              .testimonial.testimonial-style-6.testimonial-with-quotes.mb-0
-                %blockquote
-                  %p Just want to say Okler RULES. Provide great tech service for each template and allows me to become more knowledgeable as a designer.
-                .testimonial-author
-                  %p
-                    %strong John Smith
-                    %span CEO &amp; Founder - Okler
+          - posts = current_site.the_post_type('home-what-clients-say').the_posts.visible_frontend.decorate
+          - posts.each do |client_say|
+            %div
+              .col
+                .testimonial.testimonial-style-6.testimonial-with-quotes.mb-0
+                  %blockquote
+                    %p
+                      = client_say.the_field('what-client-say')
+                  .testimonial-author
+                    %p
+                      %strong
+                        = client_say.the_field('client-name')
+                      %span
+                        = client_say.the_field('client-position')
