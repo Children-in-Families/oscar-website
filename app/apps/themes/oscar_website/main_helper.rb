@@ -24,6 +24,8 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_fields_to_service_page
     oscar_add_service_post_type
     oscar_add_fields_to_testimonial_page
+    oscar_add_fields_to_pricing_page
+    oscar_add_pricing_post_type
   end
 
   def oscar_add_default_pages
@@ -80,6 +82,20 @@ module Themes::OscarWebsite::MainHelper
     if page.get_field_groups.where(slug: 'home-customer-background-image-fields').blank?
       home_field_group = page.add_field_group({ name: 'Home Customer Background Image Fields', slug: 'home-customer-background-image-fields' })
       home_field_group.add_field({ name: 'Background Image', slug: 'home-background-image' }, { field_key: 'image', required: true})
+    end
+  end
+
+  def oscar_add_fields_to_pricing_page
+    page = current_site.the_post_type('page').the_post('pricing')
+
+    if page.get_field_groups.where(slug: 'pricing-fields').blank?
+      pricing_field_group = page.add_field_group({ name: 'Prcing Header Fields', slug: 'pricing-header-fields' })
+      pricing_field_group.add_field({ name: 'Introduction Sentence', slug: 'pricing-introdution-sentence' }, { field_key: 'text_area', required: true, default_value: 'You can configure your pricing table using the grid system in order to make it responsive for small devices.'})
+    end
+
+    if page.get_field_groups.where(slug: 'pricing-plan-fields').blank?
+      pricing_field_group = page.add_field_group({ name: 'Prcing Plan Header Fields', slug: 'pricing-plan-header-fields' })
+      pricing_field_group.add_field({ name: 'Introduction Sentence', slug: 'pricing-plan-introdution-sentence' }, { field_key: 'text_area', required: true, default_value: 'Using the "Most Popular" css class.'})
     end
   end
 
@@ -144,6 +160,32 @@ module Themes::OscarWebsite::MainHelper
         service_field_group.add_field({ name: 'Font Awesome Icon Name', slug: 'service-font-awesome-icon-name' }, { field_key: 'text_box', required: true } )
         service_field_group.add_field({ name: 'Title', slug: 'service-title' }, { field_key: 'text_box', required: true } )
         service_field_group.add_field({ name: 'Description', slug: 'service-description' }, { field_key: 'text_area', required: true } )
+      end
+    end
+  end
+
+  def oscar_add_pricing_post_type
+    if current_site.the_post_type('pricing-card').blank?
+      pricing = current_site.post_types.create(name: 'Pricing', slug: 'pricing-card')
+      options = {
+        has_category: false,
+        has_content: true,
+        has_tags: false,
+        has_summary: false,
+        has_comments: false,
+        has_picture: false,
+        has_template: false,
+        has_keywords: false,
+        contents_route_format: 'post_of_posttype'
+      }
+      pricing.set_meta('_default', options)
+      if pricing.get_field_groups.where(slug: 'pricing-fields').blank?
+        pricing_field_group = pricing.add_field_group({ name: 'Pricing Fields', slug: 'pricing-fields' } )
+
+        pricing_field_group.add_field({ name: 'Level', slug: 'pricing-level' }, { field_key: 'text_box', required: true } )
+        pricing_field_group.add_field({ name: 'Price', slug: 'pricing-price' }, { field_key: 'numeric', required: true } )
+        pricing_field_group.add_field({ name: 'Item', slug: 'pricing-item' }, { field_key: 'text_box', required: true, multiple: true } )
+        pricing_field_group.add_field({ name: 'Popular', slug: 'pricing-popular' }, { field_key: 'checkbox'} )
       end
     end
   end

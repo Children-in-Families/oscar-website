@@ -1,0 +1,44 @@
+.container
+  .row
+    .col
+      %h2.mb-0
+        %strong Pricing
+        Tables Shortcodes
+      %p
+        = @post.the_field('pricing-introdution-sentence')
+      %hr.tall/
+  .row
+    .col
+      %h4.mb-2
+        %strong Four
+        Plans
+      %p
+        = @post.the_field('pricing-plan-introdution-sentence')
+      .pricing-table.row.no-gutters.mt-2.mb-2
+        - current_site.the_post_type('pricing-card').the_posts.visible_frontend.decorate.each do |price|
+          - if price.the_field('pricing-popular').blank?
+            .col-lg-3.col-sm-6
+              .plan
+                %h3
+                  = price.the_field('pricing-level')
+                  %span
+                    = "$#{price.the_field('pricing-price')}"
+                %a.btn.btn-lg.btn-primary{:href => "#"} Sign up
+                %ul
+                  - price.the_fields('pricing-item').each do |item|
+                    %li
+                      = item
+          - else
+            .col-lg-3.col-sm-6.text-center
+              .plan.most-popular
+                .plan-ribbon-wrapper
+                  .plan-ribbon Popular
+                %h3
+                  = price.the_field('pricing-level')
+                  %span
+                    = "$#{price.the_field('pricing-price')}"
+                %a.btn.btn-lg.btn-primary{:href => "#"} Sign up
+                %ul
+                  - price.the_fields('pricing-item').each do |item|
+                    %li
+                      = item
