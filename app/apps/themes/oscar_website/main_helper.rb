@@ -148,6 +148,11 @@ module Themes::OscarWebsite::MainHelper
       about_field_group.add_field({ name: 'Main Sentence', slug: 'about-footer-main-sentence-content' }, { field_key: 'text_box', required: true, default_value: 'Oscar Website is awesome.'})
       about_field_group.add_field({ name: 'Sub Sentence', slug: 'about-footer-sub-sentence-content' }, { field_key: 'text_box', required: true, default_value: 'Together work with Oscar.'})
     end
+
+    if page.get_field_groups.where(slug: 'about-video-fields').blank?
+      about_field_group = page.add_field_group({ name: 'About Video Fields', slug: 'about-video-fields' })
+      about_field_group.add_field({ name: 'Video', slug: 'about-video' }, { field_key: 'video', required: true })
+    end
   end
 
   def oscar_add_fields_to_service_page

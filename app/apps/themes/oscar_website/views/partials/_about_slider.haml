@@ -1,4 +1,4 @@
-%section.video.section.section-text-light.section-video.section-center.mt-0{"data-plugin-options" => "{'posterType': 'jpg', 'position': '50% 50%', 'overlay': true}", "data-plugin-video-background" => "assets/video/dark", "data-video-path" => "video/dark"}
+%section.video.section.section-text-light.section-video.section-center.mt-0{"data-plugin-options" => "{'posterType': 'jpg', 'position': '50% 50%', 'overlay': true}", "data-plugin-video-background" => "", "data-video-path" => "#{@post.the_field('about-video')}"}
   .container
     .row
       .col-lg-6
@@ -17,3 +17,4 @@
                         = client_say.the_field('client-name')
                       %span
                         = client_say.the_field('client-position')
+
