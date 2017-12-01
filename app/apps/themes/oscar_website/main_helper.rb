@@ -98,6 +98,11 @@ module Themes::OscarWebsite::MainHelper
       contact_field_group = page.add_field_group({ name: 'Business Hours', slug: 'contact-business-hour-fields' })
       contact_field_group.add_field({ name: 'Business Hour', slug: 'contact-business-hour' }, { field_key: 'text_box', required: true, default_value: 'Monday - Friday - 9am to 5pm', multiple: true})
     end
+
+    if page.get_field_groups.where(slug: 'contact-map-fields').blank?
+      contact_field_group = page.add_field_group({ name: 'Map', slug: 'contact-map-fields' })
+      contact_field_group.add_field({ name: 'Map URL', slug: 'contact-map' }, { field_key: 'url', required: true })
+    end
   end
 
   def oscar_add_fields_to_pricing_page
