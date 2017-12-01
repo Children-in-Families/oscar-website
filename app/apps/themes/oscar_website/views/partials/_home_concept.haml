@@ -42,8 +42,6 @@
             %ul.fc-slides
               - @post.the_fields('concept-big-image').each do |imageUrl|
                 %li
-                  /%a{:href => "portfolio-single-small-slider.html"}
                   = image_tag imageUrl, class: 'img-responsive'
-                  /= image_tag theme_asset_url('images/img/projects/project-home-1.jpg'), class: 'img-responsive'
           %strong.our-work
             = current_site.the_post('home').the_field('concept-big-description')
