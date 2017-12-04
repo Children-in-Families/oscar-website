@@ -23,7 +23,7 @@
       .col-sm-6.col-lg-3.mb-4.mb-lg-0
         %span.thumb-info.thumb-info-hide-wrapper-bg
           %span.thumb-info-wrapper
-            %a{:href => "about-me.html"}
+            = link_to us.the_url do
               = image_tag us.the_field('about-us-image'), class: 'img-fluid'
               %span.thumb-info-title
                 %span.thumb-info-inner
@@ -32,7 +32,7 @@
                   = us.the_field('about-us-position')
           %span.thumb-info-caption
             %span.thumb-info-caption-text
-              = us.the_field('about-us-description')
+              = raw us.the_content[0..99]
             %span.thumb-info-social-icons.about-socail
               %span
                 = link_to us.the_field('about-us-facebook'), target: "_blank" do

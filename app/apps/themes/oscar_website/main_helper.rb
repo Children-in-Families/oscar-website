@@ -255,16 +255,60 @@ module Themes::OscarWebsite::MainHelper
         contents_route_format: 'post_of_posttype'
       }
       about.set_meta('_default', options)
+
       if about.get_field_groups.where(slug: 'about-us-fields').blank?
         about_field_group = about.add_field_group({ name: 'About Us Fields', slug: 'about-us-fields' } )
 
-        about_field_group.add_field({ name: 'Image', slug: 'about-us-image' }, { field_key: 'image', required: true } )
+        about_field_group.add_field({ name: 'Image', slug: 'about-us-image' }, { field_key: 'image', required: true, multiple: true } )
         about_field_group.add_field({ name: 'Name', slug: 'about-us-name' }, { field_key: 'text_box', required: true } )
         about_field_group.add_field({ name: 'Position', slug: 'about-us-position' }, { field_key: 'text_box', required: true } )
-        about_field_group.add_field({ name: 'Description', slug: 'about-us-description' }, { field_key: 'text_area', required: true } )
         about_field_group.add_field({ name: 'Facebook', slug: 'about-us-facebook' }, { field_key: 'url', required: true } )
         about_field_group.add_field({ name: 'Twitter', slug: 'about-us-twitter' }, { field_key: 'url', required: true } )
         about_field_group.add_field({ name: 'Linkedin', slug: 'about-us-linkedin' }, { field_key: 'url', required: true } )
+      end
+
+      if about.get_field_groups.where(slug: 'about-us-progress-work-fields').blank?
+        about_field_group = about.add_field_group({ name: 'Progress work', slug: 'about-us-progress-work-fields' } )
+
+        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-progress-work-name-1st' }, { field_key: 'text_box', required: true } )
+        about_field_group.add_field({ name: 'Percent 1st', slug: 'about-us-progress-work-percent-1st' }, { field_key: 'numeric', required: true } )
+        about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-progress-work-name-2nd' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({ name: 'Percent 2nd', slug: 'about-us-progress-work-percent-2nd' }, { field_key: 'numeric', required: false } )
+        about_field_group.add_field({ name: 'Name 3rd', slug: 'about-us-progress-work-name-3rd' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({ name: 'Percent 3rd', slug: 'about-us-progress-work-percent-3rd' }, { field_key: 'numeric', required: false } )
+        about_field_group.add_field({ name: 'Name 4th', slug: 'about-us-progress-work-name-4th' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({ name: 'Percent 4th', slug: 'about-us-progress-work-percent-4th' }, { field_key: 'numeric', required: false } )
+      end
+
+      if about.get_field_groups.where(slug: 'about-us-referent-fields').blank?
+        about_field_group = about.add_field_group({ name: 'Referent', slug: 'about-us-referent-fields' } )
+
+        about_field_group.add_field({ name: 'Background Image', slug: 'about-us-background-image' }, { field_key: 'image', required: true } )
+        about_field_group.add_field({ name: 'Comment 1st', slug: 'about-us-referent-comment-1st' }, { field_key: 'text_area', required: true } )
+        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-referent-name-1st' }, { field_key: 'text_box', required: true } )
+        about_field_group.add_field({ name: 'Positon 1st', slug: 'about-us-referent-position-1st' }, { field_key: 'text_box', required: true } )
+        about_field_group.add_field({ name: 'Comment 2nd', slug: 'about-us-referent-comment-2nd' }, { field_key: 'text_area', required: false } )
+        about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-referent-name-2nd' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({ name: 'Positon 2nd', slug: 'about-us-referent-position-2nd' }, { field_key: 'text_box', required: false } )
+      end
+
+      if about.get_field_groups.where(slug: 'about-us-my-work-fields').blank?
+        about_field_group = about.add_field_group({ name: 'My Work', slug: 'about-us-my-work-fields' } )
+
+        about_field_group.add_field({ name: 'Description', slug: 'about-us-my-work-description' }, { field_key: 'text_area', required: true } )
+
+        about_field_group.add_field({ name: 'Image 1st', slug: 'about-us-my-work-image-1st' }, { field_key: 'image', required: true } )
+        about_field_group.add_field({ name: 'Title 1st', slug: 'about-us-my-work-title-1st' }, { field_key: 'text_box', required: true } )
+        about_field_group.add_field({ name: 'Sub Title 1st', slug: 'about-us-my-work-sub-title-1st' }, { field_key: 'text_box', required: true } )
+        about_field_group.add_field({ name: 'Image 2nd', slug: 'about-us-my-work-image-2nd' }, { field_key: 'image', required: false } )
+        about_field_group.add_field({ name: 'Title 2nd', slug: 'about-us-my-work-title-2nd' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({ name: 'Sub Title 2nd', slug: 'about-us-my-work-sub-title-2nd' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({ name: 'Image 3rd', slug: 'about-us-my-work-image-3rd' }, { field_key: 'image', required: false } )
+        about_field_group.add_field({ name: 'Title 3rd', slug: 'about-us-my-work-title-3rd' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({ name: 'Sub Title 3rd', slug: 'about-us-my-work-sub-title-3rd' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({ name: 'Image 4th', slug: 'about-us-my-work-image-4th' }, { field_key: 'image', required: false } )
+        about_field_group.add_field({ name: 'Title 4th', slug: 'about-us-my-work-title-4th' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({ name: 'Sub Title 4th', slug: 'about-us-my-work-sub-title-4th' }, { field_key: 'text_box', required: false } )
       end
     end
   end

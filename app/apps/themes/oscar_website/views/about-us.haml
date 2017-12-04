@@ -1,0 +1,181 @@
+.body.headerMarginTop
+  .main{:role => "main"}
+    %br
+    .container
+      .row
+        .col-lg-4
+          .owl-carousel.owl-theme{"data-plugin-options" => "{'items': 1, 'margin': 10}"}
+            - @post.the_fields('about-us-image').each do |image|
+              %div
+                %span.img-thumbnail.d-block
+                  = image_tag image, class: 'img-fluid'
+        .col-lg-8
+          %h2.mb-0
+            = @post.the_field('about-us-name')
+          %h4.heading-primary
+            = @post.the_field('about-us-position')
+          %hr.solid/
+          %p
+            = raw @post.the_content
+      .row
+        .col
+          %hr.solid/
+      .row.mt-5
+        - name_1st = @post.the_field('about-us-progress-work-name-1st')
+        - percent_1st = @post.the_field('about-us-progress-work-percent-1st')
+        - unless name_1st.blank? && percent_1st.blank?
+          .col-lg-3
+            .circular-bar
+              .circular-bar-chart{"data-percent" => "#{percent_1st}", "data-plugin-options" => "{'barColor': '#E36159'}"}
+                - unless name_1st.blank?
+                  %strong
+                    = name_1st
+                  %label
+                    %span.percent> 75
+        - name_2nd = @post.the_field('about-us-progress-work-name-2nd')
+        - percent_2nd = @post.the_field('about-us-progress-work-percent-2nd')
+        - unless name_2nd.blank? && percent_2nd.blank?
+          .col-lg-3
+            .circular-bar
+              .circular-bar-chart{"data-percent" => "#{percent_2nd}", "data-plugin-options" => "{'barColor': '#0088CC', 'delay': 300}"}
+                %strong
+                  = name_2nd
+                %label
+                  %span.percent> 85
+                  \%
+        - name_3rd = @post.the_field('about-us-progress-work-name-3rd')
+        - percent_3rd = @post.the_field('about-us-progress-work-percent-3rd')
+        - unless name_3rd.blank? && percent_3rd.blank?
+          .col-lg-3
+            .circular-bar
+              .circular-bar-chart{"data-percent" => "#{percent_3rd}", "data-plugin-options" => "{'barColor': '#2BAAB1', 'delay': 600}"}
+                %strong
+                  = name_3rd
+                %label
+                  %span.percent> 60
+                  \%
+        - name_4th = @post.the_field('about-us-progress-work-name-4th')
+        - percent_4th = @post.the_field('about-us-progress-work-percent-4th')
+        - unless name_4th.blank? && percent_4th.blank?
+          .col-lg-3
+            .circular-bar
+              .circular-bar-chart{"data-percent" => "#{percent_4th}", "data-plugin-options" => "{'barColor': '#353535', 'delay': 900}"}
+                %strong
+                  = name_4th
+                %label
+                  %span.percent> 95
+                  \%
+    %section.parallax.section.section-parallax.section-center{"data-image-src" => @post.the_field('about-us-background-image'), "data-plugin-options" => "{'speed': 1.5}", "data-plugin-parallax" => ""}
+      .container
+        .row
+          .col
+            .owl-carousel.owl-theme.nav-bottom.rounded-nav.mt-4.mb-0{"data-plugin-options" => "{'items': 1, 'loop': false}"}
+              - comment1 = @post.the_field('about-us-referent-comment-1st')
+              - name1 = @post.the_field('about-us-referent-name-1st')
+              - position1 = @post.the_field('about-us-referent-position-1st')
+              - unless comment1.blank? && name1.blank? && position1.blank?
+                %div
+                  .col
+                    .testimonial.testimonial-style-6.testimonial-with-quotes.mb-0
+                      %blockquote
+                        %p
+                          = comment1
+                      .testimonial-author
+                        %p
+                          %strong
+                            = name1
+                          %span
+                            = position1
+              - comment2 = @post.the_field('about-us-referent-comment-2nd')
+              - name2 = @post.the_field('about-us-referent-name-2nd')
+              - position2 = @post.the_field('about-us-referent-position-2nd')
+              - unless comment2.blank? && name2.blank? && position2.blank?
+                %div
+                  .col
+                    .testimonial.testimonial-style-6.testimonial-with-quotes.mb-0
+                      %blockquote
+                        %p
+                          = comment2
+                      .testimonial-author
+                        %p
+                          %strong
+                            = name2
+                          %span
+                            = position2
+    .container
+      .row
+        .col
+          %h4.mt-5.mb-0.text-uppercase
+            My
+            %strong Work
+          %p
+            = @post.the_field('about-us-my-work-description-1st')
+          %ul.row.portfolio-list
+            - image1 = @post.the_field('about-us-my-work-image-1st')
+            - title1 = @post.the_field('about-us-my-work-title-1st')
+            - subTitle1 = @post.the_field('about-us-my-work-sub-title-1st')
+            - unless image1.blank? && title1.blank? && subTitle1.blank?
+              %li.col-12.col-sm-6.col-lg-3
+                .portfolio-item
+                  %span.thumb-info.thumb-info-lighten
+                    %span.thumb-info-wrapper
+                      = image_tag image1, class: 'img-fluid'
+                      %span.thumb-info-title
+                        %span.thumb-info-inner
+                          = title1
+                        %span.thumb-info-type
+                          = subTitle1
+                      %span.thumb-info-action
+                        %span.thumb-info-action-icon
+                          %i.fa.fa-link
+            - image2 = @post.the_field('about-us-my-work-image-2nd')
+            - title2 = @post.the_field('about-us-my-work-title-2nd')
+            - subTitle3 = @post.the_field('about-us-my-work-sub-title-2nd')
+            - unless image2.blank? && title2.blank? && subTitle2.blank?
+              %li.col-12.col-sm-6.col-lg-3
+                .portfolio-item
+                  %span.thumb-info.thumb-info-lighten
+                    %span.thumb-info-wrapper
+                      = image_tag image2, class: 'img-fluid'
+                      %span.thumb-info-title
+                        %span.thumb-info-inner
+                          = title2
+                        %span.thumb-info-type
+                          = subTitle3
+                      %span.thumb-info-action
+                        %span.thumb-info-action-icon
+                          %i.fa.fa-link
+            - image3 = @post.the_field('about-us-my-work-image-3rd')
+            - title3 = @post.the_field('about-us-my-work-title-3rd')
+            - subTitle3 = @post.the_field('about-us-my-work-sub-title-3rd')
+            - unless image3.blank? && title3.blank? && subTitle3.blank?
+              %li.col-12.col-sm-6.col-lg-3
+                .portfolio-item
+                  %span.thumb-info.thumb-info-lighten
+                    %span.thumb-info-wrapper
+                      = image_tag image3, class: 'img-fluid'
+                      %span.thumb-info-title
+                        %span.thumb-info-inner
+                          = title3
+                        %span.thumb-info-type
+                          = subTitle3
+                      %span.thumb-info-action
+                        %span.thumb-info-action-icon
+                          %i.fa.fa-link
+            - image4 = @post.the_field('about-us-my-work-image-4th')
+            - title4 = @post.the_field('about-us-my-work-title-4th')
+            - subTitle4 = @post.the_field('about-us-my-work-sub-title-4th')
+            - unless image4.blank? && title4.blank? && subTitle4.blank?
+              %li.col-12.col-sm-6.col-lg-3
+                .portfolio-item
+                  %span.thumb-info.thumb-info-lighten
+                    %span.thumb-info-wrapper
+                      = image_tag image4, class: 'img-fluid'
+                      %span.thumb-info-title
+                        %span.thumb-info-inner
+                          = title4
+                        %span.thumb-info-type
+                          = subTitle4
+                      %span.thumb-info-action
+                        %span.thumb-info-action-icon
+                          %i.fa.fa-link
