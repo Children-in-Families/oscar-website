@@ -1,0 +1,20 @@
+.body.headerMarginTop
+  .main{:role => "main"}
+    .container
+      %h2
+        Frequently Asked
+        %strong Questions
+      .row
+        .col
+          %p.lead
+            = raw @post.the_content
+      %hr/
+      .row
+        .col
+          .toggle.toggle-primary{"data-plugin-toggle" => ""}
+            - faqs = current_site.the_post_type('faq-post-type').the_posts.visible_frontend.decorate.each do |faq|
+              %section.toggle.active
+                %label
+                  = faq.the_field('faq-question')
+                %p
+                  = faq.the_field('faq-answer')

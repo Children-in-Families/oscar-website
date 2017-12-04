@@ -27,12 +27,13 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_fields_to_pricing_page
     oscar_add_pricing_post_type
     oscar_add_fields_to_contact_us_page
+    oscar_add_faq_post_type
   end
 
   def oscar_add_default_pages
     page_post_type = current_site.the_post_type('page')
     if page_post_type.present?
-      pages = ['Home', 'About', 'Features', 'Pricing', 'Testimonials', 'Services', 'Contact Us']
+      pages = ['Home', 'About', 'Features', 'Pricing', 'Testimonials', 'Services', 'Contact Us', 'FAQ']
 
       pages.each do |page|
         formatted_page = page.downcase.parameterize
@@ -185,6 +186,30 @@ module Themes::OscarWebsite::MainHelper
         service_field_group.add_field({ name: 'Font Awesome Icon Name', slug: 'service-font-awesome-icon-name' }, { field_key: 'text_box', required: true } )
         service_field_group.add_field({ name: 'Title', slug: 'service-title' }, { field_key: 'text_box', required: true } )
         service_field_group.add_field({ name: 'Description', slug: 'service-description' }, { field_key: 'text_area', required: true } )
+      end
+    end
+  end
+
+  def oscar_add_faq_post_type
+    if current_site.the_post_type('faq').blank?
+      faq = current_site.post_types.create(name: 'FAQ', slug: 'faq-post-type')
+      options = {
+        has_category: false,
+        has_content: true,
+        has_tags: false,
+        has_summary: false,
+        has_comments: false,
+        has_picture: false,
+        has_template: false,
+        has_keywords: false,
+        contents_route_format: 'post_of_posttype'
+      }
+      faq.set_meta('_default', options)
+      if faq.get_field_groups.where(slug: 'faq-fields').blank?
+        faq_field_group = faq.add_field_group({ name: 'FAQ Fields', slug: 'faq-fields' } )
+
+        faq_field_group.add_field({ name: 'Question', slug: 'faq-question' }, { field_key: 'text_box', required: true } )
+        faq_field_group.add_field({ name: 'Answer', slug: 'faq-answer' }, { field_key: 'text_area', required: true } )
       end
     end
   end
