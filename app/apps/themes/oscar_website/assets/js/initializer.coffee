@@ -1,23 +1,23 @@
-OSCAR.Initializer =
+Oscar.Initializer =
   exec: (pageName) ->
-    if pageName && OSCAR[pageName]
-      OSCAR[pageName]['init']()
+    if pageName && Oscar[pageName]
+      Oscar[pageName]['init']()
 
   currentPage: ->
-    return '' unless $('#content-wrapper > section').attr('id')
-    sectionId   = $('#content-wrapper > section').attr('id').split('-')
-    sectionIdConcated = ''
+    return '' unless $('#oscar-content > section').attr('id')
 
-    $.each sectionId, (index, value) ->
-      sectionIdSplitted = OSCAR.Util.capitalize(value)
-      sectionIdConcated = "#{sectionIdConcated}#{sectionIdSplitted}"
-
-    sectionIdConcated
+    sectionId   = $('#oscar-content > section').attr('id').split('-')
+    prefix  = Oscar.Util.capitalize(sectionId[0])
+    if sectionId[1]
+      suffix  = Oscar.Util.capitalize(sectionId[1])
+      prefix + suffix
+    else
+      prefix
 
   init: ->
-    OSCAR.Initializer.exec('Common')
+    Oscar.Initializer.exec('Common')
     if @currentPage()
-      OSCAR.Initializer.exec(@currentPage())
+      Oscar.Initializer.exec(@currentPage())
 
 $(document).on 'ready page:load', ->
-  OSCAR.Initializer.init()
+  Oscar.Initializer.init()

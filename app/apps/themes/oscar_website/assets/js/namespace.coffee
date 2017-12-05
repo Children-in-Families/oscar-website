@@ -1,1 +1,1 @@
-window.OSCAR={};
+window.Oscar={};

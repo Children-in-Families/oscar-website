@@ -1,27 +1,28 @@
-%header#header.header-semi-transparent{"data-plugin-options" => "{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 1, 'stickySetTop': '0'}"}
-  .header-body
-    .header-container.container
-      .header-row
-        .header-column
-          .header-row
-            .header-logo
-              = link_to current_site.the_url, class: 'logo-link' do
-                = image_tag current_site.the_logo, class: 'img-responsive img-logo'
-        .header-column.justify-content-end
-          .header-row
-            .header-nav.header-nav-stripe
-              .header-nav-main.header-nav-main-square.header-nav-main-effect-2.header-nav-main-sub-effect-1
-                %nav.collapse
-                  = raw oscar_get_nav_menu('main_menu', 'nav nav-pills #mainNav')
-              %ul.header-social-icons.social-icons.d-none.d-sm-block
-                %li.social-icons-facebook
-                  = link_to current_theme.the_field('facebook-url'), target: "_blank" do
-                    = fa_icon 'facebook'
-                %li.social-icons-twitter
-                  = link_to current_theme.the_field('twitter-url'), target: "_blank" do
-                    = fa_icon 'twitter'
-                %li.social-icons-linkedin
-                  = link_to current_theme.the_field('linkedin-url'), target: "_blank" do
-                    = fa_icon 'linkedin'
-              %button.btn.header-btn-collapse-nav{"data-target" => ".header-nav-main nav", "data-toggle" => "collapse"}
-                %i.fa.fa-bars
+%section#oscar-navbar
+  %header#header.header-semi-transparent{"data-plugin-options" => "{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 1, 'stickySetTop': '0'}"}
+    .header-body
+      .header-container.container
+        .header-row
+          .header-column
+            .header-row
+              .header-logo
+                = link_to current_site.the_url, class: 'logo-link about-me' do
+                  = image_tag current_site.the_logo, class: 'img-responsive img-logo'
+          .header-column.justify-content-end
+            .header-row
+              .header-nav.header-nav-stripe
+                .header-nav-main.header-nav-main-square.header-nav-main-effect-2.header-nav-main-sub-effect-1
+                  %nav.collapse
+                    = raw oscar_get_nav_menu('main_menu', 'nav nav-pills #mainNav')
+                %ul.header-social-icons.social-icons.d-none.d-sm-block
+                  %li.social-icons-facebook
+                    = link_to current_theme.the_field('facebook-url'), target: "_blank" do
+                      = fa_icon 'facebook'
+                  %li.social-icons-twitter
+                    = link_to current_theme.the_field('twitter-url'), target: "_blank" do
+                      = fa_icon 'twitter'
+                  %li.social-icons-linkedin
+                    = link_to current_theme.the_field('linkedin-url'), target: "_blank" do
+                      = fa_icon 'linkedin'
+                %button.btn.header-btn-collapse-nav{"data-target" => ".header-nav-main nav", "data-toggle" => "collapse"}
+                  %i.fa.fa-bars

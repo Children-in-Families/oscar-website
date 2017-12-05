@@ -24,3 +24,10 @@
 #= require ./js/custom.js
 #= require ./js/theme.init.js
 #= require ./js/views/view.contact.js
+
+#= require ./navbar
+
+#= require ./namespace
+#= require ./common
+#= require ./util
+#= require ./initializer

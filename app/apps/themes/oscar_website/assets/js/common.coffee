@@ -1,18 +1,9 @@
-OSCAR.Common = do ->
+Oscar.Common = do ->
   _init = ->
-    _scrollToTop()
+    _addCurrentLinkToNavbar()
 
-  _scrollToTop = ->
-    $(window).scroll ->
-      if $(this).scrollTop() > 50
-        $('#back-to-top').fadeIn()
-      else
-        $('#back-to-top').fadeOut()
-
-        $('#back-to-top').click ->
-          $('#back-to-top').tooltip 'hide'
-          $('body,html').animate { scrollTop: 0 }, 800
-
-          $('#back-to-top').tooltip 'show'
+  _addCurrentLinkToNavbar = ->
+    about_me = $("a[href='/about-us']")
+    about_me.addClass('current-link') unless about_me.hasClass('current-link')
 
   { init: _init }
