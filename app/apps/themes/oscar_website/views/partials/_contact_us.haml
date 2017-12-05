@@ -3,33 +3,39 @@
   .row
     .col-lg-12
       %h4.heading-primary.mt-4
-        Get in
-        %strong Touch
+        = oscar_translation('ទំនាក់ទំនង','Get in')
+        %strong
+          = oscar_translation('ពួក​យើង','Touch')
       %p
         = @post.the_field('contact-get-in-touch-decription')
       %hr/
       %h4.heading-primary
-        The
-        %strong Office
+        = oscar_translation('','The')
+        %strong
+          = oscar_translation('ការិយាល័យ','Office')
       %ul.list.list-icons.list-icons-style-3.mt-4
         %li
           %i.fa.fa-map-marker
-          %strong Address:
+          %strong
+            = oscar_translation('ឤស័យដ្ឋាន:','Address:')
           = current_theme.the_field('contact-address')
         %li
           %i.fa.fa-phone
-          %strong Phone:
+          %strong
+            = oscar_translation('ទូរស័ព្ទ:','Phone:')
           = current_theme.the_field('contact-phone')
 
         %li
           %i.fa.fa-envelope
-          %strong Email:
+          %strong
+            = oscar_translation('អ៊ីមែល:','Email:')
           = link_to current_theme.the_field('contact-email'), target: "_blank" do
             = current_theme.the_field('contact-email')
       %hr/
       %h4.heading-primary
-        Business
-        %strong Hours
+        = oscar_translation('ម៉ោង','Business')
+        %strong
+          = oscar_translation('ធ្វើការ','Hours')
       %ul.list.list-icons.list-dark.mt-4
         - @post.the_fields('contact-business-hour').each do |hour|
           %li
