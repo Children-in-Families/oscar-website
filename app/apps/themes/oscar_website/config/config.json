@@ -3,7 +3,8 @@
   "description" : "",
   "thumb" : "images/image.png",
   "helpers": [
-    "Themes::OscarWebsite::MainHelper"
+    "Themes::OscarWebsite::MainHelper",
+    "Themes::OscarWebsite::LanguageHelper"
   ],
   "hooks": {
     "on_active": ["oscar_website_on_install_theme"],

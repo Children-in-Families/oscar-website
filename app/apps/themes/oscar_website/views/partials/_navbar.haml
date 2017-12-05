@@ -8,6 +8,13 @@
               .header-logo
                 = link_to current_site.the_url, class: 'logo-link about-me' do
                   = image_tag current_site.the_logo, class: 'img-responsive img-logo'
+              %span.flag-lang
+                %span
+                  = link_to oscar_language('km') do
+                    =image_tag theme_asset_url('images/km.png')
+                %span
+                  = link_to oscar_language('en') do
+                    =image_tag theme_asset_url('images/en.png')
           .header-column.justify-content-end
             .header-row
               .header-nav.header-nav-stripe
@@ -26,3 +33,4 @@
                       = fa_icon 'linkedin'
                 %button.btn.header-btn-collapse-nav{"data-target" => ".header-nav-main nav", "data-toggle" => "collapse"}
                   %i.fa.fa-bars
+

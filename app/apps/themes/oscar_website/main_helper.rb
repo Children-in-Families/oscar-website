@@ -1,6 +1,6 @@
 module Themes::OscarWebsite::MainHelper
   def self.included(klass)
-    klass.helper_method [:oscar_get_nav_menu] rescue "" # here your methods accessible from views
+    klass.helper_method [:oscar_get_nav_menu, :oscar_translation] rescue "" # here your methods accessible from views
   end
 
   def oscar_website_settings(theme)
@@ -28,6 +28,14 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_pricing_post_type
     oscar_add_fields_to_contact_us_page
     oscar_add_faq_post_type
+  end
+
+  def oscar_lang
+    I18n.locale == :km ? 'km' : 'en'
+  end
+
+  def oscar_translation(khmer, english)
+    oscar_lang == 'km' ? khmer : english
   end
 
   def oscar_add_default_pages
