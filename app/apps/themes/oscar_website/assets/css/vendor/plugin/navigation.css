@@ -1029,7 +1029,7 @@ website:		http://www.themepunch.com
 	width:100px;height:100px;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
-	-ms-filter: "progid:dximagetransform.microsoft.alpha(opacity=0)";
+	-ms-filter: unquote("progid:dximagetransform.microsoft.alpha(opacity=0)");
 	filter: alpha(opacity=0);
 	-moz-opacity: 0.0;
 	-khtml-opacity: 0.0;
@@ -1049,7 +1049,7 @@ website:		http://www.themepunch.com
 }
 
 .hades:hover .tp-arr-allwrapper {
-	 -ms-filter: "progid:dximagetransform.microsoft.alpha(opacity=100)";
+	 -ms-filter: unquote("progid:dximagetransform.microsoft.alpha(opacity=100)");
 	filter: alpha(opacity=100);
 	-moz-opacity: 1;
 	-khtml-opacity: 1;
