@@ -1,17 +1,15 @@
 .main{:role => "main"}
   .container
     %h2
-      = oscar_translation('សេវាកម្ម','Our')
-      %strong
-        = oscar_translation('របស់យើង','Services')
+      Our
+      %strong Services
     .row.align-items-center
       %br
       .col-lg-10
         %p.lead
           = @post.the_field('service-welcome-content')
       .col-lg-2
-        %a.btn.btn-lg.btn-primary{:href => "#"}
-          = oscar_translation('ទាក់ទង​មក​ពួក​យើង!','Contact Us!')
+        %a.btn.btn-lg.btn-primary{:href => "#"} Contact Us!
     %hr/
     .featured-boxes
       .row
@@ -26,5 +24,5 @@
                   = service.the_field('service-description')
                 %p
                   %a.lnk-primary.learn-more{:href => "/"}
-                    = oscar_translation('ស្វែង​យល់​បន្ថែម','Learn More')
+                    Learn More
                     %i.fa.fa-angle-right
