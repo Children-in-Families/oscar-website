@@ -3,33 +3,33 @@
 @import 'font-awesome';
 
 /*Vendor CSS */
-@import 'vendor/bootstrap/css/bootstrap.min.css';
-@import 'vendor/animate/animate.min.css';
-@import 'vendor/owl.carousel/owl.carousel.min.css';
-@import 'vendor/owl.carousel/owl.theme.default.min.css';
-@import 'vendor/simple-line-icons/simple-line-icons.min.css';
+@import 'vendor/bootstrap/css/bootstrap.min';
+@import 'vendor/animate/animate.min';
+@import 'vendor/owl.carousel/owl.carousel.min';
+@import 'vendor/owl.carousel/owl.theme.default.min';
+@import 'vendor/simple-line-icons/simple-line-icons.min';
 
 /*Theme CSS*/
-@import 'theme/theme-blog.css';
-@import 'theme/theme-elements.css';
-@import 'theme/theme-shop.css';
-@import 'theme/theme.css';
+@import 'theme/theme-blog';
+@import 'theme/theme-elements';
+@import 'theme/theme-shop';
+@import 'theme/theme';
 
 // Demo CSS
-@import 'demos/demo-digital-agency.css';
+@import 'demos/demo-digital-agency';
 
 /*Current Page CSS*/
-@import 'vendor/plugin/layers.css';
-@import 'vendor/plugin/navigation.css';
-@import 'vendor/plugin/settings.css';
-@import 'vendor/circle-flip-slideshow/css/component.css';
+@import 'vendor/plugin/layers';
+@import 'vendor/plugin/navigation';
+@import 'vendor/plugin/settings';
+@import 'vendor/circle-flip-slideshow/css/component';
 
 /*Skin CSS*/
-@import 'skins/default.css';
-// @import 'skins/skin-digital-agency.css';
+@import 'skins/default';
+// @import 'skins/skin-digital-agency';
 
 /*Theme Custom CSS*/
-@import 'custom.css';
+@import 'custom';
 
 @import 'tooltip';
 
