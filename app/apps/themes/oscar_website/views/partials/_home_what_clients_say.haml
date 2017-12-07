@@ -1,8 +1,7 @@
 .col-lg-6
   %h2
-    %strong
-      = oscar_translation('អ្វី','What')
-    = oscar_translation('ដែលអតិថិជននិយាយ','Client’s Say')
+    %strong What
+    Client’s Say
   .row
     .owl-carousel.owl-theme.mb-0{"data-plugin-options" => "{'items': 1}"}
       - posts = current_site.the_post_type('home-what-clients-say').the_posts.visible_frontend.decorate

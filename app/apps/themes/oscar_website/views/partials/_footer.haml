@@ -2,8 +2,7 @@
   .container
     .row
       .footer-ribbon
-        %span
-          = oscar_translation('ទំនាក់ទំនង','Get in Touch')
+        %span Get in Touch
       / .col-lg-3
       /   .newsletter
       /     %h4 Newsletter
@@ -23,31 +22,26 @@
       /     %p Please wait...
       .col-lg-4
         .contact-details
-          %h4
-            = oscar_translation('ទាក់ទង​មក​ពួក​យើង','Contact Us')
+          %h4 Contact Us
           %ul.contact
             %li
               %p
                 %i.fa.fa-map-marker
-                %strong
-                  = oscar_translation('ឤស័យដ្ឋាន:','Address:')
+                %strong Address:
                 = current_theme.the_field('contact-address')
             %li
               %p
                 %i.fa.fa-phone
-                %strong
-                  = oscar_translation('ទូរស័ព្ទ:','Phone:')
+                %strong Phone:
                 = current_theme.the_field('contact-phone')
             %li
               %p
                 %i.fa.fa-envelope
-                %strong
-                  = oscar_translation('អ៊ីមែល:','Email:')
+                %strong Email:
                 = link_to current_theme.the_field('contact-email'), target: "_blank" do
                   = current_theme.the_field('contact-email')
       .col-lg-2
-        %h4
-          = oscar_translation('តាម​ពួក​យើង','Follow Us')
+        %h4 Follow Us
         %ul.social-icons
           %li.social-icons-facebook
             = link_to current_theme.the_field('facebook-url'), target: "_blank" do
@@ -74,8 +68,6 @@
               %li
                 %a{:href => "faq.html"} FAQ's
               %li
-                %a{:href => "/sitemap"}
-                  = oscar_translation('ប្លង់គេហទំព័រ','Sitemap')
+                %a{:href => "/sitemap"} Sitemap
               %li
-                %a{:href => "contact-us.html"}
-                  = oscar_translation('ទំនាក់ទំនង','Sitemap')
+                %a{:href => "contact-us.html"} Contact
