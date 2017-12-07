@@ -2,20 +2,23 @@
   .row
     .col
       %h2.mb-0
-        %strong Pricing
-        Tables Shortcodes
+        %strong
+          = oscar_translation('តារាងតំលៃ','Pricing')
+        = oscar_translation('ខ្លី','Tables Shortcodes')
       %p
         = @post.the_field('pricing-introdution-sentence')
       %hr.tall/
   .row
+    - card = current_site.the_post_type('pricing-card').the_posts.visible_frontend.decorate
     .col
       %h4.mb-2
-        %strong Four
-        Plans
+        %strong
+          = card.length
+        = oscar_translation('គម្រោង','Plans')
       %p
         = @post.the_field('pricing-plan-introdution-sentence')
       .pricing-table.row.no-gutters.mt-2.mb-2
-        - current_site.the_post_type('pricing-card').the_posts.visible_frontend.decorate.each do |price|
+        - card.each do |price|
           - if price.the_field('pricing-popular').blank?
             .col-lg-3.col-sm-6
               .plan
@@ -23,7 +26,8 @@
                   = price.the_field('pricing-level')
                   %span
                     = "$#{price.the_field('pricing-price')}"
-                %a.btn.btn-lg.btn-primary{:href => "#"} Sign up
+                %a.btn.btn-lg.btn-primary{:href => "#"}
+                  = oscar_translation('ចុះ​ឈ្មោះ','Sign up')
                 %ul
                   - price.the_fields('pricing-item').each do |item|
                     %li
@@ -32,12 +36,14 @@
             .col-lg-3.col-sm-6.text-center
               .plan.most-popular
                 .plan-ribbon-wrapper
-                  .plan-ribbon Popular
+                  .plan-ribbon
+                    = oscar_translation('ពេញនិយម','Popular')
                 %h3
                   = price.the_field('pricing-level')
                   %span
                     = "$#{price.the_field('pricing-price')}"
-                %a.btn.btn-lg.btn-primary{:href => "#"} Sign up
+                %a.btn.btn-lg.btn-primary{:href => "#"}
+                  = oscar_translation('ចុះ​ឈ្មោះ','Sign up')
                 %ul
                   - price.the_fields('pricing-item').each do |item|
                     %li

@@ -106,8 +106,9 @@
       .row
         .col
           %h4.mt-5.mb-0.text-uppercase
-            My
-            %strong Work
+            = oscar_translation('ការងារ','My')
+            %strong
+              = oscar_translation('របស់ខ្ញុំ','Work')
           %p
             = @post.the_field('about-us-my-work-description-1st')
           %ul.row.portfolio-list
