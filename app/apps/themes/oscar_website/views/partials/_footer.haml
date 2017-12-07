@@ -66,8 +66,8 @@
           %nav#sub-menu
             %ul
               %li
-                %a{:href => "faq.html"} FAQ's
+                %a{:href => "#{current_site.the_post('faq').the_url}"} FAQ's
               %li
                 %a{:href => "/sitemap"} Sitemap
               %li
-                %a{:href => "contact-us.html"} Contact
+                %a{:href => "#{current_site.the_post('contact-us').the_url}"} Contact
