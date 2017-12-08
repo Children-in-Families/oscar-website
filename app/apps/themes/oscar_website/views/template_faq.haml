@@ -1,4 +1,4 @@
-.body.headerMarginTop
+.body.headerMarginTopFAQ
   .main{:role => "main"}
     .container
       %h2
@@ -12,9 +12,16 @@
       .row
         .col
           .toggle.toggle-primary{"data-plugin-toggle" => ""}
-            - faqs = current_site.the_post_type('faq-post-type').the_posts.visible_frontend.decorate.each do |faq|
-              %section.toggle.active
-                %label
-                  = faq.the_field('faq-question')
-                %p
-                  = faq.the_field('faq-answer')
+            - current_site.the_post_type('faq-post-type').the_posts.visible_frontend.decorate.each_with_index do |faq, index|
+              - if index == 0
+                %section.toggle.active
+                  %label
+                    = faq.the_field('faq-question')
+                  %p
+                    = faq.the_field('faq-answer')
+              - else
+                %section.toggle
+                  %label
+                    = faq.the_field('faq-question')
+                  %p{style: "height: 0"}
+                    = faq.the_field('faq-answer')
