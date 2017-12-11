@@ -7,10 +7,10 @@
     .row.align-items-center
       %br
       .col-lg-10
-        %p.lead
+        %p.welcomeContent
           = @post.the_field('service-welcome-content')
       .col-lg-2
-        %a.btn.btn-lg.btn-primary{:href => "#"}
+        %a.btn.btn-lg.btn-primary#butonContactUs{:href => "#"}
           = oscar_translation('ទាក់ទង​មក​ពួក​យើង!','Contact Us!')
     %hr/
     .featured-boxes
@@ -23,7 +23,10 @@
                 %h4.text-uppercase
                   = service.the_field('service-title')
                 %p
-                  = service.the_field('service-description')
+                  - description = service.the_field('service-description')
+                  = description[0..80]
+                  - if description.size > 80
+                    %span ...
                 %p
                   %a.lnk-primary.learn-more{:href => "/"}
                     = oscar_translation('ស្វែង​យល់​បន្ថែម','Learn More')
