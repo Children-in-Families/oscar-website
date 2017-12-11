@@ -5,9 +5,7 @@
         = @post.the_field('about-title')
         %strong.inverted.inverted-primary
           %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
-            %span.word-rotator-items
-              - @post.the_fields('about-slider').each do |word|
-                %span
-                  = word
+            %span#js-rotating-about
+              = @post.the_fields('about-slider').join(',')
       %p.welcomeContent
         = @post.the_field('about-content-text')

@@ -4,10 +4,8 @@
       = current_site.the_post('home').the_field('main-first-description')
       %strong
         %span.word-rotator{"data-plugin-options" => "{'delay': 3500, 'animDelay': 400}"}
-          %span.word-rotator-items
-            - @post.the_fields('customer-description-slide-word').each do |word|
-              %span
-                = word
+          %span#js-rotating-customer
+            = @post.the_fields('customer-description-slide-word').join(',')
       = current_site.the_post('home').the_field('main-second-description')
     %h4.heading-primary.tall.welcomeContent
       = current_site.the_post('home').the_field('sub-description')
