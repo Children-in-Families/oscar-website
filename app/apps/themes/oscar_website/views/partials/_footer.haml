@@ -62,8 +62,8 @@
     .container
       .row
         .col-lg-2
-          %a.logo{:href => "home.html"}
-            = image_tag current_site.the_logo, class: 'img-responsive img-logo', alt: "OSCar Logo"
+          = link_to current_site.the_url, class: 'img-responsive img-logo logo', alt: "OSCar Logo" do
+            = image_tag current_site.the_logo, class: 'img-responsive img-logo'
         .col-lg-6
           %p
             ©
