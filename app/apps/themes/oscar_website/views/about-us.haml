@@ -23,7 +23,7 @@
       .row.mt-5
         - name_1st = @post.the_field('about-us-progress-work-name-1st')
         - percent_1st = @post.the_field('about-us-progress-work-percent-1st')
-        - unless name_1st.blank? && percent_1st.blank?
+        - unless name_1st.blank? || percent_1st.blank?
           .col-lg-3
             .circular-bar
               .circular-bar-chart{"data-percent" => "#{percent_1st}", "data-plugin-options" => "{'barColor': '#E36159'}"}
@@ -35,7 +35,7 @@
                     \%
         - name_2nd = @post.the_field('about-us-progress-work-name-2nd')
         - percent_2nd = @post.the_field('about-us-progress-work-percent-2nd')
-        - unless name_2nd.blank? && percent_2nd.blank?
+        - unless name_2nd.blank? || percent_2nd.blank?
           .col-lg-3
             .circular-bar
               .circular-bar-chart{"data-percent" => "#{percent_2nd}", "data-plugin-options" => "{'barColor': '#0088CC', 'delay': 300}"}
@@ -46,7 +46,7 @@
                   \%
         - name_3rd = @post.the_field('about-us-progress-work-name-3rd')
         - percent_3rd = @post.the_field('about-us-progress-work-percent-3rd')
-        - unless name_3rd.blank? && percent_3rd.blank?
+        - unless name_3rd.blank? || percent_3rd.blank?
           .col-lg-3
             .circular-bar
               .circular-bar-chart{"data-percent" => "#{percent_3rd}", "data-plugin-options" => "{'barColor': '#2BAAB1', 'delay': 600}"}
@@ -57,7 +57,7 @@
                   \%
         - name_4th = @post.the_field('about-us-progress-work-name-4th')
         - percent_4th = @post.the_field('about-us-progress-work-percent-4th')
-        - unless name_4th.blank? && percent_4th.blank?
+        - unless name_4th.blank? || percent_4th.blank?
           .col-lg-3
             .circular-bar
               .circular-bar-chart{"data-percent" => "#{percent_4th}", "data-plugin-options" => "{'barColor': '#353535', 'delay': 900}"}
@@ -74,7 +74,7 @@
               - comment1 = @post.the_field('about-us-referent-comment-1st')
               - name1 = @post.the_field('about-us-referent-name-1st')
               - position1 = @post.the_field('about-us-referent-position-1st')
-              - unless comment1.blank? && name1.blank? && position1.blank?
+              - unless comment1.blank? || name1.blank? || position1.blank?
                 %div
                   .col
                     .testimonial.testimonial-style-6.testimonial-with-quotes.mb-0
@@ -90,7 +90,7 @@
               - comment2 = @post.the_field('about-us-referent-comment-2nd')
               - name2 = @post.the_field('about-us-referent-name-2nd')
               - position2 = @post.the_field('about-us-referent-position-2nd')
-              - unless comment2.blank? && name2.blank? && position2.blank?
+              - unless comment2.blank? || name2.blank? || position2.blank?
                 %div
                   .col
                     .testimonial.testimonial-style-6.testimonial-with-quotes.mb-0
@@ -116,7 +116,7 @@
             - image1 = @post.the_field('about-us-my-work-image-1st')
             - title1 = @post.the_field('about-us-my-work-title-1st')
             - subTitle1 = @post.the_field('about-us-my-work-sub-title-1st')
-            - unless image1.blank? && title1.blank? && subTitle1.blank?
+            - unless image1.blank? || title1.blank? || subTitle1.blank?
               %li.col-12.col-sm-6.col-lg-3
                 .portfolio-item
                   %span.thumb-info.thumb-info-lighten
@@ -132,8 +132,8 @@
                           %i.fa.fa-link
             - image2 = @post.the_field('about-us-my-work-image-2nd')
             - title2 = @post.the_field('about-us-my-work-title-2nd')
-            - subTitle3 = @post.the_field('about-us-my-work-sub-title-2nd')
-            - unless image2.blank? && title2.blank? && subTitle2.blank?
+            - subTitle2 = @post.the_field('about-us-my-work-sub-title-2nd')
+            - unless image2.blank? || title2.blank? || subTitle2.blank?
               %li.col-12.col-sm-6.col-lg-3
                 .portfolio-item
                   %span.thumb-info.thumb-info-lighten
@@ -143,14 +143,14 @@
                         %span.thumb-info-inner
                           = title2
                         %span.thumb-info-type
-                          = subTitle3
+                          = subTitle2
                       %span.thumb-info-action
                         %span.thumb-info-action-icon
                           %i.fa.fa-link
             - image3 = @post.the_field('about-us-my-work-image-3rd')
             - title3 = @post.the_field('about-us-my-work-title-3rd')
             - subTitle3 = @post.the_field('about-us-my-work-sub-title-3rd')
-            - unless image3.blank? && title3.blank? && subTitle3.blank?
+            - unless image3.blank? || title3.blank? || subTitle3.blank?
               %li.col-12.col-sm-6.col-lg-3
                 .portfolio-item
                   %span.thumb-info.thumb-info-lighten
@@ -167,7 +167,7 @@
             - image4 = @post.the_field('about-us-my-work-image-4th')
             - title4 = @post.the_field('about-us-my-work-title-4th')
             - subTitle4 = @post.the_field('about-us-my-work-sub-title-4th')
-            - unless image4.blank? && title4.blank? && subTitle4.blank?
+            - unless image4.blank? || title4.blank? || subTitle4.blank?
               %li.col-12.col-sm-6.col-lg-3
                 .portfolio-item
                   %span.thumb-info.thumb-info-lighten
