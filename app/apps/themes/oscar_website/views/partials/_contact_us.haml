@@ -12,7 +12,7 @@
       %h2.mb-3.mt-2
         %strong Contact
         Us
-      %form#contactForm{:action => "php/contact-form.php", :method => "POST"}
+      %form#contactForm{:action => "", :method => "POST"}
         .form-row
           .form-group.col-lg-6
             %label Your name *
@@ -22,7 +22,7 @@
             %input#email.inputContact.form-control{"data-msg-email" => "Please enter a valid email address.", "data-msg-required" => "Please enter your email address.", :maxlength => "100", :name => "email", :required => "", :type => "email", :value => ""}/
         .form-row
           .form-group.col
-            %label Subject
+            %label Subject *
             %input#subject.inputContact.form-control{"data-msg-required" => "Please enter the subject.", :maxlength => "100", :name => "subject", :required => "", :type => "text", :value => ""}/
         .form-row
           .form-group.col
