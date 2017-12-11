@@ -31,3 +31,5 @@
 #= require ./common
 #= require ./util
 #= require ./initializer
+
+#= require ./morphext.min.js

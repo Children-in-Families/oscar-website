@@ -5,10 +5,8 @@
         = current_site.the_post('home').the_field('project-name')
         %strong.inverted
           %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
-            %span.word-rotator-items
-              - @post.the_fields('concept-slide-word').each do |word|
-                %span
-                  = word
+            %span#js-rotating-home
+              = @post.the_fields('concept-slide-word').join(',')
         = current_site.the_post('home').the_field('project-meaning')
       %p.welcomeContent
         = current_site.the_post('home').the_field('concept-description')
