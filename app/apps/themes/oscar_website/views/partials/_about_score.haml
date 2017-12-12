@@ -1,9 +1,11 @@
-%section.section.section-primary.mb-0
-  .container
-    .row.counters.counters-text-light
-      - current_site.the_post_type('about-score').the_posts.visible_frontend.decorate.each do |score|
-        .col-sm-6.col-lg-3.mb-4.mb-lg-0
-          .counter
-            %strong{"data-append" => "#{score.the_field('about-score-sign')}", "data-to" => "#{score.the_field('about-score-number')}"} 0
-            %label
-              = score.the_field('about-score-text')
+- scores = current_site.the_post_type('about-score').the_posts.visible_frontend.decorate
+- if scores.count > 0
+  %section.section.section-primary.mb-0
+    .container
+      .row.counters.counters-text-light
+        - scores.each do |score|
+          .col-sm-6.col-lg-3.mb-4.mb-lg-0
+            .counter
+              %strong{"data-append" => "#{score.the_field('about-score-sign')}", "data-to" => "#{score.the_field('about-score-number')}"} 0
+              %label
+                = score.the_field('about-score-text')
