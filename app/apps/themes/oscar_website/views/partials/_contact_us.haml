@@ -12,7 +12,8 @@
       %h2.mb-3.mt-2
         %strong Contact
         Us
-      %form#contactForm{:action => "", :method => "POST"}
+      - email = current_theme.the_field('contact-email')
+      %form#contactForm{:action => "http://formspree.io/#{email}", :method => "POST"}
         .form-row
           .form-group.col-lg-6
             %label Your name *
@@ -30,7 +31,7 @@
             %textarea#message.inputContact.form-control{"data-msg-required" => "Please enter your message.", :maxlength => "5000", :name => "message", :required => "", :rows => "10"}
         .form-row
           .form-group.col
-            %input#sendMessage.btn.btn-primary.btn-lg{"data-loading-text" => "Loading...", :type => "button", :value => "Send Message"}/
+            %input#sendMessage.btn.btn-primary.btn-lg{"data-loading-text" => "Loading...", :type => "submit", :value => "Send Message"}/
     .col-lg-6
       %h4.heading-primary.mt-4
         = oscar_translation('ទំនាក់ទំនង','Get in')

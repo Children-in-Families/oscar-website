@@ -1,4 +1,47 @@
 $(document).ready(function(){
+  // mail
+
+  $form = $('#contactForm');
+  return $form.submit(function() {
+    var formData, email, message, name, subject;
+    name = $('input#name').val();
+    subject = $('input#subject').val();
+    email = $('input#email').val();
+    message = $('textarea#message').val();
+    if(name != "" || subject != "" || email != "" || message != ""){
+      $('#sendMessage').attr('disabled','disabled');
+      $('#sendMessage').val('Sending...')
+    }
+
+    formData = {
+      name: name,
+      email: email,
+      subject: subject,
+      message: message
+    };
+
+    $.ajax({
+      type: 'POST',
+      dataType: 'json',
+      url: $form.attr('action'),
+      data: formData,
+      success: function() {
+        $form[0].reset();
+        $('#sendMessage').removeAttr('disabled');
+        $('#sendMessage').val('Send Message')
+        alert('Your message has been sent successfully. Thank you.');
+        return false;
+      },
+      error: function() {
+        $('#sendMessage').removeAttr('disabled');
+        $('#sendMessage').val('Send Message')
+        alert('Your message has not been sent. Please try again later!');
+        return false;
+      }
+    });
+    return false;
+  });
+
   $("#js-rotating-home").Morphext({
     // The [in] animation type. Refer to Animate.css for a list of available animations.
     animation: "fadeIn",
