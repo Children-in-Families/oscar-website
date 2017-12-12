@@ -1,4 +1,18 @@
 $(document).ready(function(){
+  // service read more
+    $('.readMoreLink').on('click', function(){
+      $(this).parent().toggle();
+      $(this).parent().siblings('.readLess').toggle();
+    });
+
+    $('.readLessLink').on('click', function(){
+      $(this).parent().toggle();
+      $(this).parent().siblings('.readMore').toggle();
+    });
+
+
+  // slider words
+
   $("#js-rotating-home").Morphext({
     // The [in] animation type. Refer to Animate.css for a list of available animations.
     animation: "fadeIn",
