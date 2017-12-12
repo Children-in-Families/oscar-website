@@ -1,23 +1,23 @@
 .container
   .row.mt-5
-    .col-lg-5
+    .col-lg-12
       %h2
         %strong
           = oscar_translation('យើង','Who')
         = oscar_translation('ជា​នរណា','We Are')
       %p
         = @post.the_field('about-who-we-are-content')
-    .col-lg-7
-      .progress-bars.mt-4
-        - current_site.the_post_type('about-who-we-are-progress').the_posts.visible_frontend.decorate.each do |progress|
-          .progress-label
-            %span
-              = progress.the_field('about-who-we-are-progress-title')
-          .progress.mb-2
-            - percent = "#{progress.the_field('about-who-we-are-progress-percent')}%"
-            .progress-bar.progress-bar-primary{"data-appear-progress-animation" => percent}
-              %span.progress-bar-tooltip
-                = percent
+    -# .col-lg-7
+    -#   .progress-bars.mt-4
+    -#     - current_site.the_post_type('about-who-we-are-progress').the_posts.visible_frontend.decorate.each do |progress|
+    -#       .progress-label
+    -#         %span
+    -#           = progress.the_field('about-who-we-are-progress-title')
+    -#       .progress.mb-2
+    -#         - percent = "#{progress.the_field('about-who-we-are-progress-percent')}%"
+    -#         .progress-bar.progress-bar-primary{"data-appear-progress-animation" => percent}
+    -#           %span.progress-bar-tooltip
+    -#             = percent
   %br
   .row.mt-5.mb-5
     - current_site.the_post_type('about-us').the_posts.visible_frontend.decorate.each do |us|
