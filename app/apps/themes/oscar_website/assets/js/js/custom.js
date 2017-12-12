@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  // mail
-
   $("#js-rotating-home").Morphext({
     // The [in] animation type. Refer to Animate.css for a list of available animations.
     animation: "fadeIn",
@@ -174,6 +172,8 @@ $(document).ready(function(){
       });
     }
   }).apply(this, [window.theme, jQuery]);
+
+  // mail
 
   $form = $('#contactForm');
   return $form.submit(function() {
