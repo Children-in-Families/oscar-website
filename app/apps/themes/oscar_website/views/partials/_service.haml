@@ -10,24 +10,29 @@
         %p.welcomeContent
           = @post.the_field('service-welcome-content')
       .col-lg-2
-        %a.btn.btn-lg.btn-primary#butonContactUs{:href => "#"}
+        %a.btn.btn-lg.btn-primary#butonContactUs{:href => "/contact-us"}
           = oscar_translation('ទាក់ទង​មក​ពួក​យើង!','Contact Us!')
     %hr/
     .featured-boxes
       .row
         - current_site.the_post_type('service').the_posts.visible_frontend.decorate.each do |service|
           .col-lg-3.col-sm-6
-            .featured-box.featured-box-primary.featured-box-effect-1.mt-0.mt-lg-5{style: 'height: 358px;'}
+            .featured-box.featured-box-primary.featured-box-effect-1.mt-0.mt-lg-5{style: 'min-height: 358px;'}
               .box-content
                 %i.icon-featured.fa{class: "#{service.the_field('service-font-awesome-icon-name')}", style: 'font-size: 48px;'}
                 %h4.text-uppercase
                   = service.the_field('service-title')
-                %p
-                  - description = service.the_field('service-description')
-                  = description[0..80]
-                  - if description.size > 80
-                    %span ...
-                %p
-                  %a.lnk-primary.learn-more{:href => "/"}
-                    = oscar_translation('ស្វែង​យល់​បន្ថែម','Learn More')
+                - description = service.the_field('service-description')
+                .readLess{style: 'display: none'}
+                  %p.longDescription
+                    = description
+                  %a.lnk-primary.learn-more.readLessLink{:href => "javascript:void(0)"}
+                    = oscar_translation('អានតិច','Read Less')
+                .readMore
+                  %p.shortDescription
+                    = description[0..80]
+                    - if description.size > 80
+                      %span ...
+                  %a.lnk-primary.learn-more.readMoreLink{:href => "javascript:void(0)"}
+                    = oscar_translation('អាន​បន្ថែម','Read More')
                     %i.fa.fa-angle-right
