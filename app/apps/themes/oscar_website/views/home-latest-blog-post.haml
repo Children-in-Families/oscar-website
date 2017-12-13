@@ -1,0 +1,48 @@
+.body.headerMarginTop
+  .main{:role => "main"}
+    .container
+      .row
+        .col-lg-12
+          .blog-posts.single-post
+            %article.post.post-large.blog-single-post
+              .post-image
+                .owl-carousel.owl-theme{"data-plugin-options" => "{'items':1}"}
+                  - @post.the_fields('post-image').each do |image|
+                    %div
+                      .img-thumbnail.d-block
+                        = image_tag image, class: 'img-fluid'
+              .post-date
+                - tweetDate = @post.the_field('date').split('-')
+                - day = tweetDate[2]
+                - month = Date::MONTHNAMES[tweetDate[1].to_i][0..2]
+                %span.day
+                  = day
+                %span.month
+                  = month
+              .post-content
+                %h2
+                  = @post.the_field('post-title')
+                .post-meta
+                  %span
+                    %i.fa.fa-user
+                    By
+                    %span
+                      = @post.the_field('post-author')
+                  %span
+                    %i.fa.fa-tag
+                    - @post.the_fields('post-tag').each do |tag|
+                      %span
+                        = tag
+                        = ',' unless @post.the_fields('post-tag').last == tag
+                = @post.the_field('post-content')
+                .post-block.post-share
+                  %h3.heading-primary
+                    %i.fa.fa-share>
+                    Share this post
+                  / AddThis Button BEGIN
+                  .addthis_toolbox.addthis_default_style
+                    %a.addthis_button_facebook_like{"fb:like:layout" => "button_count"}
+                    %a.addthis_button_tweet
+                    %a.addthis_button_pinterest_pinit
+                    %a.addthis_counter.addthis_pill_style
+                  %script{:src => "//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53", :type => "text/javascript"}

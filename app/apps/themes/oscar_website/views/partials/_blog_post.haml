@@ -7,15 +7,10 @@
           %article.post.post-large
             .post-image
               .owl-carousel.owl-theme{"data-plugin-options" => "{'items':1}"}
-                %div
-                  .img-thumbnail.d-block
-                    %img.img-fluid{:alt => "", :src => "img/blog/blog-image-1.jpg"}/
-                %div
-                  .img-thumbnail.d-block
-                    %img.img-fluid{:alt => "", :src => "img/blog/blog-image-2.jpg"}/
-                %div
-                  .img-thumbnail.d-block
-                    %img.img-fluid{:alt => "", :src => "img/blog/blog-image-3.jpg"}/
+                - post.the_fields('post-image').each do |image|
+                  %div
+                    .img-thumbnail.d-block
+                      = image_tag image, class: 'img-fluid'
             - tweetDate = post.the_field('date').split('-')
             - day = tweetDate[2]
             - month = Date::MONTHNAMES[tweetDate[1].to_i][0..2]
@@ -25,25 +20,28 @@
               %span.month
                 = month
             .post-content
-            %h2
-              = link_to post.the_field('post-title'), post.the_field('post-url')
-            - tweetContent = post.the_field('post-content')
+              %h2
+                = link_to post.the_field('post-title'), post.the_url
+              - tweetContent = post.the_field('post-content')
 
-            %p
-              = tweetContent[0..149]
-              [...]
-            .post-meta
-              %span
-                %i.fa.fa-user
-                By
-                %a{:href => "#"} John Doe
-              %span
-                %i.fa.fa-tag
-                = succeed "," do
-                  %a{:href => "#"} Duis
-                %a{:href => "#"} News
-              %span.d-block.d-sm-inline-block.float-sm-right.mt-3.mt-sm-0
-                = link_to 'Read more...', post.the_field('post-url'), class: 'blogReadMore btn-primary'
+              %p
+                = tweetContent[0..149]
+                [...]
+              .post-meta
+                %span
+                  %i.fa.fa-user
+                  By
+                  %span
+                    = post.the_field('post-author')
+                %span
+                  %i.fa.fa-tag
+                  - post.the_fields('post-tag').each do |tag|
+                    %span
+                      = tag
+                      = ',' unless post.the_fields('post-tag').last == tag
+
+                %span.d-block.d-sm-inline-block.float-sm-right.mt-3.mt-sm-0
+                  = link_to 'Read more...', post.the_url, class: 'blogReadMore btn-primary'
         %ul.pagination.float-right
           %li.page-item
             %a.page-link{:href => "#"} «
