@@ -41,7 +41,7 @@ module Themes::OscarWebsite::MainHelper
   def oscar_add_default_pages
     page_post_type = current_site.the_post_type('page')
     if page_post_type.present?
-      pages = ['Home', 'About', 'Features', 'Pricing', 'Testimonials', 'Services', 'Contact Us', 'FAQ']
+      pages = ['Home', 'About', 'Features', 'Pricing', 'Testimonials', 'Services', 'Contact Us', 'FAQ', 'Blog']
 
       pages.each do |page|
         formatted_page = page.downcase.parameterize
@@ -433,9 +433,11 @@ module Themes::OscarWebsite::MainHelper
       post.set_meta('_default', options)
       if post.get_field_groups.where(slug: 'home-latest-blog-post-fields').blank?
         post_field_group = post.add_field_group({ name: 'Home Latest Blog Post Fields', slug: 'home-latest-blog-post-fields' } )
+        post_field_group.add_field({ name: 'Image', slug: 'post-image' }, { field_key: 'image', required: true, multiple: true } )
         post_field_group.add_field({ name: 'Date', slug: 'date' }, { field_key: 'date', required: true } )
         post_field_group.add_field({ name: 'Post Title', slug: 'post-title' }, { field_key: 'text_box', required: true } )
-        post_field_group.add_field({ name: 'Post Title Url', slug: 'post-url' }, { field_key: 'url', required: true } )
+        post_field_group.add_field({ name: 'Author', slug: 'post-author' }, { field_key: 'text_box', required: true } )
+        post_field_group.add_field({ name: 'Tag', slug: 'post-tag' }, { field_key: 'text_box', required: true, multiple: true } )
         post_field_group.add_field({ name: 'Post Content', slug: 'post-content' }, { field_key: 'text_area', required: true } )
       end
     end

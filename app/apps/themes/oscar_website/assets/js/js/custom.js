@@ -10,7 +10,6 @@ $(document).ready(function(){
       $(this).parent().siblings('.readMore').toggle();
     });
 
-
   // slider words
 
   $("#js-rotating-home").Morphext({
