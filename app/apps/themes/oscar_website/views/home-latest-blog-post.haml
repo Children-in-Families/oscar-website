@@ -20,18 +20,18 @@
                 %span.month
                   = month
               .post-content
-                %h2
+                %h2.colorPrimary
                   = @post.the_field('post-title')
                 .post-meta
                   %span
                     %i.fa.fa-user
                     By
-                    %span
+                    %span.colorPrimary
                       = @post.the_field('post-author')
                   %span
                     %i.fa.fa-tag
                     - @post.the_fields('post-tag').each do |tag|
-                      %span
+                      %span.colorPrimary
                         = tag
                         = ',' unless @post.the_fields('post-tag').last == tag
                 = @post.the_field('post-content')
