@@ -41,7 +41,7 @@ module Themes::OscarWebsite::MainHelper
   def oscar_add_default_pages
     page_post_type = current_site.the_post_type('page')
     if page_post_type.present?
-      pages = ['Home', 'About', 'Features', 'Pricing', 'Testimonials', 'Services', 'Contact Us', 'FAQ']
+      pages = ['Home', 'About', 'Features', 'Pricing', 'Testimonials', 'Services', 'Contact Us', 'FAQ', 'Blog']
 
       pages.each do |page|
         formatted_page = page.downcase.parameterize
