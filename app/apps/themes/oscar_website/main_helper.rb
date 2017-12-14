@@ -60,8 +60,17 @@ module Themes::OscarWebsite::MainHelper
   def oscar_add_fields_to_home_page
     page = current_site.the_post_type('page').the_post('home')
 
+    if page.get_field_groups.where(slug: 'home-slider-fields').blank?
+      home_field_group = page.add_field_group({ name: 'Slider Fields', slug: 'home-slider-fields' })
+      home_field_group.add_field({ name: 'Image Slider', slug: 'image-slider' }, { field_key: 'image', require: true })
+      home_field_group.add_field({ name: 'Video Slider', slug: 'video-slider' }, { field_key: 'video', require: true })
+      home_field_group.add_field({ name: 'First Text Load', slug: 'first-text-load' }, { field_key: 'text_box', require: true, default_value: 'Title' })
+      home_field_group.add_field({ name: 'Second Text Load', slug: 'second-text-load' }, { field_key: 'text_box', require: true, default_value: 'Oscar Website' })
+      home_field_group.add_field({ name: 'Third Text Load', slug: 'third-text-load' }, { field_key: 'text_box', require: true, default_value: 'Welcome' })
+    end
+
     if page.get_field_groups.where(slug: 'home-introduction-fields').blank?
-      home_field_group = page.add_field_group({ name: 'Home Introduction Fields', slug: 'home-introduction-fields' })
+      home_field_group = page.add_field_group({ name: 'Introduction Fields', slug: 'home-introduction-fields' })
       home_field_group.add_field({ name: 'Introduction Sentence', slug: 'introdution-sentence' }, { field_key: 'text_box', required: true, default_value: 'The fastest way to grow your business with the leader in'})
       home_field_group.add_field({ name: 'Big Word', slug: 'big-word' }, { field_key: 'text_box', required: true, default_value: 'Technology'})
       home_field_group.add_field({ name: 'Option And Feature', slug: 'option-and-feature' }, { field_key: 'text_box', required: true, default_value: 'Check out our options and features included.'})
@@ -70,7 +79,7 @@ module Themes::OscarWebsite::MainHelper
     end
 
     if page.get_field_groups.where(slug: 'home-concept-fields').blank?
-      home_field_group = page.add_field_group({ name: 'Home Concept Fields', slug: 'home-concept-fields' })
+      home_field_group = page.add_field_group({ name: 'Concept Fields', slug: 'home-concept-fields' })
       home_field_group.add_field({ name: 'Project Name', slug: 'project-name' }, { field_key: 'text_box', required: true, default_value: 'Oscar Website'})
       home_field_group.add_field({ name: 'Slide Word', slug: 'concept-slide-word' }, { field_key: 'text_box', required: true, default_value: 'Website', multiple: true})
       home_field_group.add_field({ name: 'Project Meaning', slug: 'project-meaning' }, { field_key: 'text_box', required: true, default_value: 'help children in Cambodia'})
@@ -86,7 +95,7 @@ module Themes::OscarWebsite::MainHelper
     end
 
     if page.get_field_groups.where(slug: 'home-customer-description-fields').blank?
-      home_field_group = page.add_field_group({ name: 'Home Customer Description Fields', slug: 'home-customer-description-fields' })
+      home_field_group = page.add_field_group({ name: 'Customer Description Fields', slug: 'home-customer-description-fields' })
       home_field_group.add_field({ name: 'Main First Description', slug: 'main-first-description' }, { field_key: 'text_box', required: true, default_value: 'Our Customer'})
       home_field_group.add_field({ name: 'Slide Word', slug: 'customer-description-slide-word' }, { field_key: 'text_box', required: true, default_value: 'Happy', multiple: true})
       home_field_group.add_field({ name: 'Main Scecond Description', slug: 'main-second-description' }, { field_key: 'text_box', required: true, default_value: 'to help children in Cambodia'})
@@ -94,7 +103,7 @@ module Themes::OscarWebsite::MainHelper
     end
 
     if page.get_field_groups.where(slug: 'home-customer-background-image-fields').blank?
-      home_field_group = page.add_field_group({ name: 'Home Customer Background Image Fields', slug: 'home-customer-background-image-fields' })
+      home_field_group = page.add_field_group({ name: 'Customer Background Image Fields', slug: 'home-customer-background-image-fields' })
       home_field_group.add_field({ name: 'Background Image', slug: 'home-background-image' }, { field_key: 'image', required: true})
     end
   end
@@ -501,15 +510,6 @@ module Themes::OscarWebsite::MainHelper
       group.add_field({ name: 'Facebook Url', slug: 'facebook-url' }, { field_key: 'url', require: false })
       group.add_field({ name: 'Twitter Url', slug: 'twitter-url' }, { field_key: 'url' })
       group.add_field({ name: 'Linkedin Url', slug: 'linkedin-url' }, { field_key: 'url' })
-    end
-
-    if theme.get_field_groups.where(slug: 'home-slider').blank?
-      group = theme.add_field_group({name: 'Home Slider', slug: 'home-slider'})
-      group.add_field({ name: 'Image Slider', slug: 'image-slider' }, { field_key: 'image', require: true })
-      group.add_field({ name: 'Video Slider', slug: 'video-slider' }, { field_key: 'video', require: false })
-      group.add_field({ name: 'First Text Load', slug: 'first-text-load' }, { field_key: 'text_box' })
-      group.add_field({ name: 'Second Text Load', slug: 'second-text-load' }, { field_key: 'text_box' })
-      group.add_field({ name: 'Third Text Load', slug: 'third-text-load' }, { field_key: 'text_box' })
     end
 
     if theme.get_field_groups.where(slug: 'contact-us').blank?
