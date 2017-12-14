@@ -1,6 +1,14 @@
 /* navbar */
+
 .header-logo {
-  width: 120px;
+  max-width: 200px;
+}
+
+/* small desktop */
+@media all and (max-width: 1200px) {
+  .header-logo {
+    max-width: 120px;
+  }
 }
 
 .shareFacebook{
