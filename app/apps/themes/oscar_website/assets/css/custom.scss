@@ -20,6 +20,29 @@
   }
 }
 
+.pagination{
+  span, em, a {
+    padding: 5px 12px;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+}
+
+.current{
+  color: #fff !important;
+  background-color: #007bff !important;
+  border: 1px solid #007bff !important;
+}
+
+.previous_page.disabled{
+  color: #ddd !important;
+}
+
+.next_page.disabled{
+  color: #ddd !important;
+}
+
 .shareTwitter{
   background-color: #00aced;
   padding: 6px 6px;

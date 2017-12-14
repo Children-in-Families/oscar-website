@@ -2,54 +2,42 @@
   .row
     .col
       .blog-posts
-        - posts = current_site.the_post_type('home-latest-blog-post').the_posts.visible_frontend.decorate
-        - posts.each do |post|
+        - oscar_blog_posts.each do |post|
+          - post_decorate = post.decorate
           %article.post.post-large
             .post-image
               .owl-carousel.owl-theme{"data-plugin-options" => "{'items':1}"}
-                - post.the_fields('post-image').each do |image|
-                  %div
-                    .img-thumbnail.d-block
-                      = image_tag image, class: 'img-fluid'
-            - tweetDate = post.the_field('date').split('-')
-            - day = tweetDate[2]
-            - month = Date::MONTHNAMES[tweetDate[1].to_i][0..2]
+                - post_decorate.the_fields('post-image').each do |image|
+                  .img-thumbnail.d-block
+                    = image_tag image, class: 'img-fluid'
             .post-date
+              - blog_date = post_decorate.the_field('date').split('-')
+              - day = blog_date[2]
+              - month = Date::MONTHNAMES[blog_date[1].to_i][0..2]
               %span.day
                 = day
               %span.month
                 = month
             .post-content
               %h2
-                = link_to post.the_field('post-title'), post.the_url
-              - tweetContent = post.the_field('post-content')
-
+                = link_to post_decorate.the_field('post-title'), post_decorate.the_url
               %p
-                = tweetContent[0..149]
+                - blog_content = post_decorate.the_field('post-content')
+                = blog_content[0..149]
                 [...]
               .post-meta
                 %span
                   %i.fa.fa-user
                   By
                   %span.colorPrimary
-                    = post.the_field('post-author')
+                    = post_decorate.the_field('post-author')
                 %span
                   %i.fa.fa-tag
-                  - post.the_fields('post-tag').each do |tag|
+                  - post_decorate.the_fields('post-tag').each do |tag|
                     %span.colorPrimary
                       = tag
-                      = ',' unless post.the_fields('post-tag').last == tag
-
+                      = ',' unless post_decorate.the_fields('post-tag').last == tag
                 %span.d-block.d-sm-inline-block.float-sm-right.mt-3.mt-sm-0
-                  = link_to 'Read more...', post.the_url, class: 'blogReadMore btn-primary'
-        %ul.pagination.float-right
-          %li.page-item
-            %a.page-link{:href => "#"} «
-          %li.page-item.active
-            %a.page-link{:href => "#"} 1
-          %li.page-item
-            %a.page-link{:href => "#"} 2
-          %li.page-item
-            %a.page-link{:href => "#"} 3
-          %li.page-item
-            %a.page-link{:href => "#"} »
+                  = link_to 'Read more...', post_decorate.the_url, class: 'blogReadMore btn-primary'
+        .float-right
+          = will_paginate(oscar_blog_posts, previous_label: '«', next_label: '»')
