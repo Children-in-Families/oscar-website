@@ -1,6 +1,6 @@
 module Themes::OscarWebsite::MainHelper
   def self.included(klass)
-    klass.helper_method [:oscar_get_nav_menu, :oscar_translation] rescue "" # here your methods accessible from views
+    klass.helper_method [:oscar_get_nav_menu, :oscar_translation, :oscar_blog_posts] rescue "" # here your methods accessible from views
   end
 
   def oscar_website_settings(theme)
@@ -32,6 +32,10 @@ module Themes::OscarWebsite::MainHelper
 
   def oscar_lang
     I18n.locale == :km ? 'km' : 'en'
+  end
+
+  def oscar_blog_posts
+    current_site.the_post_type('home-latest-blog-post').the_posts.visible_frontend.paginate(page: params[:page], per_page: 5)
   end
 
   def oscar_translation(khmer, english)

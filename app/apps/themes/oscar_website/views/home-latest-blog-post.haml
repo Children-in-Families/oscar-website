@@ -49,13 +49,14 @@
                       = link_to facebook, target: "_blank" do
                         %span.fa.fa-facebook
                           share with facebook
-                    %span.shareTwitter
-                      - twitter = "https://twitter.com/home?status={url}"
-                      = link_to @post.the_url, target: "_blank" do
-                        %span.fa.fa-twitter
-                          share with twitter
-                    %span.shareLinkin
-                      - linkedin = "https://www.linkedin.com/shareArticle?mini=true&url=#{url}&title=#{title}&summary=#{content}&source="
-                      = link_to @post.the_url, target: "_blank" do
-                        %span.fa.fa-linkedin
-                          share with linkedIn
+                    / %span.shareTwitter
+                    /   - twitter = "https://twitter.com/home?status={url}"
+                    /   = link_to @post.the_url, target: "_blank" do
+                    /     %span.fa.fa-twitter
+                    /       share with twitter
+                    / %span.shareLinkin
+                    /   - linkedin = "https://www.linkedin.com/shareArticle?mini=true&url=#{url}&title=#{title}&summary=#{content}&source="
+                    /   = link_to @post.the_url, target: "_blank" do
+                    /     %span.fa.fa-linkedin
+                    /       share with linkedIn
+
