@@ -12,7 +12,7 @@
       %h2.mb-3.mt-2
         %strong Contact
         Us
-      - email = current_theme.the_field('contact-email')
+      - email = @post.the_field('contact-email')
       %form#contactForm{:action => "http://formspree.io/#{email}", :method => "POST"}
         .form-row
           .form-group.col-lg-6
@@ -38,7 +38,7 @@
         %strong
           = oscar_translation('ពួក​យើង','Touch')
       %p
-        = @post.the_field('contact-get-in-touch-decription')
+        = raw @post.the_content
       %hr/
       %h4.heading-primary
         = oscar_translation('','The')
@@ -49,18 +49,18 @@
           %i.fa.fa-map-marker
           %strong
             = oscar_translation('ឤស័យដ្ឋាន:','Address:')
-          = current_theme.the_field('contact-address')
+          = @post.the_field('contact-address')
         %li
           %i.fa.fa-phone
           %strong
             = oscar_translation('ទូរស័ព្ទ:','Phone:')
-          = current_theme.the_field('contact-phone')
+          = @post.the_field('contact-phone')
         %li
           %i.fa.fa-envelope
           %strong
             = oscar_translation('អ៊ីមែល:','Email:')
-          = link_to current_theme.the_field('contact-email'), target: "_blank" do
-            = current_theme.the_field('contact-email')
+          = link_to @post.the_field('contact-email'), target: "_blank" do
+            = @post.the_field('contact-email')
       %hr/
       %h4.heading-primary
         = oscar_translation('ម៉ោង','Business')

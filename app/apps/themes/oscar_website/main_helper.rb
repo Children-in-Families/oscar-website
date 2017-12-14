@@ -111,11 +111,6 @@ module Themes::OscarWebsite::MainHelper
   def oscar_add_fields_to_contact_us_page
     page = current_site.the_post_type('page').the_post('contact-us')
 
-    if page.get_field_groups.where(slug: 'contact-get-in-touch-fields').blank?
-      contact_field_group = page.add_field_group({ name: 'Get In Touch', slug: 'contact-get-in-touch-fields' })
-      contact_field_group.add_field({ name: 'Description', slug: 'contact-get-in-touch-decription' }, { field_key: 'text_area', required: true, default_value: 'Please Contact Us!!!'})
-    end
-
     if page.get_field_groups.where(slug: 'contact-business-hour-fields').blank?
       contact_field_group = page.add_field_group({ name: 'Business Hours', slug: 'contact-business-hour-fields' })
       contact_field_group.add_field({ name: 'Business Hour', slug: 'contact-business-hour' }, { field_key: 'text_box', required: true, default_value: 'Monday - Friday - 9am to 5pm', multiple: true})
@@ -124,6 +119,13 @@ module Themes::OscarWebsite::MainHelper
     if page.get_field_groups.where(slug: 'contact-map-fields').blank?
       contact_field_group = page.add_field_group({ name: 'Map', slug: 'contact-map-fields' })
       contact_field_group.add_field({ name: 'Map URL', slug: 'contact-map' }, { field_key: 'url', required: true })
+    end
+
+    if page.get_field_groups.where(slug: 'contact-us-fields').blank?
+      contact_field_group = page.add_field_group({ name: 'Contact Us', slug: 'contact-us-fields' })
+      contact_field_group.add_field({ name: 'Address', slug: 'contact-address' }, { field_key: 'text_box', require: true, default_value: 'Phnom Penh' })
+      contact_field_group.add_field({ name: 'Phone', slug: 'contact-phone' }, { field_key: 'phone', require: true, default_value: "010123456" })
+      contact_field_group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', require: true, default_value: "someone@example.come" })
     end
   end
 
@@ -510,13 +512,6 @@ module Themes::OscarWebsite::MainHelper
       group.add_field({ name: 'Facebook Url', slug: 'facebook-url' }, { field_key: 'url', require: false })
       group.add_field({ name: 'Twitter Url', slug: 'twitter-url' }, { field_key: 'url' })
       group.add_field({ name: 'Linkedin Url', slug: 'linkedin-url' }, { field_key: 'url' })
-    end
-
-    if theme.get_field_groups.where(slug: 'contact-us').blank?
-      group = theme.add_field_group({name: 'Contact Us', slug: 'contact-us'})
-      group.add_field({ name: 'Address', slug: 'contact-address' }, { field_key: 'text_box', require: true })
-      group.add_field({ name: 'Phone', slug: 'contact-phone' }, { field_key: 'phone', require: true })
-      group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', require: true })
     end
   end
 
