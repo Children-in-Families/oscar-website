@@ -15,9 +15,9 @@
                 .testimonial.testimonial-style-2.testimonial-with-quotes.mb-0
                   .testimonial-author
                     = image_tag testimonial.the_field('testimonial-image'), class: 'img-fluid rounded-circle'
-                    %blockquote
-                      %p.paddingTestimonial
-                        = testimonial.the_field('what-testimonial-say')
+                    %blockquote.paddingTestimonial
+                      %p
+                        = raw testimonial.the_content
                     .testimonial-author
                       %p
                         %strong
