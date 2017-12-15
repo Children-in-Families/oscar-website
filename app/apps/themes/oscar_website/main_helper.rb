@@ -392,7 +392,7 @@ module Themes::OscarWebsite::MainHelper
 
   def oscar_add_home_feature_post_type
     if current_site.the_post_type('home-feature').blank?
-      feature = current_site.post_types.create(name: 'Home Feature', slug: 'home-feature')
+      feature = current_site.post_types.create(name: 'Features', slug: 'home-feature')
       options = {
         has_category: false,
         has_content: true,
@@ -407,7 +407,6 @@ module Themes::OscarWebsite::MainHelper
       feature.set_meta('_default', options)
       if feature.get_field_groups.where(slug: 'home-feature-fields').blank?
         feature_field_group = feature.add_field_group({ name: 'Home Feature Fields', slug: 'home-feature-fields' } )
-
         feature_field_group.add_field({ name: 'Feature Icon', slug: 'feature-icon' }, { field_key: 'image', required: true } )
         feature_field_group.add_field({ name: 'Feature Url', slug: 'Feature-url' }, { field_key: 'url', required: true } )
       end
