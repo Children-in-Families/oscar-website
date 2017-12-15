@@ -62,16 +62,19 @@ module Themes::OscarWebsite::MainHelper
 
     if page.get_field_groups.where(slug: 'home-slider-fields').blank?
       home_field_group = page.add_field_group({ name: 'Slider Fields', slug: 'home-slider-fields' })
-      home_field_group.add_field({ name: 'Image Slider', slug: 'image-slider' }, { field_key: 'image', require: true })
-      home_field_group.add_field({ name: 'Video Slider', slug: 'video-slider' }, { field_key: 'video', require: true })
-      home_field_group.add_field({ name: 'First Text Load', slug: 'first-text-load' }, { field_key: 'text_box', require: true, default_value: 'Title' })
-      home_field_group.add_field({ name: 'Second Text Load', slug: 'second-text-load' }, { field_key: 'text_box', require: true, default_value: 'Oscar Website' })
-      home_field_group.add_field({ name: 'Third Text Load', slug: 'third-text-load' }, { field_key: 'text_box', require: true, default_value: 'Welcome' })
+
+      home_field_group.add_field({ name: 'Image Slider', slug: 'image-slider' }, { field_key: 'image', required: true })
+      home_field_group.add_field({ name: 'Video Slider', slug: 'video-slider' }, { field_key: 'video', required: true })
+      home_field_group.add_field({ name: 'First Text Load', slug: 'first-text-load' }, { field_key: 'text_box', required: true, default_value: 'Title' })
+      home_field_group.add_field({ name: 'Second Text Load', slug: 'second-text-load' }, { field_key: 'text_box', required: true, default_value: 'Oscar Website' })
+      home_field_group.add_field({ name: 'Third Text Load', slug: 'third-text-load' }, { field_key: 'text_box', required: true, default_value: 'Welcome' })
     end
 
     if page.get_field_groups.where(slug: 'home-introduction-fields').blank?
       home_field_group = page.add_field_group({ name: 'Introduction Fields', slug: 'home-introduction-fields' })
-      home_field_group.add_field({ name: 'Introduction Sentence', slug: 'introdution-sentence' }, { field_key: 'text_box', required: true, default_value: 'The fastest way to grow your business with the leader in'})
+
+      home_field_group.add_field({ name: 'Introduction Sentence', slug: 'introdution-sentence' },{ field_key: 'text_box', required: true, default_value: 'The fastest way to grow your business with the leader in'})
+
       home_field_group.add_field({ name: 'Big Word', slug: 'big-word' }, { field_key: 'text_box', required: true, default_value: 'Technology'})
       home_field_group.add_field({ name: 'Option And Feature', slug: 'option-and-feature' }, { field_key: 'text_box', required: true, default_value: 'Check out our options and features included.'})
       home_field_group.add_field({ name: 'Get Start Now', slug: 'get-start-now' }, { field_key: 'url', required: true, default_value: 'https://www.google.com.kh/'})
@@ -123,9 +126,9 @@ module Themes::OscarWebsite::MainHelper
 
     if page.get_field_groups.where(slug: 'contact-us-fields').blank?
       contact_field_group = page.add_field_group({ name: 'Contact Us', slug: 'contact-us-fields' })
-      contact_field_group.add_field({ name: 'Address', slug: 'contact-address' }, { field_key: 'text_box', require: true, default_value: 'Phnom Penh' })
-      contact_field_group.add_field({ name: 'Phone', slug: 'contact-phone' }, { field_key: 'phone', require: true, default_value: "010123456" })
-      contact_field_group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', require: true, default_value: "someone@example.come" })
+      contact_field_group.add_field({ name: 'Address', slug: 'contact-address' }, { field_key: 'text_box', required: true, default_value: 'Phnom Penh' })
+      contact_field_group.add_field({ name: 'Phone', slug: 'contact-phone' }, { field_key: 'phone', required: true, default_value: "010123456" })
+      contact_field_group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', required: true, default_value: "someone@example.come" })
     end
   end
 
@@ -492,7 +495,7 @@ module Themes::OscarWebsite::MainHelper
   def oscar_add_customize_theme_setting(theme)
     if theme.get_field_groups.where(slug: 'social-media').blank?
       group = theme.add_field_group({name: 'Social Media', slug: 'social-media'})
-      group.add_field({ name: 'Facebook Url', slug: 'facebook-url' }, { field_key: 'url', require: false })
+      group.add_field({ name: 'Facebook Url', slug: 'facebook-url' }, { field_key: 'url', required: false })
       group.add_field({ name: 'Twitter Url', slug: 'twitter-url' }, { field_key: 'url' })
       group.add_field({ name: 'Linkedin Url', slug: 'linkedin-url' }, { field_key: 'url' })
     end
