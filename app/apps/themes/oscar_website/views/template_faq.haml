@@ -16,12 +16,12 @@
               - if index == 0
                 %section.toggle.active
                   %label
-                    = faq.the_field('faq-question')
+                    = faq.the_title
                   %p
-                    = faq.the_field('faq-answer')
+                    = faq.the_content
               - else
                 %section.toggle
                   %label
-                    = faq.the_field('faq-question')
+                    = faq.the_title
                   %p{style: "height: 0"}
-                    = faq.the_field('faq-answer')
+                    = faq.the_content
