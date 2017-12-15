@@ -44,7 +44,7 @@
                 %strong
                   = oscar_translation('អ៊ីមែល:','Email:')
                 %a{href: '#!'}
-                  = @post.the_field('contact-email')
+                  = current_site.the_post('contact-us').the_field('contact-email')
                 / = link_to current_site.the_post('contact-us').the_field('contact-email'), target: "_blank" do
                 /   = current_site.the_post('contact-us').the_field('contact-email')
       .col-lg-2
