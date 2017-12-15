@@ -21,7 +21,7 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_home_feature_post_type
     oscar_add_home_customer_image_post_type
     oscar_add_home_latest_blog_post_post_type
-    oscar_add_what_clients_say_post_type
+    oscar_add_testimonials_post_type
     # oscar_add_latest_tweets_post_type
     oscar_add_about_score_post_type
     oscar_add_about_who_we_are_progress_post_type
@@ -466,9 +466,9 @@ module Themes::OscarWebsite::MainHelper
     end
   end
 
-  def oscar_add_what_clients_say_post_type
-    if current_site.the_post_type('home-what-clients-say').blank?
-      post = current_site.post_types.create(name: 'What Clients Say', slug: 'home-what-clients-say')
+  def oscar_add_testimonials_post_type
+    if current_site.the_post_type('home-testimonials').blank?
+      post = current_site.post_types.create(name: 'Testimonials', slug: 'home-testimonials')
       options = {
         has_category: false,
         has_content: true,
@@ -481,12 +481,11 @@ module Themes::OscarWebsite::MainHelper
         contents_route_format: 'post_of_posttype'
       }
       post.set_meta('_default', options)
-      if post.get_field_groups.where(slug: 'home-what-clients-say-fields').blank?
-        post_field_group = post.add_field_group({ name: 'Home What Clients Say Fields', slug: 'home-what-clients-say-fields' } )
-        post_field_group.add_field({ name: 'What Client Say', slug: 'what-client-say' }, { field_key: 'text_area', required: true } )
-        post_field_group.add_field({ name: 'Client Image', slug: 'client-image' }, { field_key: 'image', required: true } )
-        post_field_group.add_field({ name: 'Client Name', slug: 'client-name' }, { field_key: 'text_box', required: true } )
-        post_field_group.add_field({ name: 'Client Position', slug: 'client-position' }, { field_key: 'text_box', required: true } )
+      if post.get_field_groups.where(slug: 'home-testimonials-fields').blank?
+        post_field_group = post.add_field_group({ name: 'Testimonial Fields', slug: 'home-testimonials-fields' } )
+        post_field_group.add_field({ name: 'Client Image', slug: 'testimonial-image' }, { field_key: 'image', required: true } )
+        post_field_group.add_field({ name: 'Client Name', slug: 'testimonial-name' }, { field_key: 'text_box', required: true } )
+        post_field_group.add_field({ name: 'Client Position', slug: 'testimonial-position' }, { field_key: 'text_box', required: true } )
       end
     end
   end
