@@ -222,12 +222,6 @@ module Themes::OscarWebsite::MainHelper
         contents_route_format: 'post_of_posttype'
       }
       faq.set_meta('_default', options)
-      if faq.get_field_groups.where(slug: 'faq-fields').blank?
-        faq_field_group = faq.add_field_group({ name: 'FAQ Fields', slug: 'faq-fields' } )
-
-        faq_field_group.add_field({ name: 'Question', slug: 'faq-question' }, { field_key: 'text_box', required: true } )
-        faq_field_group.add_field({ name: 'Answer', slug: 'faq-answer' }, { field_key: 'text_area', required: true } )
-      end
     end
   end
 
