@@ -18,10 +18,10 @@
                   %label
                     = faq.the_title
                   %p
-                    = faq.the_content
+                    = raw faq.the_content
               - else
                 %section.toggle
                   %label
                     = faq.the_title
                   %p{style: "height: 0"}
-                    = faq.the_content
+                    = raw faq.the_content
