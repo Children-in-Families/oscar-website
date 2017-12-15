@@ -17,11 +17,12 @@
                 %section.toggle.active
                   %label
                     = faq.the_title
-                  %p
-                    = raw faq.the_content
+                  = raw faq.the_content
               - else
                 %section.toggle
                   %label
                     = faq.the_title
                   %p{style: "height: 0"}
-                    = raw faq.the_content
+                    = raw strip_tags(faq.the_content)
+
+
