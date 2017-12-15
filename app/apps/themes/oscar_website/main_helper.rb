@@ -12,21 +12,22 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_customize_theme_setting(theme)
     oscar_add_default_pages
     oscar_add_fields_to_home_page
+    oscar_add_fields_to_about_page
+    oscar_add_fields_to_service_page
+    oscar_add_fields_to_testimonial_page
+    oscar_add_fields_to_pricing_page
+    oscar_add_fields_to_contact_us_page
+    oscar_add_fields_to_blog_page
     oscar_add_home_feature_post_type
     oscar_add_home_customer_image_post_type
     oscar_add_home_latest_blog_post_post_type
     oscar_add_what_clients_say_post_type
-    oscar_add_latest_tweets_post_type
-    oscar_add_fields_to_about_page
+    # oscar_add_latest_tweets_post_type
     oscar_add_about_score_post_type
     oscar_add_about_who_we_are_progress_post_type
     oscar_add_about_us_post_type
-    oscar_add_fields_to_service_page
     oscar_add_service_post_type
-    oscar_add_fields_to_testimonial_page
-    oscar_add_fields_to_pricing_page
     oscar_add_pricing_post_type
-    oscar_add_fields_to_contact_us_page
     oscar_add_faq_post_type
   end
 
@@ -140,6 +141,15 @@ module Themes::OscarWebsite::MainHelper
     if page.get_field_groups.where(slug: 'pricing-plan-fields').blank?
       pricing_field_group = page.add_field_group({ name: 'Prcing Plan Header Fields', slug: 'pricing-plan-header-fields' })
       pricing_field_group.add_field({ name: 'Introduction Sentence', slug: 'pricing-plan-introdution-sentence' }, { field_key: 'text_area', required: true, default_value: 'Using the "Most Popular" css class.'})
+    end
+  end
+
+  def oscar_add_fields_to_blog_page
+    page = current_site.the_post_type('page').the_post('blog')
+
+    if page.get_field_groups.where(slug: 'blog-fields').blank?
+      pricing_field_group = page.add_field_group({ name: 'Show Blog Fields', slug: 'show-blog-fields' })
+      pricing_field_group.add_field({ name: 'Show', slug: 'blog-show' }, { field_key: 'checkbox'})
     end
   end
 
@@ -433,7 +443,7 @@ module Themes::OscarWebsite::MainHelper
 
   def oscar_add_home_latest_blog_post_post_type
     if current_site.the_post_type('home-latest-blog-post').blank?
-      post = current_site.post_types.create(name: 'Home Latest Blog Post', slug: 'home-latest-blog-post')
+      post = current_site.post_types.create(name: 'Blog Post', slug: 'home-latest-blog-post')
       options = {
         has_category: false,
         has_content: true,
@@ -447,13 +457,11 @@ module Themes::OscarWebsite::MainHelper
       }
       post.set_meta('_default', options)
       if post.get_field_groups.where(slug: 'home-latest-blog-post-fields').blank?
-        post_field_group = post.add_field_group({ name: 'Home Latest Blog Post Fields', slug: 'home-latest-blog-post-fields' } )
+        post_field_group = post.add_field_group({ name: 'Blog Post Fields', slug: 'home-latest-blog-post-fields' } )
         post_field_group.add_field({ name: 'Image', slug: 'post-image' }, { field_key: 'image', required: true, multiple: true } )
         post_field_group.add_field({ name: 'Date', slug: 'date' }, { field_key: 'date', required: true } )
-        post_field_group.add_field({ name: 'Post Title', slug: 'post-title' }, { field_key: 'text_box', required: true } )
         post_field_group.add_field({ name: 'Author', slug: 'post-author' }, { field_key: 'text_box', required: true } )
         post_field_group.add_field({ name: 'Tag', slug: 'post-tag' }, { field_key: 'text_box', required: true, multiple: true } )
-        post_field_group.add_field({ name: 'Post Content', slug: 'post-content' }, { field_key: 'text_area', required: true } )
       end
     end
   end
