@@ -24,7 +24,7 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_testimonials_post_type
     # oscar_add_latest_tweets_post_type
     oscar_add_about_score_post_type
-    oscar_add_about_who_we_are_progress_post_type
+    oscar_add_about_progress_post_type
     oscar_add_about_us_post_type
     oscar_add_service_post_type
     oscar_add_pricing_post_type
@@ -167,9 +167,7 @@ module Themes::OscarWebsite::MainHelper
 
     if page.get_field_groups.where(slug: 'about-content-fields').blank?
       about_field_group = page.add_field_group({ name: 'About Content Fields', slug: 'about-content-fields' })
-      about_field_group.add_field({ name: 'Title', slug: 'about-title' }, { field_key: 'text_box', required: true, default_value: 'The New Way to'})
       about_field_group.add_field({ name: 'Slide Words', slug: 'about-slider' }, { field_key: 'text_box', required: true, default_value: 'Technology', multiple: true})
-      about_field_group.add_field({ name: 'Content', slug: 'about-content-text' }, { field_key: 'text_area', required: true, default_value: 'About Content'})
     end
 
     if page.get_field_groups.where(slug: 'about-who-we-are-fields').blank?
@@ -318,7 +316,6 @@ module Themes::OscarWebsite::MainHelper
         about_field_group = about.add_field_group({ name: 'About Us Fields', slug: 'about-us-fields' } )
 
         about_field_group.add_field({ name: 'Image', slug: 'about-us-image' }, { field_key: 'image', required: true, multiple: true } )
-        about_field_group.add_field({ name: 'Name', slug: 'about-us-name' }, { field_key: 'text_box', required: true } )
         about_field_group.add_field({ name: 'Position', slug: 'about-us-position' }, { field_key: 'text_box', required: true } )
         about_field_group.add_field({ name: 'Facebook', slug: 'about-us-facebook' }, { field_key: 'url', required: true } )
         about_field_group.add_field({ name: 'Twitter', slug: 'about-us-twitter' }, { field_key: 'url', required: true } )
@@ -371,9 +368,9 @@ module Themes::OscarWebsite::MainHelper
     end
   end
 
-  def oscar_add_about_who_we_are_progress_post_type
+  def oscar_add_about_progress_post_type
     if current_site.the_post_type('about-who-we-are-progress').blank?
-      about = current_site.post_types.create(name: 'About Who We Are Progress', slug: 'about-who-we-are-progress')
+      about = current_site.post_types.create(name: 'About Progress', slug: 'about-who-we-are-progress')
       options = {
         has_category: false,
         has_content: true,
@@ -388,8 +385,6 @@ module Themes::OscarWebsite::MainHelper
       about.set_meta('_default', options)
       if about.get_field_groups.where(slug: 'about-who-we-are-progress-fields').blank?
         about_field_group = about.add_field_group({ name: 'About Who We Are Progress Fields', slug: 'about-who-we-are-progress-fields' } )
-
-        about_field_group.add_field({ name: 'Title', slug: 'about-who-we-are-progress-title' }, { field_key: 'text_box', required: true } )
         about_field_group.add_field({ name: 'Percent', slug: 'about-who-we-are-progress-percent' }, { field_key: 'numeric', required: true } )
       end
     end
