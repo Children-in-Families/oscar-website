@@ -43,8 +43,10 @@
                 %i.fa.fa-envelope
                 %strong
                   = oscar_translation('អ៊ីមែល:','Email:')
-                = link_to current_site.the_post('contact-us').the_field('contact-email'), target: "_blank" do
-                  = current_site.the_post('contact-us').the_field('contact-email')
+                %a{href: '#!'}
+                  = @post.the_field('contact-email')
+                / = link_to current_site.the_post('contact-us').the_field('contact-email'), target: "_blank" do
+                /   = current_site.the_post('contact-us').the_field('contact-email')
       .col-lg-2
         %h4
           = oscar_translation('តាម​ពួក​យើង','Follow Us')

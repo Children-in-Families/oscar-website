@@ -59,8 +59,10 @@
           %i.fa.fa-envelope
           %strong
             = oscar_translation('អ៊ីមែល:','Email:')
-          = link_to @post.the_field('contact-email'), target: "_blank" do
-            = @post.the_field('contact-email')
+            %a{href: '#!'}
+              = @post.the_field('contact-email')
+          / = link_to @post.the_field('contact-email'), target: "_blank" do
+          /   = @post.the_field('contact-email')
       %hr/
       %h4.heading-primary
         = oscar_translation('ម៉ោង','Business')

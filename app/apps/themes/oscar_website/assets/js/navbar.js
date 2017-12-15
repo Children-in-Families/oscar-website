@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('a[href="/about"]').addClass('current-link');
   }
 
-  if (window.location.pathname.split('/')[1] == 'home-latest-blog-post') {
+  if (window.location.pathname.split('/')[1] == 'blog-post') {
     $('a[href="/blog"]').addClass('current-link');
   }
 });
