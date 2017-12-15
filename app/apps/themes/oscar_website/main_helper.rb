@@ -133,11 +133,6 @@ module Themes::OscarWebsite::MainHelper
   def oscar_add_fields_to_pricing_page
     page = current_site.the_post_type('page').the_post('pricing')
 
-    if page.get_field_groups.where(slug: 'pricing-fields').blank?
-      pricing_field_group = page.add_field_group({ name: 'Prcing Header Fields', slug: 'pricing-header-fields' })
-      pricing_field_group.add_field({ name: 'Introduction Sentence', slug: 'pricing-introdution-sentence' }, { field_key: 'text_area', required: true, default_value: 'You can configure your pricing table using the grid system in order to make it responsive for small devices.'})
-    end
-
     if page.get_field_groups.where(slug: 'pricing-plan-fields').blank?
       pricing_field_group = page.add_field_group({ name: 'Prcing Plan Header Fields', slug: 'pricing-plan-header-fields' })
       pricing_field_group.add_field({ name: 'Introduction Sentence', slug: 'pricing-plan-introdution-sentence' }, { field_key: 'text_area', required: true, default_value: 'Using the "Most Popular" css class.'})
@@ -263,7 +258,6 @@ module Themes::OscarWebsite::MainHelper
       if pricing.get_field_groups.where(slug: 'pricing-fields').blank?
         pricing_field_group = pricing.add_field_group({ name: 'Pricing Fields', slug: 'pricing-fields' } )
 
-        pricing_field_group.add_field({ name: 'Level', slug: 'pricing-level' }, { field_key: 'text_box', required: true } )
         pricing_field_group.add_field({ name: 'Price', slug: 'pricing-price' }, { field_key: 'numeric', required: true } )
         pricing_field_group.add_field({ name: 'Item', slug: 'pricing-item' }, { field_key: 'text_box', required: true, multiple: true } )
         pricing_field_group.add_field({ name: 'Popular', slug: 'pricing-popular' }, { field_key: 'checkbox'} )
