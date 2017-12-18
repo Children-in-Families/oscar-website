@@ -1,6 +1,6 @@
 /* navbar */
 $primary_color: #009999;
-$Secondary_color: #FF9900;
+$secondary_color: #FF9900;
 $Tertiary_color: #336666;
 
 .header-logo {
@@ -132,7 +132,7 @@ header#header .header-nav .header-nav-main .nav-pills > li > a {
 }
 
 header#header .header-nav .header-nav-main .nav-pills > li > a.current-link {
- color: $Secondary_color;
+ color: $secondary_color;
 }
 
 header#header .header-nav .header-nav-main .nav-pills > li > a:hover {
@@ -152,6 +152,23 @@ ul.header-social-icons.social-icons.d-none.d-sm-block{
         color: #fff !important;
       }
     }
+  }
+}
+
+section.page-header{
+  background-color: $primary_color;
+  border-top: 5px solid $secondary_color;
+  h1{
+    border-bottom-color: $secondary_color;
+  }
+  a{
+    color: $secondary_color;
+  }
+  li.active::before{
+    color: #ddd;
+  }
+  .breadcrumb > .active {
+    color: #ddd;
   }
 }
 
