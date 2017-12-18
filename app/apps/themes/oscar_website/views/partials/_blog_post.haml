@@ -23,7 +23,7 @@
                 = link_to post_decorate.the_title, post_decorate.the_url
               %p
                 - blog_content =  post_decorate.the_content
-                = (raw blog_content).truncate(150, omission: '[...]')
+                = raw (blog_content).truncate(150, omission: '[...]')
               .post-meta
                 %span
                   %i.fa.fa-user

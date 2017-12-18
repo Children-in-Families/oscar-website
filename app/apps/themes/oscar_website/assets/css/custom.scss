@@ -211,8 +211,20 @@ section.page-header{
   border-color: $secondary_color !important;
 }
 
+.owl-dot.active span{
+  background-color: $primary_color !important;
+}
+.owl-dot:hover{
+  span{
+    background: $primary_color !important;
+  }
+}
+
 .inputContact{
   font-size: 1.5rem !important;
+}
+.read-more{
+  color:  $primary_color;
 }
 
 .learn-more{
