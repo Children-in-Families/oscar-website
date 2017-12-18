@@ -2,10 +2,10 @@
   .row
     .col-lg-12.text-center
       %h2.word-rotator-title.mb-4
-        = @post.the_field('about-title')
+        = @post.the_title
         %strong.inverted.inverted-primary
           %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
             %span#js-rotating-about
               = @post.the_fields('about-slider').join(',')
       %p.welcomeContent
-        = @post.the_field('about-content-text')
+        = raw @post.the_content
