@@ -1,4 +1,7 @@
 /* navbar */
+$primary_color: #009999;
+$Secondary_color: #FF9900;
+$Tertiary_color: #336666;
 
 .header-logo {
   max-width: 200px;
@@ -124,18 +127,33 @@
 .headerMarginTopFAQ{
   margin-top: 120px;
 }
+header#header .header-nav .header-nav-main .nav-pills > li > a {
+ color: $primary_color;
+}
 
 header#header .header-nav .header-nav-main .nav-pills > li > a.current-link {
- color: #3787c7;
+ color: $Secondary_color;
 }
 
 header#header .header-nav .header-nav-main .nav-pills > li > a:hover {
  color: white;
+ background: $primary_color;
 }
 
-// #header.header-semi-transparent .header-body:before, html #header.header-semi-transparent-light .header-body:before {
-//   background: #fff !important;
-// }
+#header.header-semi-transparent .header-body:before, html #header.header-semi-transparent-light .header-body:before {
+  background: #fff !important;
+}
+
+ul.header-social-icons.social-icons.d-none.d-sm-block{
+  li{
+    a{
+      color: $primary_color !important;
+      &:hover{
+        color: #fff !important;
+      }
+    }
+  }
+}
 
 .flag-lang{
   margin-left: 20px;
