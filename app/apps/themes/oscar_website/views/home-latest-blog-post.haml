@@ -21,23 +21,23 @@
                 %span.month
                   = month
               .post-content
-                %h2.colorPrimary
+                %h2.color-primary
                   = @post.the_title
                 .post-meta
                   %span
                     %i.fa.fa-user
                     By
-                    %span.colorPrimary
+                    %span.color-primary
                       = @post.the_field('post-author')
                   %span
                     %i.fa.fa-tag
                     - @post.the_fields('post-tag').each do |tag|
-                      %span.colorPrimary
+                      %span.color-primary
                         = tag
                         = ',' unless @post.the_fields('post-tag').last == tag
                 = raw @post.the_content
                 .post-block.post-share
-                  %h3.heading-primary
+                  %h3.color-primary
                     %i.fa.fa-share>
                     Share this post
                   / AddThis Button BEGIN

@@ -33,14 +33,14 @@
           .form-group.col
             %input#sendMessage.btn.btn-primary.btn-lg{"data-loading-text" => "Loading...", :type => "submit", :value => "Send Message"}/
     .col-lg-6
-      %h4.heading-primary.mt-4
+      %h4.mt-4.color-primary
         = oscar_translation('ទំនាក់ទំនង','Get in')
         %strong
           = oscar_translation('ពួក​យើង','Touch')
       %p
         = raw @post.the_content
       %hr/
-      %h4.heading-primary
+      %h4.color-primary
         = oscar_translation('','The')
         %strong
           = oscar_translation('ការិយាល័យ','Office')
@@ -59,12 +59,12 @@
           %i.fa.fa-envelope
           %strong
             = oscar_translation('អ៊ីមែល:','Email:')
-            %a{href: '#!'}
+            %a.color-primary{href: '#!'}
               = @post.the_field('contact-email')
           / = link_to @post.the_field('contact-email'), target: "_blank" do
           /   = @post.the_field('contact-email')
       %hr/
-      %h4.heading-primary
+      %h4.color-primary
         = oscar_translation('ម៉ោង','Business')
         %strong
           = oscar_translation('ធ្វើការ','Hours')
