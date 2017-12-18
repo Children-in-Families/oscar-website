@@ -172,6 +172,14 @@ section.page-header{
   }
 }
 
+.home-intro{
+  background-color: $primary_color;
+}
+
+.home-intro p em{
+  color: $secondary_color;
+}
+
 .flag-lang{
   margin-left: 20px;
   a {
@@ -199,10 +207,93 @@ section.page-header{
   font-size: 18px !important;
   line-height: 1.3333333;
   border-radius: 6px;
+  background-color: $secondary_color !important;
 }
 
 .inputContact{
   font-size: 1.5rem !important;
+}
+
+.learn-more{
+  color: $secondary_color;
+}
+
+.home-intro .get-started a:not(.btn){
+  color: $secondary_color !important;
+}
+
+.inverted{
+  background-color: $primary_color;
+}
+
+.process-image{
+  strong{
+    color: $primary_color;
+  }
+}
+
+.our-work{
+  color: $primary_color !important;
+}
+
+.feature-box-info{
+  h4{
+    a{
+      color: $primary_color !important;
+    }
+  }
+}
+
+
+#js-rotating-customer{
+  color: #ddd;
+}
+
+.heading-primary.tall.welcomeContent{
+  color: $primary_color !important;
+}
+
+.date{
+  span.day{
+    color: $primary_color !important;
+  }
+  span.month{
+    background-color: $primary_color !important;
+  }
+}
+h4.heading-primary{
+  a{
+    color: $primary_color !important;
+  }
+}
+#blog, #what{
+  color: $primary_color !important;
+}
+
+.testimonial.testimonial-primary{
+  blockquote{
+    background-color: $primary_color !important;
+  }
+  .testimonial-arrow-down{
+    border-top-color: $primary_color !important;
+  }
+}
+
+#footer .footer-ribbon{
+  background: $primary_color;
+  &::before{
+    border-right-color: $primary_color;
+    border-left-color: $primary_color;
+  }
+}
+
+ul.social-icons{
+  li > a > i{
+    color: $Tertiary_color;
+  }
+  li > a:hover > i{
+    color: #fff;
+  }
 }
 
 #sendMessage{
