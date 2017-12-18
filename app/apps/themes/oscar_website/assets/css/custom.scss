@@ -208,6 +208,7 @@ section.page-header{
   line-height: 1.3333333;
   border-radius: 6px;
   background-color: $secondary_color !important;
+  border-color: $secondary_color !important;
 }
 
 .inputContact{
@@ -236,6 +237,10 @@ section.page-header{
   color: $primary_color !important;
 }
 
+#princing{
+  color: $primary_color;
+}
+
 .feature-box-info{
   h4{
     a{
@@ -252,6 +257,15 @@ section.page-header{
 
 .thumb-info-social-icons a{
   background-color: $primary_color;
+}
+
+.most-popular h3{
+  background-color: $primary_color !important;
+}
+
+.plan-ribbon{
+  background: $secondary_color !important;
+  color: #fff !important;
 }
 
 #who{
