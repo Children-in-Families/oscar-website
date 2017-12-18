@@ -20,11 +20,10 @@
                 = month
             .post-content
               %h2
-                = link_to post_decorate.the_field('post-title'), post_decorate.the_url
+                = link_to post_decorate.the_title, post_decorate.the_url
               %p
-                - blog_content = post_decorate.the_field('post-content')
-                = blog_content[0..149]
-                [...]
+                - blog_content =  post_decorate.the_content
+                = (raw blog_content).truncate(150, omission: '[...]')
               .post-meta
                 %span
                   %i.fa.fa-user

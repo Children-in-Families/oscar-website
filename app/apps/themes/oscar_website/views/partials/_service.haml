@@ -8,7 +8,7 @@
       %br
       .col-lg-10
         %p.welcomeContent
-          = @post.the_field('service-welcome-content')
+          = raw @post.the_content
       .col-lg-2
         %a.btn.btn-lg.btn-primary#butonContactUs{:href => "/contact-us"}
           = oscar_translation('ទាក់ទង​មក​ពួក​យើង!','Contact Us!')
@@ -21,16 +21,16 @@
               .box-content
                 %i.icon-featured.fa{class: "#{service.the_field('service-font-awesome-icon-name')}", style: 'font-size: 48px;'}
                 %h4.text-uppercase
-                  = service.the_field('service-title')
-                - description = service.the_field('service-description')
+                  = service.the_title
+                - description = service.the_content
                 .readLess{style: 'display: none'}
                   %p.longDescription
-                    = description
+                    = raw description
                   %a.lnk-primary.learn-more.readLessLink{:href => "javascript:void(0)"}
                     = oscar_translation('អានតិច','Read Less')
                 .readMore
                   %p.shortDescription
-                    = description[0..80]
+                    = raw description[0..80]
                     - if description.size > 80
                       %span ...
                   %a.lnk-primary.learn-more.readMoreLink{:href => "javascript:void(0)"}

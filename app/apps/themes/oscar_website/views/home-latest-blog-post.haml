@@ -12,16 +12,16 @@
                       .img-thumbnail.d-block
                         = image_tag image, class: 'img-fluid'
               .post-date
-                - tweetDate = @post.the_field('date').split('-')
-                - day = tweetDate[2]
-                - month = Date::MONTHNAMES[tweetDate[1].to_i][0..2]
+                - blogDate = @post.the_field('date').split('-')
+                - day = blogDate[2]
+                - month = Date::MONTHNAMES[blogDate[1].to_i][0..2]
                 %span.day
                   = day
                 %span.month
                   = month
               .post-content
                 %h2.colorPrimary
-                  = @post.the_field('post-title')
+                  = @post.the_title
                 .post-meta
                   %span
                     %i.fa.fa-user
@@ -34,7 +34,7 @@
                       %span.colorPrimary
                         = tag
                         = ',' unless @post.the_fields('post-tag').last == tag
-                = @post.the_field('post-content')
+                = raw @post.the_content
                 .post-block.post-share
                   %h3.heading-primary
                     %i.fa.fa-share>
