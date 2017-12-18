@@ -1,3 +1,4 @@
-.body.headerMarginTop
+.body.headerMarginTopBreadCrumb
+  = render 'partials/bread_crumb', locals: {menu: 'PRICING', sub_menu: 'Prcing'}
   .main{:role => "main"}
     = render 'partials/pricing'
