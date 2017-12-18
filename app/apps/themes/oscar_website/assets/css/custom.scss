@@ -319,7 +319,14 @@ section.section.section-primary.mb-0{
 .heading-primary.tall.welcomeContent{
   color: $primary_color !important;
 }
-
+.color-primary{
+  color: $primary_color !important;
+}
+ul.list.list-icons.list-icons-style-3.mt-4{
+  li > i{
+    background: $primary_color !important;
+  }
+}
 .date{
   span.day{
     color: $primary_color !important;
@@ -366,4 +373,5 @@ ul.social-icons{
 #sendMessage{
   font-size: 1.6rem !important;
   padding: 0.7rem 1.5rem !important;
+  background-color: $primary_color;
 }
