@@ -219,6 +219,23 @@ section.page-header{
     background: $primary_color !important;
   }
 }
+.box-content{
+  border-top-color: $primary_color !important;
+}
+
+.featured-box-primary h4 {
+  color: $primary_color !important;
+}
+
+.icon-featured{
+  background: $primary_color !important;
+}
+
+
+
+#butonContactUs{
+  background: $primary_color;
+}
 
 .inputContact{
   font-size: 1.5rem !important;
@@ -229,6 +246,9 @@ section.page-header{
 
 .learn-more{
   color: $secondary_color;
+  &:hover{
+    color: $secondary_color;
+  }
 }
 
 .home-intro .get-started a:not(.btn){
