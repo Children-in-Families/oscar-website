@@ -28,12 +28,12 @@
                 %span
                   %i.fa.fa-user
                   By
-                  %span.colorPrimary
+                  %span.color-primary
                     = post_decorate.the_field('post-author')
                 %span
                   %i.fa.fa-tag
                   - post_decorate.the_fields('post-tag').each do |tag|
-                    %span.colorPrimary
+                    %span.color-primary
                       = tag
                       = ',' unless post_decorate.the_fields('post-tag').last == tag
                 %span.d-block.d-sm-inline-block.float-sm-right.mt-3.mt-sm-0

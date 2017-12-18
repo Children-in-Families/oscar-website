@@ -31,6 +31,38 @@ $Tertiary_color: #336666;
   }
 }
 
+.post-date{
+  .day{
+    color: $primary_color !important;
+  }
+  .month{
+    background: $primary_color !important;
+  }
+}
+
+.post-content{
+  h2{
+    a{
+      color: $primary_color;
+    }
+  }
+}
+
+.post-meta{
+  span{
+    a{
+      background: $primary_color;
+      &:hover{
+        background: $primary_color;
+        text-decoration: none;
+      }
+      &:active{
+        background: $primary_color !important;
+      }
+    }
+  }
+}
+
 .pagination{
   span, em, a {
     padding: 5px 12px;
