@@ -244,9 +244,30 @@ section.page-header{
   }
 }
 
+.thumb-info-title{
+  .thumb-info-type{
+    background: $primary_color;
+  }
+}
+
+.thumb-info-social-icons a{
+  background-color: $primary_color;
+}
+
+#who{
+  color: $primary_color;
+}
 
 #js-rotating-customer{
   color: #ddd;
+}
+.inverted.inverted-primary{
+  background: $primary_color;
+}
+
+section.section.section-primary.mb-0{
+  background-color: $primary_color !important;
+  border-color: $primary_color !important;
 }
 
 .heading-primary.tall.welcomeContent{

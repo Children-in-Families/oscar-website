@@ -2,7 +2,7 @@
   .row.mt-5
     .col-lg-12
       %h2
-        %strong
+        %strong#who
           = oscar_translation('យើង','Who')
         = oscar_translation('ជា​នរណា','We Are')
       %p
@@ -28,7 +28,7 @@
               = image_tag us.the_field('about-us-image'), class: 'img-fluid about-me'
               %span.thumb-info-title
                 %span.thumb-info-inner
-                  = us.the_field('about-us-name')
+                  = us.the_title
                 %span.thumb-info-type
                   = us.the_field('about-us-position')
           %span.thumb-info-caption
