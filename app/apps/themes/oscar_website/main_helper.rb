@@ -14,7 +14,6 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_fields_to_home_page
     oscar_add_fields_to_about_page
     oscar_add_fields_to_testimonial_page
-    oscar_add_fields_to_pricing_page
     oscar_add_fields_to_contact_us_page
     oscar_add_fields_to_blog_page
     oscar_add_home_feature_post_type
@@ -129,15 +128,6 @@ module Themes::OscarWebsite::MainHelper
       contact_field_group.add_field({ name: 'Address', slug: 'contact-address' }, { field_key: 'text_box', required: true, default_value: 'Phnom Penh' })
       contact_field_group.add_field({ name: 'Phone', slug: 'contact-phone' }, { field_key: 'phone', required: true, default_value: "010123456" })
       contact_field_group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', required: true, default_value: "someone@example.come" })
-    end
-  end
-
-  def oscar_add_fields_to_pricing_page
-    page = current_site.the_post_type('page').the_post('pricing')
-
-    if page.get_field_groups.where(slug: 'pricing-plan-fields').blank?
-      pricing_field_group = page.add_field_group({ name: 'Prcing Plan Header Fields', slug: 'pricing-plan-header-fields' })
-      pricing_field_group.add_field({ name: 'Introduction Sentence', slug: 'pricing-plan-introdution-sentence' }, { field_key: 'text_area', required: true, default_value: 'Using the "Most Popular" css class.'})
     end
   end
 
