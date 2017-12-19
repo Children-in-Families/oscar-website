@@ -132,15 +132,6 @@ module Themes::OscarWebsite::MainHelper
     end
   end
 
-  def oscar_add_fields_to_pricing_page
-    page = current_site.the_post_type('page').the_post('pricing')
-
-    if page.get_field_groups.where(slug: 'pricing-plan-fields').blank?
-      pricing_field_group = page.add_field_group({ name: 'Prcing Plan Header Fields', slug: 'pricing-plan-header-fields' })
-      pricing_field_group.add_field({ name: 'Introduction Sentence', slug: 'pricing-plan-introdution-sentence' }, { field_key: 'text_area', required: true, default_value: 'Using the "Most Popular" css class.'})
-    end
-  end
-
   def oscar_add_fields_to_blog_page
     page = current_site.the_post_type('page').the_post('blog')
 
