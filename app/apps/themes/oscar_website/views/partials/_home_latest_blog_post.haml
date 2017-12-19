@@ -3,7 +3,7 @@
     .recent-posts.mb-5
       %h2
         Latest
-        %strong Blog
+        %strong#blog Blog
         Posts
       .owl-carousel.owl-theme.mb-0{"data-plugin-options" => "{'items': 1}"}
         - posts = current_site.the_post_type('home-latest-blog-post').the_posts.visible_frontend.decorate
@@ -28,7 +28,7 @@
                   = link_to post.the_title, post.the_field('post-url')
                 %p
                   - blog_content =  post.the_content
-                  = (raw blog_content).truncate(150)
+                  = raw (blog_content).truncate(150)
                   - if blog_content.size > 149
                     = link_to post.the_field('post-url'), class: 'read-more' do
                       read more
@@ -51,7 +51,7 @@
                     = link_to post.the_title, post.the_field('post-url')
                   %p
                     - blog_content =  post.the_content
-                    = (raw blog_content).truncate(150)
+                    = raw (blog_content).truncate(150)
                     - if blog_content.size > 149
                       = link_to post.the_field('post-url'), class: 'read-more' do
                         read more

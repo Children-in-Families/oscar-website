@@ -172,10 +172,17 @@ module Themes::OscarWebsite::MainHelper
       about_field_group.add_field({ name: 'Content', slug: 'about-who-we-are-content' }, { field_key: 'text_area', required: true, default_value: 'About Who We Are Content'})
     end
 
+    if page.get_field_groups.where(slug: 'about-testimonail-fields').blank?
+      about_field_group = page.add_field_group({ name: 'Show Testimonial', slug: 'about-testimonail-fields' })
+      about_field_group.add_field({ name: 'Show', slug: 'about-testimonail-show' }, { field_key: 'checkbox'})
+    end
+
     if page.get_field_groups.where(slug: 'about-footer-fields').blank?
       about_field_group = page.add_field_group({ name: 'About Footer', slug: 'about-footer-fields' })
-      about_field_group.add_field({ name: 'Main Sentence', slug: 'about-footer-main-sentence-content' }, { field_key: 'text_box', required: true, default_value: 'Oscar Website is awesome.'})
-      about_field_group.add_field({ name: 'Sub Sentence', slug: 'about-footer-sub-sentence-content' }, { field_key: 'text_box', required: true, default_value: 'Together work with Oscar.'})
+      about_field_group.add_field({ name: 'Main Sentence', slug: 'about-footer-main-sentence-content' }, { field_key: 'text_box'})
+      about_field_group.add_field({ name: 'Sub Sentence', slug: 'about-footer-sub-sentence-content' }, { field_key: 'text_box'})
+      about_field_group.add_field({ name: 'Button Text', slug: 'about-footer-button-text' }, { field_key: 'text_box'})
+      about_field_group.add_field({ name: 'Button URL', slug: 'about-footer-button-url' }, { field_key: 'url'})
     end
 
     if page.get_field_groups.where(slug: 'about-video-fields').blank?

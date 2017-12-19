@@ -1,8 +1,28 @@
-%section.call-to-action.call-to-action-default.with-button-arrow.content-align-center.call-to-action-in-footer
-  .container
-    .row
-      .call-to-action-content
-        %h3
-          = @post.the_field('about-footer-main-sentence-content')
-        %p.mb-0
-          = @post.the_field('about-footer-sub-sentence-content')
+- main_sentence = @post.the_field('about-footer-main-sentence-content')
+- sub_sentence = @post.the_field('about-footer-sub-sentence-content')
+- button_text = @post.the_field('about-footer-button-text')
+- button_url = @post.the_field('about-footer-button-url')
+- unless main_sentence == '' || sub_sentence == ''
+  - if button_text == '' || button_url == ''
+    %section.call-to-action.call-to-action-default.with-button-arrow.content-align-center.call-to-action-in-footer
+      .container
+        .row
+          .call-to-action-content
+            %h3
+              = main_sentence
+            %p.mb-0
+              = sub_sentence
+  - else
+    %section.call-to-action.call-to-action-default.with-button-arrow.content-align-center.call-to-action-in-footer
+      .container
+        .row
+          .col-md-9.col-lg-9
+            .call-to-action-content
+              %h3
+                = main_sentence
+              %p.mb-0
+                = sub_sentence
+          .col-md-3.col-lg-3
+            .call-to-action-btn
+              = link_to button_text, button_url, class: 'btn btn-lg buttonLg', target: 'blank'
+              %span.arrow.hlb.d-none.d-md-block{"data-appear-animation" => "rotateInUpLeft", :style => "top: -40px; left: 70%;"}

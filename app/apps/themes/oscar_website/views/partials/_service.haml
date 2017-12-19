@@ -26,13 +26,13 @@
                 .readLess{style: 'display: none'}
                   %p.longDescription
                     = raw description
-                  %a.lnk-primary.learn-more.readLessLink{:href => "javascript:void(0)"}
+                  %a.learn-more.readLessLink{:href => "javascript:void(0)"}
                     = oscar_translation('អានតិច','Read Less')
                 .readMore
                   %p.shortDescription
                     = raw description[0..80]
                     - if description.size > 80
                       %span ...
-                  %a.lnk-primary.learn-more.readMoreLink{:href => "javascript:void(0)"}
+                  %a.learn-more.readMoreLink{:href => "javascript:void(0)"}
                     = oscar_translation('អាន​បន្ថែម','Read More')
                     %i.fa.fa-angle-right

@@ -1,4 +1,7 @@
 /* navbar */
+$primary_color: #009999;
+$secondary_color: #FF9900;
+$Tertiary_color: #336666;
 
 .header-logo {
   max-width: 200px;
@@ -9,6 +12,9 @@
   .header-logo {
     max-width: 120px;
   }
+}
+a.btn.btn-lg.buttonLg{
+  color: #fff;
 }
 
 .shareFacebook{
@@ -24,6 +30,38 @@
     text-decoration: none;
     &:hover{
       color: #fff;
+    }
+  }
+}
+
+.post-date{
+  .day{
+    color: $primary_color !important;
+  }
+  .month{
+    background: $primary_color !important;
+  }
+}
+
+.post-content{
+  h2{
+    a{
+      color: $primary_color;
+    }
+  }
+}
+
+.post-meta{
+  span{
+    a{
+      background: $primary_color;
+      &:hover{
+        background: $primary_color;
+        text-decoration: none;
+      }
+      &:active{
+        background: $primary_color !important;
+      }
     }
   }
 }
@@ -113,6 +151,10 @@
   margin-top: 120px;
 }
 
+.headerMarginTopBreadCrumb {
+  margin-top: 90px;
+}
+
 .marginTopContact{
   margin-top: 90px;
 }
@@ -120,13 +162,57 @@
 .headerMarginTopFAQ{
   margin-top: 120px;
 }
+header#header .header-nav .header-nav-main .nav-pills > li > a {
+ color: $primary_color;
+}
 
 header#header .header-nav .header-nav-main .nav-pills > li > a.current-link {
- color: #3787c7;
+ color: $secondary_color;
 }
 
 header#header .header-nav .header-nav-main .nav-pills > li > a:hover {
  color: white;
+ background: $primary_color;
+}
+
+#header.header-semi-transparent .header-body:before, html #header.header-semi-transparent-light .header-body:before {
+  background: #fff !important;
+}
+
+ul.header-social-icons.social-icons.d-none.d-sm-block{
+  li{
+    a{
+      color: $primary_color !important;
+      &:hover{
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+section.page-header{
+  background-color: $primary_color;
+  border-top: 5px solid $secondary_color;
+  h1{
+    border-bottom-color: $secondary_color;
+  }
+  a{
+    color: $secondary_color;
+  }
+  li.active::before{
+    color: #ddd;
+  }
+  .breadcrumb > .active {
+    color: #ddd;
+  }
+}
+
+.home-intro{
+  background-color: $primary_color;
+}
+
+.home-intro p em{
+  color: $secondary_color;
 }
 
 .flag-lang{
@@ -156,13 +242,171 @@ header#header .header-nav .header-nav-main .nav-pills > li > a:hover {
   font-size: 18px !important;
   line-height: 1.3333333;
   border-radius: 6px;
+  background-color: $secondary_color !important;
+  border-color: $secondary_color !important;
+}
+
+.owl-dot.active span{
+  background-color: $primary_color !important;
+}
+.owl-dot:hover{
+  span{
+    background: $primary_color !important;
+  }
+}
+.box-content{
+  border-top-color: $primary_color !important;
+}
+
+.featured-box-primary h4 {
+  color: $primary_color !important;
+}
+
+.icon-featured{
+  background: $primary_color !important;
+}
+
+
+
+#butonContactUs{
+  background: $primary_color;
 }
 
 .inputContact{
   font-size: 1.5rem !important;
 }
+.read-more{
+  color:  $primary_color;
+}
+
+.learn-more{
+  color: $secondary_color;
+  &:hover{
+    color: $secondary_color;
+  }
+}
+
+.home-intro .get-started a:not(.btn){
+  color: $secondary_color !important;
+}
+
+.inverted{
+  background-color: $primary_color;
+}
+
+.process-image{
+  strong{
+    color: $primary_color;
+  }
+}
+
+.our-work{
+  color: $primary_color !important;
+}
+
+#princing{
+  color: $primary_color;
+}
+
+.feature-box-info{
+  h4{
+    a{
+      color: $primary_color !important;
+    }
+  }
+}
+
+.thumb-info-title{
+  .thumb-info-type{
+    background: $primary_color;
+  }
+}
+
+.thumb-info-social-icons a{
+  background-color: $primary_color;
+}
+
+.most-popular h3{
+  background-color: $primary_color !important;
+}
+
+.plan-ribbon{
+  background: $secondary_color !important;
+  color: #fff !important;
+}
+
+#who{
+  color: $primary_color;
+}
+
+#js-rotating-customer{
+  color: #ddd;
+}
+.inverted.inverted-primary{
+  background: $primary_color;
+}
+
+section.section.section-primary.mb-0{
+  background-color: $primary_color !important;
+  border-color: $primary_color !important;
+}
+
+.heading-primary.tall.welcomeContent{
+  color: $primary_color !important;
+}
+.color-primary{
+  color: $primary_color !important;
+}
+ul.list.list-icons.list-icons-style-3.mt-4{
+  li > i{
+    background: $primary_color !important;
+  }
+}
+.date{
+  span.day{
+    color: $primary_color !important;
+  }
+  span.month{
+    background-color: $primary_color !important;
+  }
+}
+h4.heading-primary{
+  a{
+    color: $primary_color !important;
+  }
+}
+#blog, #what{
+  color: $primary_color !important;
+}
+
+.testimonial.testimonial-primary{
+  blockquote{
+    background-color: $primary_color !important;
+  }
+  .testimonial-arrow-down{
+    border-top-color: $primary_color !important;
+  }
+}
+
+#footer .footer-ribbon{
+  background: $primary_color;
+  &::before{
+    border-right-color: $primary_color;
+    border-left-color: $primary_color;
+  }
+}
+
+ul.social-icons{
+  li > a > i{
+    color: $Tertiary_color;
+  }
+  li > a:hover > i{
+    color: #fff;
+  }
+}
 
 #sendMessage{
   font-size: 1.6rem !important;
   padding: 0.7rem 1.5rem !important;
+  background-color: $primary_color;
 }
