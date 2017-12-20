@@ -199,7 +199,7 @@ module Themes::OscarWebsite::MainHelper
       if service.get_field_groups.where(slug: 'service-score-fields').blank?
         service_field_group = service.add_field_group({ name: 'Service Fields', slug: 'service-fields' } )
 
-        service_field_group.add_field({ name: 'Font Awesome Icon Name', slug: 'service-font-awesome-icon-name' }, { field_key: 'text_box', required: true } )
+        service_field_group.add_field({ name: 'Font Awesome Icon Name', slug: 'service-font-awesome-icon-name' }, { field_key: 'text_box', translate: true, required: true } )
       end
     end
   end
