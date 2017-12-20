@@ -266,7 +266,7 @@ module Themes::OscarWebsite::MainHelper
         about_field_group = about.add_field_group({ name: 'About Score Fields', slug: 'about-score-fields' } )
 
         about_field_group.add_field({ name: 'Number', slug: 'about-score-number' }, { field_key: 'numeric', required: true } )
-        about_field_group.add_field({ name: 'Sign', slug: 'about-score-sign' }, { field_key: 'text_box', translate: true, required: false } )
+        about_field_group.add_field({ name: 'Sign', slug: 'about-score-sign' }, { field_key: 'text_box', required: false } )
         about_field_group.add_field({ name: 'Text', slug: 'about-score-text' }, { field_key: 'text_box', translate: true, required: true } )
       end
     end
