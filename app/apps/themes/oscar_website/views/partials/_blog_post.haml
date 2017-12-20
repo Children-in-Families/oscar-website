@@ -9,7 +9,7 @@
               .owl-carousel.owl-theme{"data-plugin-options" => "{'items':1}"}
                 - post_decorate.the_fields('post-image').each do |image|
                   .img-thumbnail.d-block
-                    = image_tag image, class: 'img-fluid img-blog'
+                    = image_tag image, class: 'img-fluid'
             .post-date
               - blog_date = post_decorate.the_field('date').split('-')
               - day = blog_date[2]
