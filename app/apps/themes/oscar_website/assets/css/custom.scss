@@ -14,6 +14,19 @@ $Tertiary_color: #336666;
   }
 }
 
+html .toggle-primary .toggle label {
+  color: $primary_color;
+  border-left-color: $primary_color;
+  border-right-color: $primary_color;
+}
+
+html .toggle-primary .toggle.active > label {
+  background-color: $primary_color;
+  border-color: $primary_color;
+  color: #ffffff;
+}
+
+
 a.btn.btn-lg.buttonLg{
   color: #fff;
 }
