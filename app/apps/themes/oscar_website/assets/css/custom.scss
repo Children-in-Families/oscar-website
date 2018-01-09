@@ -354,7 +354,7 @@ section.page-header{
 }
 
 #js-rotating-customer{
-  color: #ddd;
+  color: black;
 }
 .inverted.inverted-primary{
   background: $primary_color;
@@ -423,4 +423,17 @@ ul.social-icons{
   font-size: 1.6rem !important;
   padding: 0.7rem 1.5rem !important;
   background-color: $primary_color;
+}
+
+
+.owl-item .col{
+  display: none;
+}
+
+.owl-item.active .col{
+  display: initial !important;
+}
+
+#footer .footer-copyright {
+  padding: 10px 0 0px !important;
 }
