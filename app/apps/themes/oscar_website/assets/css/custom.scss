@@ -424,3 +424,12 @@ ul.social-icons{
   padding: 0.7rem 1.5rem !important;
   background-color: $primary_color;
 }
+
+
+.owl-item .col{
+  display: none;
+}
+
+.owl-item.active .col{
+  display: initial !important;
+}

@@ -247,23 +247,24 @@ window.theme.fn = {
 			}
 
 			// Auto Height Fixes
-			if (this.options.autoHeight) {
-				var itemsHeight = [];
+			// if (this.options.autoHeight) {
+			// 	// alert('hello')
+			// 	var itemsHeight = [];
 
-				$el.find('.owl-item').each(function(){
-					if( $(this).hasClass('active') ) {
-						itemsHeight.push( $(this).height() );
-					}
-				});
+			// 	$el.find('.owl-item').each(function(){
+			// 		if( $(this).hasClass('active') ) {
+			// 			itemsHeight.push( $(this).height() );
+			// 		}
+			// 	});
 
-				$(window).afterResize(function() {
-					$el.find('.owl-stage-outer').height( Math.max.apply(null, itemsHeight) );
-				});
+			// 	$(window).afterResize(function() {
+			// 		$el.find('.owl-stage-outer').height( Math.max.apply(null, itemsHeight) );
+			// 	});
 
-				$(window).on('load', function() {
-					$el.find('.owl-stage-outer').height( Math.max.apply(null, itemsHeight) );
-				});
-			}
+			// 	$(window).on('load', function() {
+			// 		$el.find('.owl-stage-outer').height( Math.max.apply(null, itemsHeight) );
+			// 	});
+			// }
 
 			// Initialize OwlCarousel
 			$el.owlCarousel(this.options).addClass('owl-carousel-init');
