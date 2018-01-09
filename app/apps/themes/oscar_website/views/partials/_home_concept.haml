@@ -8,7 +8,7 @@
             %span#js-rotating-home
               = @post.the_fields('concept-slide-word').join(',')
         = current_site.the_post('home').the_field('project-meaning')
-      %p.welcomeContent
+      %p.lead
         = current_site.the_post('home').the_field('concept-description')
 
 .home-concept.mt-5
