@@ -3,13 +3,16 @@
     .col
       %h1.word-rotator-title.mb-2
         = @post.the_title
+      = raw @post.the_content
   .row.mt-5
     - current_site.the_post_type('home-feature').the_posts.visible_frontend.decorate.each do |feature|
       .col-lg-4
-        .feature-box{style: "padding: 10px;"}
-          = image_tag feature.the_field('feature-icon'), size: "40x40"
-          .feature-box-info
-            %h4.heading-primary.mb-1
-              = link_to "#{feature.the_title}", feature.the_field("feature-url"), style: "text-decoration: none"
-            %p
-              = raw(feature.the_content)
+        = link_to feature.the_field("feature-url"), style: "text-decoration: none" do
+          .feature-box{style: "padding: 10px;"}
+            %span
+              %i{class: "fa Example of bath fa-bath", style: 'font-size: 28px;'}
+            .feature-box-info
+              %h4.mb-1
+                = feature.the_title
+              %p
+                = raw(feature.the_content)
