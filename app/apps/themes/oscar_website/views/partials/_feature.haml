@@ -3,6 +3,7 @@
     .col
       %h1.word-rotator-title.mb-2
         = @post.the_title
+      = raw @post.the_content
   .row.mt-5
     - current_site.the_post_type('home-feature').the_posts.visible_frontend.decorate.each do |feature|
       .col-lg-4

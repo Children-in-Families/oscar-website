@@ -135,8 +135,8 @@ module Themes::OscarWebsite::MainHelper
     page = current_site.the_post_type('page').the_post('blog')
 
     if page.get_field_groups.where(slug: 'blog-fields').blank?
-      pricing_field_group = page.add_field_group({ name: 'Show Blog Fields', slug: 'show-blog-fields' })
-      pricing_field_group.add_field({ name: 'Show', slug: 'blog-show' }, { field_key: 'checkbox'})
+      blog_field_group = page.add_field_group({ name: 'Show Blog Fields', slug: 'show-blog-fields' })
+      blog_field_group.add_field({ name: 'Show', slug: 'blog-show' }, { field_key: 'checkbox'})
     end
   end
 
