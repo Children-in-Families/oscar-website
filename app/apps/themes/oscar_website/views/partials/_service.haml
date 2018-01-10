@@ -1,9 +1,7 @@
 .main{:role => "main"}
   .container
     %h2
-      = oscar_translation('សេវាកម្ម','Our')
-      %strong
-        = oscar_translation('របស់យើង','Services')
+      = @post.the_title
     .row.align-items-center
       %br
       .col-lg-10
