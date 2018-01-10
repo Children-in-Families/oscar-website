@@ -154,7 +154,8 @@ module Themes::OscarWebsite::MainHelper
 
     if page.get_field_groups.where(slug: 'about-content-fields').blank?
       about_field_group = page.add_field_group({ name: 'About Content Fields', slug: 'about-content-fields' })
-      about_field_group.add_field({ name: 'Slide Words', slug: 'about-slider' }, { field_key: 'text_box', translate: true, required: true, default_value: 'Technology', multiple: true})
+      about_field_group.add_field({ name: 'Start Sentence', slug: 'about-start-sentence'}, { field_key: 'text_box', translate: true})
+      about_field_group.add_field({ name: 'Slide Words', slug: 'about-slider' }, { field_key: 'text_box', translate: true, default_value: 'Technology', multiple: true})
     end
 
     if page.get_field_groups.where(slug: 'about-who-we-are-fields').blank?

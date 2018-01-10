@@ -437,3 +437,11 @@ ul.social-icons{
 #footer .footer-copyright {
   padding: 10px 0 0px !important;
 }
+
+#about{
+  p {
+    a {
+      color: $secondary_color !important;
+    }
+  }
+}
