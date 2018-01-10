@@ -1,5 +1,6 @@
 .body.headerMarginTopBreadCrumb
-  = render 'partials/bread_crumb', locals: {menu: 'ABOUT', sub_menu: 'About Us'}
+  - title = @post.the_title
+  = render 'partials/bread_crumb', locals: {menu: title, sub_menu: title}
   .main{:role => "main"}
     = render 'partials/about_content'
     = render 'partials/about_score'

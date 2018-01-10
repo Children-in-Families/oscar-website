@@ -2,7 +2,7 @@
   .row.text-center
     .col
       %h1.word-rotator-title.mb-2
-        Features
+        = @post.the_title
   .row.mt-5
     - current_site.the_post_type('home-feature').the_posts.visible_frontend.decorate.each do |feature|
       .col-lg-4
