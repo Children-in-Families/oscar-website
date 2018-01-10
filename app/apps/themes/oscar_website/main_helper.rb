@@ -160,7 +160,8 @@ module Themes::OscarWebsite::MainHelper
 
     if page.get_field_groups.where(slug: 'about-who-we-are-fields').blank?
       about_field_group = page.add_field_group({ name: 'About Who We Are Fields', slug: 'about-who-we-are-fields' })
-      about_field_group.add_field({ name: 'Content', slug: 'about-who-we-are-content' }, { field_key: 'text_area', translate: true, required: true, default_value: 'About Who We Are Content'})
+      about_field_group.add_field({name: 'Title', slug: 'about-who-we-are-title'},{field_key: 'text_box', translate: true, default_value: 'Who We Are'})
+      about_field_group.add_field({ name: 'Content', slug: 'about-who-we-are-content' }, { field_key: 'text_area', translate: true, default_value: 'About Who We Are Content'})
     end
 
     if page.get_field_groups.where(slug: 'about-testimonail-fields').blank?
@@ -302,26 +303,28 @@ module Themes::OscarWebsite::MainHelper
       if about.get_field_groups.where(slug: 'about-us-progress-work-fields').blank?
         about_field_group = about.add_field_group({ name: 'Progress work', slug: 'about-us-progress-work-fields' } )
 
-        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-progress-work-name-1st' }, { field_key: 'text_box', translate: true, required: true } )
-        about_field_group.add_field({ name: 'Percent 1st', slug: 'about-us-progress-work-percent-1st' }, { field_key: 'numeric', required: true } )
-        about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-progress-work-name-2nd' }, { field_key: 'text_box', translate: true, required: false } )
-        about_field_group.add_field({ name: 'Percent 2nd', slug: 'about-us-progress-work-percent-2nd' }, { field_key: 'numeric', required: false } )
-        about_field_group.add_field({ name: 'Name 3rd', slug: 'about-us-progress-work-name-3rd' }, { field_key: 'text_box', translate: true, required: false } )
-        about_field_group.add_field({ name: 'Percent 3rd', slug: 'about-us-progress-work-percent-3rd' }, { field_key: 'numeric', required: false } )
-        about_field_group.add_field({ name: 'Name 4th', slug: 'about-us-progress-work-name-4th' }, { field_key: 'text_box', translate: true, required: false } )
-        about_field_group.add_field({ name: 'Percent 4th', slug: 'about-us-progress-work-percent-4th' }, { field_key: 'numeric', required: false } )
+        about_field_group.add_field({name: 'Show', slug: 'about-us-progress-work-show'},{field_key: 'checkbox'})
+        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-progress-work-name-1st' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Percent 1st', slug: 'about-us-progress-work-percent-1st' }, { field_key: 'numeric' } )
+        about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-progress-work-name-2nd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Percent 2nd', slug: 'about-us-progress-work-percent-2nd' }, { field_key: 'numeric' } )
+        about_field_group.add_field({ name: 'Name 3rd', slug: 'about-us-progress-work-name-3rd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Percent 3rd', slug: 'about-us-progress-work-percent-3rd' }, { field_key: 'numeric' } )
+        about_field_group.add_field({ name: 'Name 4th', slug: 'about-us-progress-work-name-4th' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Percent 4th', slug: 'about-us-progress-work-percent-4th' }, { field_key: 'numeric' } )
       end
 
       if about.get_field_groups.where(slug: 'about-us-referent-fields').blank?
         about_field_group = about.add_field_group({ name: 'Referent', slug: 'about-us-referent-fields' } )
 
-        about_field_group.add_field({ name: 'Background Image', slug: 'about-us-background-image' }, { field_key: 'image', required: true } )
-        about_field_group.add_field({ name: 'Comment 1st', slug: 'about-us-referent-comment-1st' }, { field_key: 'text_area', translate: true, required: true } )
-        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-referent-name-1st' }, { field_key: 'text_box', required: true } )
-        about_field_group.add_field({ name: 'Positon 1st', slug: 'about-us-referent-position-1st' }, { field_key: 'text_box', translate: true, required: true } )
-        about_field_group.add_field({ name: 'Comment 2nd', slug: 'about-us-referent-comment-2nd' }, { field_key: 'text_area', translate: true, required: false } )
-        about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-referent-name-2nd' }, { field_key: 'text_box', translate: true, required: false } )
-        about_field_group.add_field({ name: 'Positon 2nd', slug: 'about-us-referent-position-2nd' }, { field_key: 'text_box', translate: true, required: false } )
+        about_field_group.add_field({name: 'Show', slug: 'about-us-referent-show'},{field_key: 'checkbox'})
+        about_field_group.add_field({ name: 'Background Image', slug: 'about-us-background-image' }, { field_key: 'image' } )
+        about_field_group.add_field({ name: 'Comment 1st', slug: 'about-us-referent-comment-1st' }, { field_key: 'text_area', translate: true } )
+        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-referent-name-1st' }, { field_key: 'text_box' } )
+        about_field_group.add_field({ name: 'Positon 1st', slug: 'about-us-referent-position-1st' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Comment 2nd', slug: 'about-us-referent-comment-2nd' }, { field_key: 'text_area', translate: true } )
+        about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-referent-name-2nd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Positon 2nd', slug: 'about-us-referent-position-2nd' }, { field_key: 'text_box', translate: true } )
       end
 
       if about.get_field_groups.where(slug: 'about-us-my-work-fields').blank?
@@ -330,17 +333,17 @@ module Themes::OscarWebsite::MainHelper
         about_field_group.add_field({ name: 'Description', slug: 'about-us-my-work-description' }, { field_key: 'text_area', required: true } )
 
         about_field_group.add_field({ name: 'Image 1st', slug: 'about-us-my-work-image-1st' }, { field_key: 'image', required: true } )
-        about_field_group.add_field({ name: 'Title 1st', slug: 'about-us-my-work-title-1st' }, { field_key: 'text_box', translate: true, required: true } )
-        about_field_group.add_field({ name: 'Sub Title 1st', slug: 'about-us-my-work-sub-title-1st' }, { field_key: 'text_box', translate: true, required: true } )
+        about_field_group.add_field({ name: 'Title 1st', slug: 'about-us-my-work-title-1st' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Sub Title 1st', slug: 'about-us-my-work-sub-title-1st' }, { field_key: 'text_box', translate: true } )
         about_field_group.add_field({ name: 'Image 2nd', slug: 'about-us-my-work-image-2nd' }, { field_key: 'image', required: false } )
-        about_field_group.add_field({ name: 'Title 2nd', slug: 'about-us-my-work-title-2nd' }, { field_key: 'text_box', translate: true, required: false } )
-        about_field_group.add_field({ name: 'Sub Title 2nd', slug: 'about-us-my-work-sub-title-2nd' }, { field_key: 'text_box', translate: true, required: false } )
-        about_field_group.add_field({ name: 'Image 3rd', slug: 'about-us-my-work-image-3rd' }, { field_key: 'image', required: false } )
-        about_field_group.add_field({ name: 'Title 3rd', slug: 'about-us-my-work-title-3rd' }, { field_key: 'text_box', translate: true, required: false } )
-        about_field_group.add_field({ name: 'Sub Title 3rd', slug: 'about-us-my-work-sub-title-3rd' }, { field_key: 'text_box', translate: true, required: false } )
-        about_field_group.add_field({ name: 'Image 4th', slug: 'about-us-my-work-image-4th' }, { field_key: 'image', required: false } )
-        about_field_group.add_field({ name: 'Title 4th', slug: 'about-us-my-work-title-4th' }, { field_key: 'text_box', translate: true, required: false } )
-        about_field_group.add_field({ name: 'Sub Title 4th', slug: 'about-us-my-work-sub-title-4th' }, { field_key: 'text_box', translate: true, required: false } )
+        about_field_group.add_field({ name: 'Title 2nd', slug: 'about-us-my-work-title-2nd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Sub Title 2nd', slug: 'about-us-my-work-sub-title-2nd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Image 3rd', slug: 'about-us-my-work-image-3rd' }, { field_key: 'image' } )
+        about_field_group.add_field({ name: 'Title 3rd', slug: 'about-us-my-work-title-3rd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Sub Title 3rd', slug: 'about-us-my-work-sub-title-3rd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Image 4th', slug: 'about-us-my-work-image-4th' }, { field_key: 'image' } )
+        about_field_group.add_field({ name: 'Title 4th', slug: 'about-us-my-work-title-4th' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Sub Title 4th', slug: 'about-us-my-work-sub-title-4th' }, { field_key: 'text_box', translate: true } )
       end
     end
   end
