@@ -194,6 +194,7 @@ $(document).ready(function(){
     name = $('input#name').val();
     subject = $('input#subject').val();
     email = $('input#email').val();
+    console.log('email: ', email);
     message = $('textarea#message').val();
     if(name != "" || subject != "" || email != "" || message != ""){
       $('#sendMessage').attr('disabled','disabled');
@@ -216,6 +217,7 @@ $(document).ready(function(){
         $form[0].reset();
         $('#sendMessage').removeAttr('disabled');
         $('#sendMessage').val('Send Message')
+        console.log('success')
         alert('Your message has been sent successfully. Thank you.');
         return false;
       },

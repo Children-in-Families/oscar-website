@@ -153,9 +153,20 @@ a.btn.btn-lg.buttonLg{
 
 .feature-box{
   &:hover{
-    background: #336666;
-    & > .feature-box-info > h4 > a, p {
+    background: $primary_color;
+    & > .feature-box-info > h4, p {
       text-decoration: none;
+      color: white;
+    }
+  }
+  span {
+    background: #009999;
+    width: 60px;
+    height: 50px;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 10px;
+    i {
       color: white;
     }
   }
