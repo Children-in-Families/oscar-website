@@ -10,7 +10,8 @@
         = link_to feature.the_field("feature-url"), style: "text-decoration: none" do
           .feature-box{style: "padding: 10px;"}
             %span
-              %i{class: "fa Example of bath fa-bath", style: 'font-size: 28px;'}
+              - icon = feature.the_field("feature-icon")
+              %i{class: "#{icon}", style: 'font-size: 28px;'}
             .feature-box-info
               %h4.mb-1
                 = feature.the_title
