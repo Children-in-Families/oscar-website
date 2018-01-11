@@ -60,6 +60,12 @@
           %li.social-icons-linkedin
             = link_to current_theme.the_field('linkedin-url'), target: "_blank" do
               = fa_icon 'linkedin'
+      .col-lg-3
+        %h4 Get To Know Us
+        = raw oscar_get_menu_get_to_know_us('get-to-know-us', 'footer-custome')
+      .col-lg-3
+        %h4 Main Menu
+        = raw oscar_get_menu_get_to_know_us('footer-main-menu', 'footer-custome')
   .footer-copyright
     .container
       .row

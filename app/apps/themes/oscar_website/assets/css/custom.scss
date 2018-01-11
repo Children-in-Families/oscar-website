@@ -1,3 +1,5 @@
+
+@import 'helpers/_variable';
 /* small desktop */
 .header-logo {
   max-width: 200px;
@@ -457,6 +459,24 @@ ul.social-icons{
   p {
     a {
       color: $secondary_color !important;
+    }
+  }
+}
+
+.footer-custome{
+  list-style-type: none;
+  padding-left: 0px;
+  li {
+    border-bottom: 1px solid;
+    line-height: 33px;
+    &:first-child {
+      border-top: 1px solid;
+    }
+    a {
+      color: #777 !important;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }
