@@ -1,6 +1,6 @@
 module Themes::OscarWebsite::MainHelper
   def self.included(klass)
-    klass.helper_method [:oscar_get_nav_menu, :oscar_translation, :oscar_blog_posts] rescue "" # here your methods accessible from views
+    klass.helper_method [:oscar_get_nav_menu, :oscar_get_menu_get_to_know_us, :oscar_get_menu_get_to_know_us, :oscar_translation, :oscar_blog_posts] rescue "" # here your methods accessible from views
   end
 
   def oscar_website_settings(theme)
@@ -510,6 +510,22 @@ module Themes::OscarWebsite::MainHelper
           args[:link_attrs] += "data-toggle='dropdown'"
         end
       end
+    }
+    draw_menu(option)
+  end
+
+  def oscar_get_menu_get_to_know_us(key = 'get-to-know-us', class_name='footer-custome')
+    option = {
+      menu_slug: key,
+      container_class: class_name,
+    }
+    draw_menu(option)
+  end
+
+  def oscar_get_menu_get_to_know_us(key = 'footer-main-menu', class_name='footer-custome')
+    option = {
+      menu_slug: key,
+      container_class: class_name,
     }
     draw_menu(option)
   end
