@@ -6,18 +6,12 @@
 
         - video = current_site.the_post('home').the_field('video-slider')
         .rs-background-video-layer{"data-aspectratio" => "16:9", "data-autoplay" => "true", "data-autoplayonlyfirsttime" => "false", "data-forcecover" => "1", "data-forcerewind" => "on", "data-nextslideatend" => "true", "data-videoheight" => "100%", "data-videoloop" => "loop", "data-videomp4" => "#{video}", "data-videopreload" => "preload", "data-videowidth" => "100%", "data-volume" => "mute"}
-        .tp-caption{"data-hoffset" => "-150", "data-start" => "1000", "data-transform_in" => "x:[-300%];opacity:0;s:500;", "data-x" => "center", "data-y" => "248", :style => "z-index: 5"}
 
-          = image_tag theme_asset_url('images/img/slides/slide-title-border-light.png')
         .tp-caption.top-label{"data-hoffset" => "0", "data-start" => "500", "data-transform_in" => "y:[-300%];opacity:0;s:500;", "data-x" => "center", "data-y" => "248", :style => "z-index: 5"}
           = current_site.the_post('home').the_field('first-text-load')
 
-        .tp-caption{"data-hoffset" => "150", "data-start" => "1000", "data-transform_in" => "x:[300%];opacity:0;s:500;", "data-x" => "center", "data-y" => "248", :style => "z-index: 5"}
-          = image_tag theme_asset_url('images/img/slides/slide-title-border-light.png')
-
-        .tp-caption.main-label{"data-hoffset" => "0", "data-mask_in" => "x:0px;y:0px;", "data-start" => "1500", "data-transform_in" => "y:[100%];s:500;", "data-transform_out" => "opacity:0;s:500;", "data-whitespace" => "nowrap", "data-x" => "center", "data-y" => "278", :style => "z-index: 5"}
+        .tp-caption.main-label{"data-hoffset" => "0", "data-mask_in" => "x:0px;y:0px;", "data-start" => "1000", "data-transform_in" => "y:[100%];s:500;", "data-transform_out" => "opacity:0;s:500;", "data-whitespace" => "nowrap", "data-x" => "center", "data-y" => "278", :style => "z-index: 5"}
           = current_site.the_post('home').the_field('second-text-load')
-          g
 
-        .tp-caption.bottom-label{"data-fontsize" => "['20','20','20','30']", "data-hoffset" => "0", "data-start" => "2000", "data-transform_in" => "y:[100%];opacity:0;s:500;", "data-x" => "center", "data-y" => "358", :style => "z-index: 5"}
+        .tp-caption.bottom-label{"data-fontsize" => "['20','20','20','30']", "data-hoffset" => "0", "data-start" => "1500", "data-transform_in" => "y:[100%];opacity:0;s:500;", "data-x" => "center", "data-y" => "358", :style => "z-index: 5"}
           = current_site.the_post('home').the_field('third-text-load')
