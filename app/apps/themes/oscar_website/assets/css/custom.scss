@@ -1,15 +1,7 @@
-/* navbar */
-$primary_color: #009999;
-$secondary_color: #FF9900;
-$Tertiary_color: #336666;
-
+/* small desktop */
 .header-logo {
   max-width: 200px;
-}
-
-/* small desktop */
-@media all and (max-width: 1200px) {
-  .header-logo {
+  @media all and (max-width: 1200px) {
     max-width: 120px;
   }
 }
@@ -25,7 +17,6 @@ html .toggle-primary .toggle.active > label {
   border-color: $primary_color;
   color: #ffffff;
 }
-
 
 a.btn.btn-lg.buttonLg{
   color: #fff;
@@ -169,7 +160,19 @@ a.btn.btn-lg.buttonLg{
     i {
       color: white;
     }
+    @media #{$tablet} {
+      background: #009999;
+      width: 55px;
+      height: 50px;
+      border-radius: 50px;
+      text-align: center;
+      padding-top: 10px;
+      i {
+        color: white;
+      }
+    }
   }
+
 }
 
 .headerMarginTop{
