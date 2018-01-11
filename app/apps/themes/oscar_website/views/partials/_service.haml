@@ -8,8 +8,9 @@
         %p.welcomeContent
           = raw @post.the_content
       .col-lg-2
-        %a.btn.btn-lg.btn-primary#butonContactUs{:href => "/contact-us"}
-          = oscar_translation('ទាក់ទង​មក​ពួក​យើង!','Contact Us!')
+        - button_text = @post.the_field("button-text-service")
+        - button_url = @post.the_field("button-url-service")
+        = link_to button_text, button_url, class: "btn btn-lg", id: 'buttonContactUs'
     %hr/
     .featured-boxes
       .row
