@@ -16,6 +16,7 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_fields_to_testimonial_page
     oscar_add_fields_to_contact_us_page
     oscar_add_fields_to_blog_page
+    oscar_add_fields_to_service_page
     oscar_add_home_feature_post_type
     oscar_add_home_customer_image_post_type
     oscar_add_home_latest_blog_post_post_type
@@ -137,6 +138,16 @@ module Themes::OscarWebsite::MainHelper
     if page.get_field_groups.where(slug: 'blog-fields').blank?
       blog_field_group = page.add_field_group({ name: 'Show Blog Fields', slug: 'show-blog-fields' })
       blog_field_group.add_field({ name: 'Show', slug: 'blog-show' }, { field_key: 'checkbox'})
+    end
+  end
+
+  def oscar_add_fields_to_service_page
+    page = current_site.the_post_type('page').the_post('services')
+
+    if page.get_field_groups.where(slug: 'service-fields').blank?
+      service_field_group = page.add_field_group({ name: 'Button Service Fields', slug: 'button-service-fields' })
+      service_field_group.add_field({ name: 'Text', slug: 'button-text-service' }, { field_key: 'text_box'})
+      service_field_group.add_field({ name: 'Url', slug: 'button-url-service' }, { field_key: 'url'})
     end
   end
 

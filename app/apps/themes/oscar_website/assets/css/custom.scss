@@ -20,10 +20,6 @@ html .toggle-primary .toggle.active > label {
   color: #ffffff;
 }
 
-a.btn.btn-lg.buttonLg{
-  color: #fff;
-}
-
 .shareFacebook{
   background-color: #3b5998;
   padding: 6px 6px;
@@ -130,9 +126,18 @@ a.btn.btn-lg.buttonLg{
 }
 
 .blogReadMore{
+  color: #fff !important;
   font-size: 1.2rem !important;
   padding: 0.5rem 0.8rem !important;
   border-radius: 5px;
+  text-decoration: none !important;
+  &:hover {
+    color: #fff;
+  }
+  &:active {
+    color: #fff !important;
+    border: 2px solid $primary_color;
+  }
 }
 
 .colorPrimary{
@@ -260,20 +265,43 @@ section.page-header{
   font-size: 21px;
 }
 
-#butonContactUs{
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.3333333;
+#buttonContactUs, #sendMessage{
+  color: #fff !important;
+  padding: 10px 16px !important;
+  font-size: 18px !important;
+  line-height: 1.3333333 !important;
   border-radius: 6px;
+  background-color: $primary_color !important;
+  &:active {
+    color: #fff;
+    border: 2px solid $primary_color !important;
+  }
 }
 
-.buttonLg{
+#get-start-now, .pricing {
+  color: #fff !important;
   padding: 10px 16px !important;
   font-size: 18px !important;
   line-height: 1.3333333;
   border-radius: 6px;
   background-color: $secondary_color !important;
-  border-color: $secondary_color !important;
+  &:active {
+    color: #fff;
+    border: 2px solid $secondary_color;
+  }
+}
+
+.buttonLg{
+  color: #fff;
+  padding: 10px 16px !important;
+  font-size: 18px !important;
+  line-height: 1.3333333;
+  border-radius: 6px;
+  background-color: $secondary_color !important;
+  &:hover {
+    color: #fff;
+    border: 1px solid $secondary_color;
+  }
 }
 
 .owl-dot.active span{
@@ -294,12 +322,6 @@ section.page-header{
 
 .icon-featured{
   background: $primary_color !important;
-}
-
-
-
-#butonContactUs{
-  background: $primary_color;
 }
 
 .inputContact{
@@ -435,13 +457,6 @@ ul.social-icons{
     color: #fff;
   }
 }
-
-#sendMessage{
-  font-size: 1.6rem !important;
-  padding: 0.7rem 1.5rem !important;
-  background-color: $primary_color;
-}
-
 
 .owl-item .col{
   display: none;
