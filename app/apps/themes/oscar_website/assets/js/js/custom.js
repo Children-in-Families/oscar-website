@@ -1,14 +1,18 @@
 $(document).ready(function(){
   // service read more
-    $('.readMoreLink').on('click', function(){
-      $(this).parent().toggle();
-      $(this).parent().siblings('.readLess').toggle();
-    });
+  $('.readMoreLink').on('click', function(){
+    $(this).parent().toggle();
+    $(this).parent().siblings('.titleLess').toggle();
+    $(this).parent().siblings('.titleMore').toggle();
+    $(this).parent().siblings('.readLess').toggle();
+  });
 
-    $('.readLessLink').on('click', function(){
-      $(this).parent().toggle();
-      $(this).parent().siblings('.readMore').toggle();
-    });
+  $('.readLessLink').on('click', function(){
+    $(this).parent().toggle();
+    $(this).parent().siblings('.titleLess').toggle();
+    $(this).parent().siblings('.titleMore').toggle();
+    $(this).parent().siblings('.readMore').toggle();
+  });
 
   // slider words
 
