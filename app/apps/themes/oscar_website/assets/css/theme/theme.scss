@@ -2185,8 +2185,12 @@ html[dir="rtl"] #header .header-search .btn-light {
 }
 
 .parallax blockquote p {
-	font-size: 24px;
+	font-size: 20px;
 	line-height: 30px;
+}
+
+.testimonial-author, a, li {
+	color: #fff;
 }
 
 .parallax blockquote span {
