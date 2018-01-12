@@ -12,7 +12,7 @@
     .col
       %h4.mb-2
         %strong
-          = card.length
+          = card.size.humanize.titleize
         = oscar_translation('គម្រោង','Plans')
       %p
         = @post.the_field('pricing-plan-introdution-sentence')
