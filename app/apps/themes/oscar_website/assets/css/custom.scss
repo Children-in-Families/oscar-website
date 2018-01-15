@@ -478,14 +478,20 @@ ul.social-icons{
   }
 }
 
+.officeColor{
+  li {
+    color: #777;
+  }
+}
+
 .footer-custome{
   list-style-type: none;
   padding-left: 0px;
   li {
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #777;
     line-height: 33px;
     &:first-child {
-      border-top: 1px solid;
+      border-top: 1px solid #777;
     }
     a {
       color: #777 !important;

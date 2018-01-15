@@ -48,7 +48,7 @@
         = oscar_translation('','The')
         %strong
           = oscar_translation('ការិយាល័យ','Office')
-      %ul.list.list-icons.list-icons-style-3.mt-4
+      %ul.list.list-icons.list-icons-style-3.mt-4.officeColor
         %li
           %i.fa.fa-map-marker
           %strong
@@ -72,7 +72,7 @@
         = oscar_translation('ម៉ោង','Business')
         %strong
           = oscar_translation('ធ្វើការ','Hours')
-      %ul.list.list-icons.list-dark.mt-4
+      %ul.list.list-icons.list-dark.mt-4.officeColor
         - @post.the_fields('contact-business-hour').each do |hour|
           %li
             %i.fa.fa-clock-o
