@@ -146,7 +146,7 @@ module Themes::OscarWebsite::MainHelper
 
     if page.get_field_groups.where(slug: 'service-fields').blank?
       service_field_group = page.add_field_group({ name: 'Button Service Fields', slug: 'button-service-fields' })
-      service_field_group.add_field({ name: 'Text', slug: 'button-text-service' }, { field_key: 'text_box'})
+      service_field_group.add_field({ name: 'Text', slug: 'button-text-service' }, { field_key: 'text_box', translate: true})
       service_field_group.add_field({ name: 'Url', slug: 'button-url-service' }, { field_key: 'url'})
     end
   end
@@ -341,7 +341,7 @@ module Themes::OscarWebsite::MainHelper
       if about.get_field_groups.where(slug: 'about-us-my-work-fields').blank?
         about_field_group = about.add_field_group({ name: 'My Work', slug: 'about-us-my-work-fields' } )
 
-        about_field_group.add_field({ name: 'Description', slug: 'about-us-my-work-description' }, { field_key: 'text_area' } )
+        about_field_group.add_field({ name: 'Description', slug: 'about-us-my-work-description' }, { field_key: 'text_area', translate: true } )
 
         about_field_group.add_field({ name: 'Image 1st', slug: 'about-us-my-work-image-1st' }, { field_key: 'image' } )
         about_field_group.add_field({ name: 'Title 1st', slug: 'about-us-my-work-title-1st' }, { field_key: 'text_box', translate: true } )
