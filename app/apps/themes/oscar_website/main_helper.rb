@@ -331,7 +331,7 @@ module Themes::OscarWebsite::MainHelper
         about_field_group.add_field({name: 'Show', slug: 'about-us-referent-show'},{field_key: 'checkbox'})
         about_field_group.add_field({ name: 'Background Image', slug: 'about-us-background-image' }, { field_key: 'image' } )
         about_field_group.add_field({ name: 'Comment 1st', slug: 'about-us-referent-comment-1st' }, { field_key: 'text_area', translate: true } )
-        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-referent-name-1st' }, { field_key: 'text_box' } )
+        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-referent-name-1st' }, { field_key: 'text_box', translate: true} )
         about_field_group.add_field({ name: 'Positon 1st', slug: 'about-us-referent-position-1st' }, { field_key: 'text_box', translate: true } )
         about_field_group.add_field({ name: 'Comment 2nd', slug: 'about-us-referent-comment-2nd' }, { field_key: 'text_area', translate: true } )
         about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-referent-name-2nd' }, { field_key: 'text_box', translate: true } )
