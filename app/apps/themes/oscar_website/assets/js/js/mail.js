@@ -54,7 +54,7 @@ function isEmpty(obj) {
 }
 
 function isValid(name, email, subject, sms) {
-  let result = false;
+  var result = false;
   if(isEmpty(name)){
     $('input#name').addClass("is-invalid")
     $('label#text-name').removeClass('d-none')
