@@ -54,48 +54,48 @@ function isEmpty(obj) {
 }
 
 function isValid(name, email, subject, sms) {
-  let valid = false;
+  let result = false;
   if(isEmpty(name)){
     $('input#name').addClass("is-invalid")
     $('label#text-name').removeClass('d-none')
-    valid = true;
+    result = true;
   }else{
     $('input#name').removeClass("is-invalid")
     $('label#text-name').addClass('d-none')
-    valid = false;
+    result = false;
   }
 
   if(isEmpty(email)){
     $('input#email').addClass("is-invalid")
     $('label#text-email').removeClass('d-none')
-    valid = true;
+    result = true;
   }else{
     $('input#email').removeClass("is-invalid")
     $('label#text-email').addClass('d-none')
-    valid = false;
+    result = false;
   }
 
   if(isEmpty(subject)){
     $('input#subject').addClass("is-invalid")
     $('label#text-subject').removeClass('d-none')
-    valid = true;
+    result = true;
   }else{
     $('input#subject').removeClass("is-invalid")
     $('label#text-subject').addClass('d-none')
-    valid = false;
+    result = false;
   }
 
   if(isEmpty(sms)){
     $('textarea#message').addClass("is-invalid")
     $('label#text-sms').removeClass('d-none')
-    valid = true;
+    result = true;
   }else{
     $('textarea#message').removeClass("is-invalid")
     $('label#text-sms').addClass('d-none')
-    valid = false;
+    result = false;
   }
 
-  return valid;
+  return result;
 }
 
 
