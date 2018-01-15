@@ -398,7 +398,7 @@ module Themes::OscarWebsite::MainHelper
       feature.set_meta('_default', options)
       if feature.get_field_groups.where(slug: 'home-feature-fields').blank?
         feature_field_group = feature.add_field_group({ name: 'Home Feature Fields', slug: 'home-feature-fields' } )
-        feature_field_group.add_field({ name: 'Feature Icon', slug: 'feature-icon' }, { field_key: 'image' } )
+        feature_field_group.add_field({ name: 'Feature Icon', slug: 'feature-icon' }, { field_key: 'text_box' } )
         feature_field_group.add_field({ name: 'Feature Url', slug: 'Feature-url' }, { field_key: 'url' } )
       end
     end
