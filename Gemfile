@@ -41,7 +41,7 @@ group :development do
   gem 'pry', '~> 0.11.3'
 end
 
-group :production do
+group :production, :staging do
   gem 'asset_sync',            '~> 2.0'
   gem 'fog',                   '~> 1.42'
   gem 's3'
