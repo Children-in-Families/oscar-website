@@ -1,4 +1,4 @@
-set :production
+set :staging
 
 set :app_name, 'oscar-website'
 
