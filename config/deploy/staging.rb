@@ -1,3 +1,9 @@
+set :production
+
+set :app_name, 'oscar-website'
+
+server '52.220.9.27', user: 'deployer', roles: %w{app web db}
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -7,8 +13,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-set :stage, :staging
-server 'oscar-website.rotati.com', user: 'deployer', roles: %w{app web db}
+
 
 # role-based syntax
 # ==================
