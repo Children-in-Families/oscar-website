@@ -17,6 +17,9 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_fields_to_contact_us_page
     oscar_add_fields_to_blog_page
     oscar_add_fields_to_service_page
+    oscar_add_fields_to_feature_page
+    oscar_add_fields_to_pricing_page
+    oscar_add_fields_to_faq_page
     oscar_add_home_feature_post_type
     oscar_add_home_customer_image_post_type
     oscar_add_home_latest_blog_post_post_type
@@ -130,6 +133,11 @@ module Themes::OscarWebsite::MainHelper
       contact_field_group.add_field({ name: 'Phone', slug: 'contact-phone' }, { field_key: 'phone', default_value: "010123456" })
       contact_field_group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', default_value: "someone@example.come" })
     end
+
+    if page.get_field_groups.where(slug: 'contact-page-fields').blank?
+      contact_field_group = page.add_field_group({ name: 'Contact Page Fields', slug: 'contact-page-fields' })
+      contact_field_group.add_field({ name: 'Text', slug: 'title-contact-page' }, { field_key: 'text_box', translate: true, default_value: 'Contact Us'})
+    end
   end
 
   def oscar_add_fields_to_blog_page
@@ -148,6 +156,38 @@ module Themes::OscarWebsite::MainHelper
       service_field_group = page.add_field_group({ name: 'Button Service Fields', slug: 'button-service-fields' })
       service_field_group.add_field({ name: 'Text', slug: 'button-text-service' }, { field_key: 'text_box', translate: true})
       service_field_group.add_field({ name: 'Url', slug: 'button-url-service' }, { field_key: 'url'})
+    end
+
+    if page.get_field_groups.where(slug: 'service-page-fields').blank?
+      service_field_group = page.add_field_group({ name: 'Service Page Fields', slug: 'service-page-fields' })
+      service_field_group.add_field({ name: 'Text', slug: 'title-service-page' }, { field_key: 'text_box', translate: true, default_value: 'Services'})
+    end
+  end
+
+  def oscar_add_fields_to_feature_page
+    page = current_site.the_post_type('page').the_post('features')
+
+    if page.get_field_groups.where(slug: 'feature-page-fields').blank?
+      feature_field_group = page.add_field_group({ name: 'Feature Page Fields', slug: 'feature-page-fields' })
+      feature_field_group.add_field({ name: 'Text', slug: 'title-feature-page' }, { field_key: 'text_box', translate: true, default_value: 'Features'})
+    end
+  end
+
+  def oscar_add_fields_to_pricing_page
+    page = current_site.the_post_type('page').the_post('pricing')
+
+    if page.get_field_groups.where(slug: 'pricing-page-fields').blank?
+      pricing_field_group = page.add_field_group({ name: 'Pricing Page Fields', slug: 'pricing-page-fields' })
+      pricing_field_group.add_field({ name: 'Text', slug: 'title-pricing-page' }, { field_key: 'text_box', translate: true, default_value: 'Pricing'})
+    end
+  end
+
+  def oscar_add_fields_to_faq_page
+    page = current_site.the_post_type('page').the_post('faq')
+
+    if page.get_field_groups.where(slug: 'faq-page-fields').blank?
+      faq_field_group = page.add_field_group({ name: 'Faq Page Fields', slug: 'faq-page-fields' })
+      faq_field_group.add_field({ name: 'Text', slug: 'title-faq-page' }, { field_key: 'text_box', translate: true, default_value: 'Frequently Asked Questions'})
     end
   end
 

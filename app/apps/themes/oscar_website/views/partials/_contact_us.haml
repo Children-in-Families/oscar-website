@@ -10,8 +10,7 @@
         There was an error sending your message.
         %span#mailErrorMessage.text-1.mt-2.d-block
       %h2.mb-3.mt-2
-        %strong Contact
-        Us
+        = @post.the_field('title-contact-page')
       - email = @post.the_field('contact-email')
       %form#contactForm{:action => "http://formspree.io/#{email}", :method => "POST"}
         .form-row
