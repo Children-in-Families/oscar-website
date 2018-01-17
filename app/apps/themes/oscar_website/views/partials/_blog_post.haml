@@ -23,7 +23,7 @@
                 = link_to post_decorate.the_title, post_decorate.the_url
               %p
                 - blog_content =  post_decorate.the_content
-                = raw (blog_content).truncate(150, omission: '[...]')
+                = fix_new_line_space(raw(blog_content).truncate(150, omission: '[...]'))
               .post-meta
                 %span
                   %i.fa.fa-user

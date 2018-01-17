@@ -35,7 +35,7 @@
                       %span.color-primary
                         = tag
                         = ',' unless @post.the_fields('post-tag').last == tag
-                = raw @post.the_content
+                = fix_new_line_space(raw (@post.the_content))
                 .post-block.post-share
                   %h3.color-primary
                     %i.fa.fa-share>

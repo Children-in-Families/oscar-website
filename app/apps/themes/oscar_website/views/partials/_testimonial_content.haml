@@ -17,7 +17,7 @@
                     = image_tag testimonial.the_field('testimonial-image'), class: 'img-fluid rounded-circle'
                     %blockquote.paddingTestimonial
                       %p
-                        = raw testimonial.the_content
+                        = fix_new_line_space(raw (testimonial.the_content))
                     .testimonial-author
                       %p
                         %strong

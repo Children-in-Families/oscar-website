@@ -10,7 +10,7 @@
         .col
           .testimonial.testimonial-primary
             %blockquote#homeTestimonial
-              = raw testimonial.the_content
+              = fix_new_line_space(raw(testimonial.the_content))
             .testimonial-arrow-down
             .testimonial-author
               .testimonial-author-thumbnail.img-thumbnail
