@@ -42,7 +42,7 @@
                   = us.the_field('about-us-position')
           %span.thumb-info-caption
             %span.thumb-info-caption-text
-              = raw us.the_content[0..99]
+              = fix_new_line_space(raw(us.the_content[0..99]))
             %span.thumb-info-social-icons.about-socail
               %span
                 = link_to us.the_field('about-us-facebook'), target: "_blank" do

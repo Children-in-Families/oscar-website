@@ -6,7 +6,7 @@
       %br
       .col-lg-10
         %p.welcomeContent
-          = raw @post.the_content
+          = fix_new_line_space(raw (@post.the_content))
       .col-lg-2
         - button_text = @post.the_field("button-text-service")
         - button_url = @post.the_field("button-url-service")

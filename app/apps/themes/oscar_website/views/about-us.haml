@@ -16,7 +16,7 @@
             = @post.the_field('about-us-position')
           %hr.solid/
           %p
-            = raw @post.the_content
+            = fix_new_line_space(raw (@post.the_content))
       .row
         .col
           %hr.solid/

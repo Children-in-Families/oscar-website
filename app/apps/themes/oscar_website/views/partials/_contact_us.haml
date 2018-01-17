@@ -42,7 +42,7 @@
         %strong
           = oscar_translation('ពួក​យើង','Touch')
       %p
-        = raw @post.the_content
+        = fix_new_line_space(raw(@post.the_content))
       %hr/
       %h4.color-primary
         = oscar_translation('','The')

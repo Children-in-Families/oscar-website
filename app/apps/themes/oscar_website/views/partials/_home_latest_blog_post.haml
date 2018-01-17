@@ -28,7 +28,7 @@
                   = link_to post.the_title, post.the_field('post-url')
                 %p
                   - blog_content =  post.the_content
-                  = raw (blog_content).truncate(150)
+                  = fix_new_line_space(raw (blog_content).truncate(150))
                   - if blog_content.size > 149
                     = link_to post.the_field('post-url'), class: 'read-more' do
                       read more
@@ -51,7 +51,7 @@
                     = link_to post.the_title, post.the_field('post-url')
                   %p
                     - blog_content =  post.the_content
-                    = raw (blog_content).truncate(150)
+                    = fix_new_line_space(raw (blog_content).truncate(150))
                     - if blog_content.size > 149
                       = link_to post.the_field('post-url'), class: 'read-more' do
                         read more
