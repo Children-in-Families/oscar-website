@@ -259,6 +259,9 @@ section.page-header{
 .paddingTestimonial{
   padding: 0 40px !important;
   font-size: 20px !important;
+  a, li {
+    color: #fff;
+  }
 }
 
 .welcomeContent{
@@ -504,4 +507,10 @@ ul.social-icons{
 
 #home-concept{
   font-size: 20px;
+}
+
+#homeTestimonial{
+  li, a {
+    color: #fff;
+  }
 }
