@@ -2,8 +2,7 @@
   .main{:role => "main"}
     .container
       %h2
-        Frequently Asked
-        %strong Questions
+        = @post.the_field('title-faq-page')
       .row
         .col
           %p.lead
