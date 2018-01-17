@@ -165,7 +165,7 @@ module Themes::OscarWebsite::MainHelper
   end
 
   def oscar_add_fields_to_feature_page
-    page = current_site.the_post_type('page').the_post('features')
+    page = current_site.the_post_type('page').the_post('features-set')
 
     if page.get_field_groups.where(slug: 'feature-page-fields').blank?
       feature_field_group = page.add_field_group({ name: 'Feature Page Fields', slug: 'feature-page-fields' })
@@ -422,8 +422,8 @@ module Themes::OscarWebsite::MainHelper
   end
 
   def oscar_add_home_feature_post_type
-    if current_site.the_post_type('home-feature').blank?
-      feature = current_site.post_types.create(name: 'Features', slug: 'home-feature')
+    if current_site.the_post_type('features').blank?
+      feature = current_site.post_types.create(name: 'Features', slug: 'features')
       options = {
         has_category: false,
         has_content: true,
@@ -436,10 +436,9 @@ module Themes::OscarWebsite::MainHelper
         contents_route_format: 'post_of_posttype'
       }
       feature.set_meta('_default', options)
-      if feature.get_field_groups.where(slug: 'home-feature-fields').blank?
-        feature_field_group = feature.add_field_group({ name: 'Home Feature Fields', slug: 'home-feature-fields' } )
+      if feature.get_field_groups.where(slug: 'feature-fields').blank?
+        feature_field_group = feature.add_field_group({ name: 'Feature Fields', slug: 'feature-fields' } )
         feature_field_group.add_field({ name: 'Feature Icon', slug: 'feature-icon' }, { field_key: 'text_box' } )
-        feature_field_group.add_field({ name: 'Feature Url', slug: 'Feature-url' }, { field_key: 'url' } )
       end
     end
   end
