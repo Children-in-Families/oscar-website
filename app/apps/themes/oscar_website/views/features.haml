@@ -1,0 +1,11 @@
+.body.headerMarginTopBreadCrumb
+  - title = @post.the_title
+  - feature_title =current_site.the_post('features-set').the_title
+  = render 'partials/bread_crumb', locals: {menu: feature_title, sub_menu: title}
+  #align-center
+    - icon = @post.the_field('feature-icon')
+    %i{class: "#{icon}  icon-featured", style: 'font-size: 60px;'}
+    %h1
+      = title
+    %p
+      = fix_new_line_space(raw(@post.the_content))

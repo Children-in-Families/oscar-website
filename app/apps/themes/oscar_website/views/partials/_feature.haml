@@ -5,9 +5,9 @@
         = @post.the_field('title-feature-page')
       = fix_new_line_space(raw(@post.the_content))
   .row.mt-5
-    - current_site.the_post_type('home-feature').the_posts.visible_frontend.decorate.each do |feature|
+    - current_site.the_post_type('features').the_posts.visible_frontend.decorate.each do |feature|
       .col-lg-4
-        = link_to feature.the_field("feature-url"), style: "text-decoration: none" do
+        = link_to feature.the_url, style: "text-decoration: none" do
           .feature-box{style: "padding: 10px;"}
             %span
               - icon = feature.the_field('feature-icon')
@@ -16,4 +16,4 @@
               %h4.mb-1
                 = feature.the_title
               %p
-                = fix_new_line_space(raw(feature.the_content))
+                = fix_new_line_space(raw(feature.the_content).truncate(100, omission: '[...]'))
