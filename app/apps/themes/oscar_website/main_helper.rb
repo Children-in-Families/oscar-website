@@ -1,6 +1,6 @@
 module Themes::OscarWebsite::MainHelper
   def self.included(klass)
-    klass.helper_method [:oscar_get_nav_menu, :oscar_get_menu_get_to_know_us, :oscar_get_menu_get_to_know_us, :oscar_translation, :oscar_blog_posts] rescue "" # here your methods accessible from views
+    klass.helper_method [:oscar_get_nav_menu, :oscar_get_menu_get_to_know_us, :oscar_get_menu_get_to_know_us, :oscar_translation, :oscar_blog_posts, :fix_new_line_space] rescue "" # here your methods accessible from views
   end
 
   def oscar_website_settings(theme)
@@ -539,6 +539,10 @@ module Themes::OscarWebsite::MainHelper
       container_class: class_name,
     }
     draw_menu(option)
+  end
+
+  def fix_new_line_space(text)
+    text.gsub(/><\//,'>&nbsp;</').html_safe
   end
 
   # callback executed after theme uninstalled

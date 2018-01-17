@@ -8,4 +8,4 @@
             %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
               %span#js-rotating-about
                 = @post.the_fields('about-slider').join(',')
-      = raw @post.the_content
+      = fix_new_line_space(raw(@post.the_content))
