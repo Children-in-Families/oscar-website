@@ -522,3 +522,48 @@ ul.social-icons{
 #align-center{
   text-align: center;
 }
+
+#usaidContainer{
+  background: #fff;
+}
+
+#usaidImage{
+  padding-left: 50px;
+  @media #{$phone} {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+#usaidText{
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.usaid-modal-dialog{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-backdrop.fade {
+    opacity: 0.5;
+}
+
+#usaidCloseModal{
+  border: 1px solid #777;
+  color: #000;
+}
+
+#usaidHeaderCenter{
+  display: flex;
+  justify-content: center;
+}

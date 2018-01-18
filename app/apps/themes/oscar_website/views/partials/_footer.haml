@@ -87,3 +87,8 @@
               %li
                 %a{:href => "#{current_site.the_post('contact-us').the_url}"}
                   = oscar_translation('ទំនាក់ទំនង','Contact Us')
+    .row#usaidContainer
+      .col-lg-4.col-md-6.col-sm-12#usaidImage
+        = image_tag theme_asset_url('images/usaid.png'), size: "250x90", alt: "Edit Entry"
+      .col-lg-4.col-md-6.col-sm-12
+        %p#usaidText{"data-target" => "#exampleModal", "data-toggle" => "modal"} USAID Disclaimer
