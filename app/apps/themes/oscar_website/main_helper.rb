@@ -80,8 +80,8 @@ module Themes::OscarWebsite::MainHelper
 
       home_field_group.add_field({ name: 'Big Word', slug: 'big-word' }, { field_key: 'text_box', default_value: 'Technology', translate: true})
       home_field_group.add_field({ name: 'Option And Feature', slug: 'option-and-feature' }, { field_key: 'text_box', default_value: 'Check out our options and features included.', translate: true})
-      home_field_group.add_field({ name: 'Get Start Now', slug: 'get-start-now' }, { field_key: 'url', default_value: 'https://www.google.com.kh/'})
-      home_field_group.add_field({ name: 'Learn More', slug: 'learn-more' }, { field_key: 'url', default_value: 'https://www.google.com.kh/'})
+      home_field_group.add_field({ name: 'Button Text', slug: 'get-start-now-text' }, { field_key: 'text_box', default_value: 'Get Start Now', translate: true})
+      home_field_group.add_field({ name: 'Button URL', slug: 'get-start-now-url' }, { field_key: 'url', default_value: 'https://www.google.com.kh/', translate: true})
     end
 
     if page.get_field_groups.where(slug: 'home-concept-fields').blank?
