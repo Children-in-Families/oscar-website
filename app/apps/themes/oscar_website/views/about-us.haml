@@ -1,4 +1,4 @@
-.body.headerMarginTopBreadCrumb
+.body.header-margin-top-bread-crumb
   = render 'partials/bread_crumb', locals: {menu: 'ABOUT', sub_menu: 'About Me'}
   .main{:role => "main"}
     .container
@@ -17,9 +17,9 @@
           %hr.solid/
           %p
             = fix_new_line_space(raw (@post.the_content))
-      .row
-        .col
-          %hr.solid/
+      / .row
+      /   .col
+      /     %hr.solid/
       - if @post.the_field('about-us-progress-work-show') == '1'
         .row.mt-5
           - name_1st = @post.the_field('about-us-progress-work-name-1st')
@@ -108,10 +108,10 @@
     .container
       .row
         .col
-          %h4.mt-5.mb-0.text-uppercase
-            = oscar_translation('ការងារ','My')
-            %strong
-              = oscar_translation('របស់ខ្ញុំ','Work')
+          / %h4.mt-5.mb-0.text-uppercase
+          /   = oscar_translation('ការងារ','My')
+          /   %strong
+          /     = oscar_translation('របស់ខ្ញុំ','Work')
           %p
             = @post.the_field('about-us-my-work-description')
           %ul.row.portfolio-list

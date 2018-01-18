@@ -37,6 +37,6 @@
                       = tag
                       = ',' unless post_decorate.the_fields('post-tag').last == tag
                 %span.d-block.d-sm-inline-block.float-sm-right.mt-3.mt-sm-0
-                  = link_to 'Read more...', post_decorate.the_url, class: 'blogReadMore'
+                  = link_to 'Read more...', post_decorate.the_url, class: 'blog-read-more'
         .float-right
           = will_paginate(oscar_blog_posts, previous_label: '«', next_label: '»')
