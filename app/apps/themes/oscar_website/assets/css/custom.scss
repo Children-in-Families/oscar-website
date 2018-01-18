@@ -20,7 +20,7 @@ html .toggle-primary .toggle.active > label {
   color: #ffffff;
 }
 
-.shareFacebook{
+.share-facebook{
   background-color: #3b5998;
   padding: 6px 6px;
   border-radius: 5px;
@@ -92,7 +92,7 @@ html .toggle-primary .toggle.active > label {
   color: #ddd !important;
 }
 
-.shareTwitter{
+.share-twitter{
   background-color: #00aced;
   padding: 6px 6px;
   border-radius: 5px;
@@ -109,7 +109,7 @@ html .toggle-primary .toggle.active > label {
   }
 }
 
-.shareLinkin{
+.share-linkin{
   background-color: #007BB6;
   padding: 6px 6px;
   border-radius: 5px;
@@ -125,7 +125,7 @@ html .toggle-primary .toggle.active > label {
   }
 }
 
-.blogReadMore{
+.blog-read-more{
   color: #fff !important;
   font-size: 1.2rem !important;
   padding: 0.5rem 0.8rem !important;
@@ -140,13 +140,15 @@ html .toggle-primary .toggle.active > label {
   }
 }
 
-.colorPrimary{
-  color: #3787c7;
-}
-
-#customer_images {
+#customer-images {
   padding-left: 15px;
   padding-right: 15px;
+  height: 70px;
+  img {
+    width: auto;
+    height: 70px;
+    margin: 0 auto;
+  }
 }
 
 .feature-box{
@@ -182,19 +184,19 @@ html .toggle-primary .toggle.active > label {
 
 }
 
-.headerMarginTop{
+.header-margin-top{
   margin-top: 120px;
 }
 
-.headerMarginTopBreadCrumb {
+.header-margin-top-bread-crumb {
   margin-top: 90px;
 }
 
-.marginTopContact{
+.margin-top-contact{
   margin-top: 90px;
 }
 
-.headerMarginTopFAQ{
+.header-margin-top-faq{
   margin-top: 120px;
 }
 header#header .header-nav .header-nav-main .nav-pills > li > a {
@@ -481,7 +483,7 @@ ul.social-icons{
   }
 }
 
-.officeColor{
+.office-color{
   li {
     color: #777;
   }
@@ -509,7 +511,7 @@ ul.social-icons{
   font-size: 20px;
 }
 
-#homeTestimonial{
+#home-testimonial{
   li, a {
     color: #fff;
   }
@@ -523,11 +525,11 @@ ul.social-icons{
   text-align: center;
 }
 
-#usaidContainer{
+#usaid-container{
   background: #fff;
 }
 
-#usaidImage{
+#usaid-image{
   padding-left: 50px;
   @media #{$phone} {
     height: 100%;
@@ -538,7 +540,7 @@ ul.social-icons{
     justify-content: center;
   }
 }
-#usaidText{
+#usaid-text{
   height: 100%;
   padding: 0;
   margin: 0;
@@ -558,12 +560,25 @@ ul.social-icons{
     opacity: 0.5;
 }
 
-#usaidCloseModal{
+#usaid-close-modal{
   border: 1px solid #777;
   color: #000;
 }
 
-#usaidHeaderCenter{
+#usaid-header-center{
   display: flex;
   justify-content: center;
+}
+#contact-info{
+  margin-top: 30px;
+}
+
+#return-to-home{
+  a{
+    text-decoration: none;
+    color: $primary_color;
+    &:hover{
+      text-decoration: none;
+    }
+  }
 }
