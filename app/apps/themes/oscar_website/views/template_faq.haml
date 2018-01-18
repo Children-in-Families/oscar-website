@@ -2,7 +2,8 @@
   .main{:role => "main"}
     .container
       %h2
-        = @post.the_field('title-faq-page')
+        - title = @post.the_field('title-faq-page')
+        = title if title != ''
       .row
         .col
           %p.lead

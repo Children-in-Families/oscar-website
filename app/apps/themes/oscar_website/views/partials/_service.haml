@@ -1,7 +1,8 @@
 .main{:role => "main"}
   .container
     %h2
-      = @post.the_field('title-service-page')
+      - title = @post.the_field('title-service-page')
+      = title if title != ''
     .row.align-items-center
       %br
       .col-lg-10
