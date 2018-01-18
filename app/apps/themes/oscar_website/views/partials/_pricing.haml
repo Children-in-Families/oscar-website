@@ -3,7 +3,8 @@
     .col
       %h2.mb-0
         %strong#princing
-          = @post.the_field('title-pricing-page')
+          - title = @post.the_field('title-pricing-page')
+          = title if title != ''
       %p
         = fix_new_line_space(raw (@post.the_content))
       %hr.tall/
