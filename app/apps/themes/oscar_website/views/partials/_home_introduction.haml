@@ -3,11 +3,11 @@
     .row.align-items-center
       .col-lg-8
         %p
-          = current_site.the_post('home').the_field('introdution-sentence')
+          = @post.the_field('introdution-sentence')
           %em
-            = current_site.the_post('home').the_field('big-word')
+            = @post.the_field('big-word')
           %span
-            = current_site.the_post('home').the_field('option-and-feature')
+            = @post.the_field('option-and-feature')
       .col-lg-4
         .get-started.text-left.text-lg-right
           = link_to @post.the_field('get-start-now-text'), @post.the_field('get-start-now-url'), class: 'btn btn-lg buttonLg', id: 'get-start-now'
