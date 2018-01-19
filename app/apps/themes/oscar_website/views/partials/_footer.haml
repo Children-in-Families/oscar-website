@@ -48,18 +48,25 @@
                 / = link_to current_site.the_post('contact-us').the_field('contact-email'), target: "_blank" do
                 /   = current_site.the_post('contact-us').the_field('contact-email')
       .col-lg-2
-        %h4
-          = oscar_translation('តាម​ពួក​យើង','Follow Us')
-        %ul.social-icons
-          %li.social-icons-facebook
-            = link_to current_theme.the_field('facebook-url'), target: "_blank" do
-              = fa_icon 'facebook'
-          %li.social-icons-twitter
-            = link_to current_theme.the_field('twitter-url'), target: "_blank" do
-              = fa_icon 'twitter'
-          %li.social-icons-linkedin
-            = link_to current_theme.the_field('linkedin-url'), target: "_blank" do
-              = fa_icon 'linkedin'
+        - facebook = current_theme.the_field('facebook-url')
+        - twitter = current_theme.the_field('twitter-url')
+        - linkedin = current_theme.the_field('linkedin-url')
+        - unless facebook == '' && twitter == '' && linkedin == ''
+          %h4
+            = oscar_translation('តាម​ពួក​យើង','Follow Us')
+          %ul.social-icons
+            - if facebook != ''
+              %li.social-icons-facebook
+                = link_to current_theme.the_field('facebook-url'), target: "_blank" do
+                  = fa_icon 'facebook'
+            - if twitter != ''
+              %li.social-icons-twitter
+                = link_to current_theme.the_field('twitter-url'), target: "_blank" do
+                  = fa_icon 'twitter'
+            - if linkedin != ''
+              %li.social-icons-linkedin
+                = link_to current_theme.the_field('linkedin-url'), target: "_blank" do
+                  = fa_icon 'linkedin'
       .col-lg-3
         %h4 Get To Know Us
         = raw oscar_get_menu_get_to_know_us('get-to-know-us', 'footer-custome')
