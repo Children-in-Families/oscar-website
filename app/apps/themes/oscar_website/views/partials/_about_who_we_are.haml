@@ -5,8 +5,7 @@
       .col-lg-12
         %h2
           %strong#who
-            = oscar_translation('យើង','Who')
-          = oscar_translation('ជា​នរណា','We Are')
+            = @post.the_field('about-who-we-are-title')
         %p
           = @post.the_field('about-who-we-are-content')
     - else
