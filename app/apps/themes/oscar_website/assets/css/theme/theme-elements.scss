@@ -7238,7 +7238,7 @@ html.ie9 .call-to-action.button-centered .container > .row > [class*="col-"], ht
 /* Word Rotator */
 .word-rotator {
 	display: inline-block;
-	overflow: hidden;
+	// overflow: hidden;
 	text-align: center;
 	position: relative;
 	max-height: 22px;
@@ -7272,7 +7272,7 @@ html.ie9 .call-to-action.button-centered .container > .row > [class*="col-"], ht
 }
 
 h1.word-rotator-title .inverted {
-	min-height: 56px;
+	min-height: 50px;
 }
 
 h1.word-rotator-title .word-rotator {
