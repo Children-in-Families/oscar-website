@@ -5,7 +5,6 @@
   #align-center
     - icon = @post.the_field('feature-icon')
     %i{class: "#{icon}  icon-featured", style: 'font-size: 60px;'}
-    %h1
+    %h1#feature-content
       = title
-    %p
       = fix_new_line_space(raw(@post.the_content))
