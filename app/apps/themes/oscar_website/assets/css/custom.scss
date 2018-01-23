@@ -509,7 +509,7 @@ ul.social-icons{
 
 #home-concept{
   font-size: 20px;
-  line-height: 24px;
+  line-height: 28px;
 }
 
 #home-testimonial{
@@ -639,5 +639,14 @@ ul.social-icons{
   }
   i{
     font-size: 60px;
+  }
+}
+.customer-about-us{
+  p {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    .thumb-info-social-icons.about-socail{
+      margin-top: 15px;
+    }
   }
 }
