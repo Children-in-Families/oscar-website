@@ -39,8 +39,7 @@
                   = us.the_title
                 %span.thumb-info-type
                   = us.the_field('about-us-position')
-          %span.thumb-info-caption
-            %span.thumb-info-caption-text
+          %span.thumb-info-caption.customer-about-us
             = fix_new_line_space(raw(us.the_content[0..99]))
           - facebook = us.the_field('about-us-facebook')
           - twitter = us.the_field('about-us-twitter')

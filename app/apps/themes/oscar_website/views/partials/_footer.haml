@@ -67,12 +67,16 @@
               %li.social-icons-linkedin
                 = link_to current_theme.the_field('linkedin-url'), target: "_blank" do
                   = fa_icon 'linkedin'
-      .col-lg-3
-        %h4 Get To Know Us
-        = raw oscar_get_menu_get_to_know_us('get-to-know-us', 'footer-custome')
-      .col-lg-3
-        %h4 Main Menu
-        = raw oscar_get_menu_get_to_know_us('footer-main-menu', 'footer-custome')
+      - menu_get_to_know_us = cama_menu_parse_items(current_site.nav_menus.find_by_slug('get-to-know-us').children).count
+      - menu_footer_main_menu = cama_menu_parse_items(current_site.nav_menus.find_by_slug('footer-main-menu').children).count
+      - if menu_get_to_know_us > 0
+        .col-lg-3
+          %h4 Get To Know Us
+          = raw oscar_get_menu_get_to_know_us('get-to-know-us', 'footer-custome')
+      - if menu_footer_main_menu > 0
+        .col-lg-3
+          %h4 Main Menu
+          = raw oscar_get_menu_get_to_know_us('footer-main-menu', 'footer-custome')
   .footer-copyright
     .container
       .row
