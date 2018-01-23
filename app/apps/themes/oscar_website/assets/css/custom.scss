@@ -612,3 +612,13 @@ ul.social-icons{
     font-size: 18px !important;
   }
 }
+
+.margin-feature{
+  margin: 0 40px;
+  @media #{$phone} {
+    margin-left: 55px;
+  }
+  i{
+    font-size: 60px;
+  }
+}
