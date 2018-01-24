@@ -544,7 +544,13 @@ ul.social-icons{
 }
 
 #usaid-image{
-  padding-left: 50px;
+  padding-left: 145px;
+  @media #{$desktop}{
+    padding-left: 30px;
+  }
+  @media #{$tablet}{
+    padding-left: 30px;
+  }
   @media #{$phone} {
     height: 100%;
     padding: 0;
