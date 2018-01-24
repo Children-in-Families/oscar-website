@@ -48,18 +48,35 @@
                 / = link_to current_site.the_post('contact-us').the_field('contact-email'), target: "_blank" do
                 /   = current_site.the_post('contact-us').the_field('contact-email')
       .col-lg-2
-        %h4
-          = oscar_translation('តាម​ពួក​យើង','Follow Us')
-        %ul.social-icons
-          %li.social-icons-facebook
-            = link_to current_theme.the_field('facebook-url'), target: "_blank" do
-              = fa_icon 'facebook'
-          %li.social-icons-twitter
-            = link_to current_theme.the_field('twitter-url'), target: "_blank" do
-              = fa_icon 'twitter'
-          %li.social-icons-linkedin
-            = link_to current_theme.the_field('linkedin-url'), target: "_blank" do
-              = fa_icon 'linkedin'
+        - facebook = current_theme.the_field('facebook-url')
+        - twitter = current_theme.the_field('twitter-url')
+        - linkedin = current_theme.the_field('linkedin-url')
+        - unless facebook == '' && twitter == '' && linkedin == ''
+          %h4
+            = oscar_translation('តាម​ពួក​យើង','Follow Us')
+          %ul.social-icons
+            - if facebook != ''
+              %li.social-icons-facebook
+                = link_to current_theme.the_field('facebook-url'), target: "_blank" do
+                  = fa_icon 'facebook'
+            - if twitter != ''
+              %li.social-icons-twitter
+                = link_to current_theme.the_field('twitter-url'), target: "_blank" do
+                  = fa_icon 'twitter'
+            - if linkedin != ''
+              %li.social-icons-linkedin
+                = link_to current_theme.the_field('linkedin-url'), target: "_blank" do
+                  = fa_icon 'linkedin'
+      - menu_get_to_know_us = cama_menu_parse_items(current_site.nav_menus.find_by_slug('get-to-know-us').children).count
+      - menu_footer_main_menu = cama_menu_parse_items(current_site.nav_menus.find_by_slug('footer-main-menu').children).count
+      - if menu_get_to_know_us > 0
+        .col-lg-3
+          %h4 Get To Know Us
+          = raw oscar_get_menu_get_to_know_us('get-to-know-us', 'footer-custome')
+      - if menu_footer_main_menu > 0
+        .col-lg-3
+          %h4 Main Menu
+          = raw oscar_get_menu_get_to_know_us('footer-main-menu', 'footer-custome')
   .footer-copyright
     .container
       .row
@@ -81,3 +98,8 @@
               %li
                 %a{:href => "#{current_site.the_post('contact-us').the_url}"}
                   = oscar_translation('ទំនាក់ទំនង','Contact Us')
+    .row#usaid-container
+      .col-lg-4.col-md-6.col-sm-12#usaid-image
+        = image_tag theme_asset_url('images/usaid.png'), size: "250x90", alt: "Edit Entry"
+      .col-lg-4.col-md-6.col-sm-12
+        %p#usaid-text{"data-target" => "#exampleModal", "data-toggle" => "modal"} USAID Disclaimer

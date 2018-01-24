@@ -7,17 +7,16 @@
     .owl-carousel.owl-theme.mb-0{"data-plugin-options" => "{'items': 1}"}
       - posts = current_site.the_post_type('home-testimonials').the_posts.visible_frontend.decorate
       - posts.each do |testimonial|
-        %div
-          .col
-            .testimonial.testimonial-primary
-              %blockquote
-                = raw testimonial.the_content
-              .testimonial-arrow-down
-              .testimonial-author
-                .testimonial-author-thumbnail.img-thumbnail
-                  = image_tag testimonial.the_field('testimonial-image')
-                %p
-                  %strong
-                    = testimonial.the_field('testimonial-name')
-                  %span
-                    = testimonial.the_field('testimonial-position')
+        .col
+          .testimonial.testimonial-primary
+            %blockquote#home-testimonial
+              = fix_new_line_space(raw(testimonial.the_content))
+            .testimonial-arrow-down
+            .testimonial-author
+              .testimonial-author-thumbnail.img-thumbnail
+                = image_tag testimonial.the_field('testimonial-image')
+              %p
+                %strong
+                  = testimonial.the_field('testimonial-name')
+                %span
+                  = testimonial.the_field('testimonial-position')

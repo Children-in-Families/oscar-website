@@ -554,7 +554,7 @@ html.boxed .nav-secondary.sticky-active {
 
 .btn {
 	font-size: 1.5rem;
-	padding: 0.47rem 0.75rem;
+	padding: 0.47rem 1.4rem;
 	cursor: pointer;
 }
 
@@ -6497,7 +6497,7 @@ section.timeline .timeline-box .owl-carousel {
 
 /* Light */
 .section-text-light .testimonial.testimonial blockquote:before, .section-text-light .testimonial.testimonial blockquote:after, .section-text-light .testimonial.testimonial blockquote p {
-	opacity: 0.9;
+	opacity: 1;
 	color: #FFF;
 }
 
@@ -7238,7 +7238,7 @@ html.ie9 .call-to-action.button-centered .container > .row > [class*="col-"], ht
 /* Word Rotator */
 .word-rotator {
 	display: inline-block;
-	overflow: hidden;
+	// overflow: hidden;
 	text-align: center;
 	position: relative;
 	max-height: 22px;
@@ -7272,12 +7272,12 @@ html.ie9 .call-to-action.button-centered .container > .row > [class*="col-"], ht
 }
 
 h1.word-rotator-title .inverted {
-	min-height: 56px;
+	min-height: 50px;
 }
 
 h1.word-rotator-title .word-rotator {
 	max-height: 46px;
-	line-height: 46px;
+	line-height: 36px;
 	margin-bottom: -9px;
 }
 

@@ -3,12 +3,14 @@
     .col
       %h1.mb-2.word-rotator-title
         = current_site.the_post('home').the_field('project-name')
-        %strong.inverted
-          %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
-            %span#js-rotating-home
-              = @post.the_fields('concept-slide-word').join(',')
+        - slide_words = @post.the_fields('concept-slide-word').join(',')
+        - if slide_words != ''
+          %strong.inverted
+            %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
+              %span#js-rotating-home
+                = slide_words
         = current_site.the_post('home').the_field('project-meaning')
-      %p.welcomeContent
+      %p.lead#home-concept
         = current_site.the_post('home').the_field('concept-description')
 
 .home-concept.mt-5

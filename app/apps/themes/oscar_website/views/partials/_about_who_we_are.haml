@@ -5,16 +5,15 @@
       .col-lg-12
         %h2
           %strong#who
-            = oscar_translation('យើង','Who')
-          = oscar_translation('ជា​នរណា','We Are')
+            = @post.the_field('about-who-we-are-title')
         %p
           = @post.the_field('about-who-we-are-content')
     - else
       .col-lg-5
-        %h2
-          %strong#who
-            = oscar_translation('យើង','Who')
-          = oscar_translation('ជា​នរណា','We Are')
+        - unless @post.the_field('about-who-we-are-title') == ''
+          %h2
+            %strong#who
+              = @post.the_field('about-who-we-are-title')
         %p
           = @post.the_field('about-who-we-are-content')
       .col-lg-7
@@ -28,7 +27,6 @@
               .progress-bar.progress-bar-primary{"data-appear-progress-animation" => percent}
                 %span.progress-bar-tooltip
                   = percent
-  %br
   .row.mt-5.mb-5
     - current_site.the_post_type('about-us').the_posts.visible_frontend.decorate.each do |us|
       .col-sm-6.col-lg-3.mb-4.mb-lg-0
@@ -41,16 +39,22 @@
                   = us.the_title
                 %span.thumb-info-type
                   = us.the_field('about-us-position')
-          %span.thumb-info-caption
-            %span.thumb-info-caption-text
-              = raw us.the_content[0..99]
+          %span.thumb-info-caption.customer-about-us
+            = fix_new_line_space(raw(us.the_content[0..99]))
+          - facebook = us.the_field('about-us-facebook')
+          - twitter = us.the_field('about-us-twitter')
+          - linkedin = us.the_field('about-us-linkedin')
+          - unless facebook == "" && twitter == "" && linkedin == ""
             %span.thumb-info-social-icons.about-socail
-              %span
-                = link_to us.the_field('about-us-facebook'), target: "_blank" do
-                  = fa_icon 'facebook'
-              %span
-                = link_to us.the_field('about-us-twitter'), target: "_blank" do
-                  = fa_icon 'twitter'
-              %span
-                = link_to us.the_field('about-us-linkedin'), target: "_blank" do
-                  = fa_icon 'linkedin'
+              - unless facebook == ""
+                %span
+                  = link_to facebook, target: "_blank" do
+                    = fa_icon 'facebook'
+              - unless twitter == ""
+                %span
+                  = link_to twitter, target: "_blank" do
+                    = fa_icon 'twitter'
+              - unless linkedin == ""
+                %span
+                  = link_to linkedin, target: "_blank" do
+                    = fa_icon 'linkedin'

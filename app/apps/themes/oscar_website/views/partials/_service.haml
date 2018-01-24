@@ -1,37 +1,44 @@
 .main{:role => "main"}
   .container
     %h2
-      = oscar_translation('សេវាកម្ម','Our')
-      %strong
-        = oscar_translation('របស់យើង','Services')
+      - title = @post.the_field('title-service-page')
+      = title if title != ''
     .row.align-items-center
       %br
       .col-lg-10
         %p.welcomeContent
-          = raw @post.the_content
+          = fix_new_line_space(raw (@post.the_content))
       .col-lg-2
-        %a.btn.btn-lg.btn-primary#butonContactUs{:href => "/contact-us"}
-          = oscar_translation('ទាក់ទង​មក​ពួក​យើង!','Contact Us!')
+        - button_text = @post.the_field("button-text-service")
+        - button_url = @post.the_field("button-url-service")
+        = link_to button_text, button_url, class: "btn btn-lg", id: 'buttonContactUs'
     %hr/
     .featured-boxes
       .row
         - current_site.the_post_type('service').the_posts.visible_frontend.decorate.each do |service|
           .col-lg-3.col-sm-6
-            .featured-box.featured-box-primary.featured-box-effect-1.mt-0.mt-lg-5{style: 'min-height: 358px;'}
+            .featured-box.featured-box-primary.featured-box-effect-1.mt-0.mt-lg-5{style: 'min-height: 377px;'}
               .box-content
                 %i.icon-featured.fa{class: "#{service.the_field('service-font-awesome-icon-name')}", style: 'font-size: 48px;'}
-                %h4.text-uppercase
-                  = service.the_title
+                - title = service.the_title
+                .titleLess{style: 'display: none'}
+                  %h4.text-uppercase
+                    = title
+                .titleMore
+                  %h4.text-uppercase
+                    = title[0..20]
+                    - if title.size > 20
+                      %span ...
                 - description = service.the_content
                 .readLess{style: 'display: none'}
                   %p.longDescription
-                    = raw description
+                    = strip_tags description
                   %a.learn-more.readLessLink{:href => "javascript:void(0)"}
                     = oscar_translation('អានតិច','Read Less')
                 .readMore
                   %p.shortDescription
-                    = raw description[0..80]
-                    - if description.size > 80
+                    = strip_tags description[0..75]
+                    - if description.size > 75
                       %span ...
                   %a.learn-more.readMoreLink{:href => "javascript:void(0)"}
                     = oscar_translation('អាន​បន្ថែម','Read More')

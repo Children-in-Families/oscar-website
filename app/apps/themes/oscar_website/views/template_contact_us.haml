@@ -1,5 +1,6 @@
 %section#contact
-  .body.marginTopContact
-    = render 'partials/bread_crumb', locals: {menu: 'CONTACT US', sub_menu: 'Contact us'}
+  .body.margin-top-contact
+    - title = @post.the_title
+    = render 'partials/bread_crumb_contact', locals: {menu: title, sub_menu: title}
     .main{:role => "main"}
       = render 'partials/contact_us'

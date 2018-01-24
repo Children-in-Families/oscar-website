@@ -1,14 +1,18 @@
 $(document).ready(function(){
   // service read more
-    $('.readMoreLink').on('click', function(){
-      $(this).parent().toggle();
-      $(this).parent().siblings('.readLess').toggle();
-    });
+  $('.readMoreLink').on('click', function(){
+    $(this).parent().toggle();
+    $(this).parent().siblings('.titleLess').toggle();
+    $(this).parent().siblings('.titleMore').toggle();
+    $(this).parent().siblings('.readLess').toggle();
+  });
 
-    $('.readLessLink').on('click', function(){
-      $(this).parent().toggle();
-      $(this).parent().siblings('.readMore').toggle();
-    });
+  $('.readLessLink').on('click', function(){
+    $(this).parent().toggle();
+    $(this).parent().siblings('.titleLess').toggle();
+    $(this).parent().siblings('.titleMore').toggle();
+    $(this).parent().siblings('.readMore').toggle();
+  });
 
   // slider words
 
@@ -185,52 +189,4 @@ $(document).ready(function(){
       });
     }
   }).apply(this, [window.theme, jQuery]);
-
-  // mail
-
-  $form = $('#contactForm');
-  return $form.submit(function() {
-    var formData, email, message, name, subject;
-    name = $('input#name').val();
-    subject = $('input#subject').val();
-    email = $('input#email').val();
-    message = $('textarea#message').val();
-    if(name != "" || subject != "" || email != "" || message != ""){
-      $('#sendMessage').attr('disabled','disabled');
-      $('#sendMessage').val('Sending...')
-    }
-
-    formData = {
-      name: name,
-      email: email,
-      subject: subject,
-      message: message
-    };
-
-    $.ajax({
-      type: 'POST',
-      dataType: 'json',
-      url: $form.attr('action'),
-      data: formData,
-      success: function() {
-        $form[0].reset();
-        $('#sendMessage').removeAttr('disabled');
-        $('#sendMessage').val('Send Message')
-        alert('Your message has been sent successfully. Thank you.');
-        return false;
-      },
-      error: function() {
-        $('#sendMessage').removeAttr('disabled');
-        $('#sendMessage').val('Send Message')
-        alert('Your message has not been sent. Please try again later!');
-        return false;
-      }
-    });
-    return false;
-  });
-
-
 });
-
-
-

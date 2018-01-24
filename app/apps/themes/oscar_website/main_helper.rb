@@ -1,6 +1,6 @@
 module Themes::OscarWebsite::MainHelper
   def self.included(klass)
-    klass.helper_method [:oscar_get_nav_menu, :oscar_translation, :oscar_blog_posts] rescue "" # here your methods accessible from views
+    klass.helper_method [:oscar_get_nav_menu, :oscar_get_menu_get_to_know_us, :oscar_get_menu_get_to_know_us, :oscar_translation, :oscar_blog_posts, :fix_new_line_space] rescue "" # here your methods accessible from views
   end
 
   def oscar_website_settings(theme)
@@ -16,6 +16,10 @@ module Themes::OscarWebsite::MainHelper
     oscar_add_fields_to_testimonial_page
     oscar_add_fields_to_contact_us_page
     oscar_add_fields_to_blog_page
+    oscar_add_fields_to_service_page
+    oscar_add_fields_to_feature_page
+    oscar_add_fields_to_pricing_page
+    oscar_add_fields_to_faq_page
     oscar_add_home_feature_post_type
     oscar_add_home_customer_image_post_type
     oscar_add_home_latest_blog_post_post_type
@@ -62,51 +66,51 @@ module Themes::OscarWebsite::MainHelper
     if page.get_field_groups.where(slug: 'home-slider-fields').blank?
       home_field_group = page.add_field_group({ name: 'Slider Fields', slug: 'home-slider-fields' })
 
-      home_field_group.add_field({ name: 'Image Slider', slug: 'image-slider' }, { field_key: 'image', required: true })
-      home_field_group.add_field({ name: 'Video Slider', slug: 'video-slider' }, { field_key: 'video', required: true })
-      home_field_group.add_field({ name: 'First Text Load', slug: 'first-text-load' }, { field_key: 'text_box', required: true, default_value: 'Title' })
-      home_field_group.add_field({ name: 'Second Text Load', slug: 'second-text-load' }, { field_key: 'text_box', required: true, default_value: 'Oscar Website' })
-      home_field_group.add_field({ name: 'Third Text Load', slug: 'third-text-load' }, { field_key: 'text_box', required: true, default_value: 'Welcome' })
+      home_field_group.add_field({ name: 'Image Slider', slug: 'image-slider' }, { field_key: 'image' })
+      home_field_group.add_field({ name: 'Video Slider', slug: 'video-slider' }, { field_key: 'video' })
+      home_field_group.add_field({ name: 'First Text Load', slug: 'first-text-load' }, { field_key: 'text_box', default_value: 'Title', translate: true })
+      home_field_group.add_field({ name: 'Second Text Load', slug: 'second-text-load' }, { field_key: 'text_box', default_value: 'Oscar Website', translate: true })
+      home_field_group.add_field({ name: 'Third Text Load', slug: 'third-text-load' }, { field_key: 'text_box', default_value: 'Welcome', translate: true })
     end
 
     if page.get_field_groups.where(slug: 'home-introduction-fields').blank?
       home_field_group = page.add_field_group({ name: 'Introduction Fields', slug: 'home-introduction-fields' })
 
-      home_field_group.add_field({ name: 'Introduction Sentence', slug: 'introdution-sentence' },{ field_key: 'text_box', required: true, default_value: 'The fastest way to grow your business with the leader in'})
+      home_field_group.add_field({ name: 'Introduction Sentence', slug: 'introdution-sentence' },{ field_key: 'text_box', default_value: 'The fastest way to grow your business with the leader in'})
 
-      home_field_group.add_field({ name: 'Big Word', slug: 'big-word' }, { field_key: 'text_box', required: true, default_value: 'Technology'})
-      home_field_group.add_field({ name: 'Option And Feature', slug: 'option-and-feature' }, { field_key: 'text_box', required: true, default_value: 'Check out our options and features included.'})
-      home_field_group.add_field({ name: 'Get Start Now', slug: 'get-start-now' }, { field_key: 'url', required: true, default_value: 'https://www.google.com.kh/'})
-      home_field_group.add_field({ name: 'Learn More', slug: 'learn-more' }, { field_key: 'url', required: true, default_value: 'https://www.google.com.kh/'})
+      home_field_group.add_field({ name: 'Big Word', slug: 'big-word' }, { field_key: 'text_box', default_value: 'Technology', translate: true})
+      home_field_group.add_field({ name: 'Option And Feature', slug: 'option-and-feature' }, { field_key: 'text_box', default_value: 'Check out our options and features included.', translate: true})
+      home_field_group.add_field({ name: 'Button Text', slug: 'get-start-now-text' }, { field_key: 'text_box', default_value: 'Get Start Now', translate: true})
+      home_field_group.add_field({ name: 'Button URL', slug: 'get-start-now-url' }, { field_key: 'url', default_value: 'https://www.google.com.kh/', translate: true})
     end
 
     if page.get_field_groups.where(slug: 'home-concept-fields').blank?
       home_field_group = page.add_field_group({ name: 'Concept Fields', slug: 'home-concept-fields' })
-      home_field_group.add_field({ name: 'Project Name', slug: 'project-name' }, { field_key: 'text_box', required: true, default_value: 'Oscar Website'})
-      home_field_group.add_field({ name: 'Slide Word', slug: 'concept-slide-word' }, { field_key: 'text_box', required: true, default_value: 'Website', multiple: true})
-      home_field_group.add_field({ name: 'Project Meaning', slug: 'project-meaning' }, { field_key: 'text_box', required: true, default_value: 'help children in Cambodia'})
-      home_field_group.add_field({ name: 'Concept Description', slug: 'concept-description' }, { field_key: 'text_box', required: true, default_value: 'We help all children in Camodia'})
-      home_field_group.add_field({ name: 'First Image', slug: 'concept-first-image' }, { field_key: 'image', required: true })
-      home_field_group.add_field({ name: 'First Description', slug: 'concept-first-description' }, { field_key: 'text_box', required: true, default_value: 'Strategy' })
-      home_field_group.add_field({ name: 'Second Image', slug: 'concept-second-image' }, { field_key: 'image', required: true })
-      home_field_group.add_field({ name: 'Second Description', slug: 'concept-second-description' }, { field_key: 'text_box', required: true, default_value: 'Planning'})
-      home_field_group.add_field({ name: 'Third Image', slug: 'concept-third-image' }, { field_key: 'image', required: true })
-      home_field_group.add_field({ name: 'Third Description', slug: 'concept-third-description' }, { field_key: 'text_box', required: true, default_value: 'Build'})
-      home_field_group.add_field({ name: 'Big Image', slug: 'concept-big-image' }, { field_key: 'image', required: true, multiple: true})
-      home_field_group.add_field({ name: 'Big Description', slug: 'concept-big-description' }, { field_key: 'text_box', required: true, default_value: 'Our Work'})
+      home_field_group.add_field({ name: 'Project Name', slug: 'project-name' }, { field_key: 'text_box', default_value: 'Oscar Website', translate: true})
+      home_field_group.add_field({ name: 'Slide Word', slug: 'concept-slide-word' }, { field_key: 'text_box', default_value: 'Website', multiple: true, translate: true})
+      home_field_group.add_field({ name: 'Project Meaning', slug: 'project-meaning' }, { field_key: 'text_box', default_value: 'help children in Cambodia', translate: true})
+      home_field_group.add_field({ name: 'Concept Description', slug: 'concept-description' }, { field_key: 'text_box', default_value: 'We help all children in Camodia', translate: true})
+      home_field_group.add_field({ name: 'First Image', slug: 'concept-first-image' }, { field_key: 'image' })
+      home_field_group.add_field({ name: 'First Description', slug: 'concept-first-description' }, { field_key: 'text_box', default_value: 'Strategy' })
+      home_field_group.add_field({ name: 'Second Image', slug: 'concept-second-image' }, { field_key: 'image' })
+      home_field_group.add_field({ name: 'Second Description', slug: 'concept-second-description' }, { field_key: 'text_box', default_value: 'Planning'})
+      home_field_group.add_field({ name: 'Third Image', slug: 'concept-third-image' }, { field_key: 'image' })
+      home_field_group.add_field({ name: 'Third Description', slug: 'concept-third-description' }, { field_key: 'text_box', default_value: 'Build'})
+      home_field_group.add_field({ name: 'Big Image', slug: 'concept-big-image' }, { field_key: 'image', multiple: true})
+      home_field_group.add_field({ name: 'Big Description', slug: 'concept-big-description' }, { field_key: 'text_box', default_value: 'Our Work'})
     end
 
     if page.get_field_groups.where(slug: 'home-customer-description-fields').blank?
       home_field_group = page.add_field_group({ name: 'Customer Description Fields', slug: 'home-customer-description-fields' })
-      home_field_group.add_field({ name: 'Main First Description', slug: 'main-first-description' }, { field_key: 'text_box', required: true, default_value: 'Our Customer'})
-      home_field_group.add_field({ name: 'Slide Word', slug: 'customer-description-slide-word' }, { field_key: 'text_box', required: true, default_value: 'Happy', multiple: true})
-      home_field_group.add_field({ name: 'Main Scecond Description', slug: 'main-second-description' }, { field_key: 'text_box', required: true, default_value: 'to help children in Cambodia'})
-      home_field_group.add_field({ name: 'Sub Description', slug: 'sub-description' }, { field_key: 'text_box', required: true, default_value: '25,000 customers in 100 countries use Porto Template. Meet our customers.'})
+      home_field_group.add_field({ name: 'Main First Description', slug: 'main-first-description' }, { field_key: 'text_box', translate: true, default_value: 'Our Customer'})
+      home_field_group.add_field({ name: 'Slide Word', slug: 'customer-description-slide-word' }, { field_key: 'text_box', translate: true, default_value: 'Happy', multiple: true})
+      home_field_group.add_field({ name: 'Main Scecond Description', slug: 'main-second-description' }, { field_key: 'text_box', translate: true, default_value: 'to help children in Cambodia'})
+      home_field_group.add_field({ name: 'Sub Description', slug: 'sub-description' }, { field_key: 'text_box', translate: true, default_value: '25,000 customers in 100 countries use Porto Template. Meet our customers.'})
     end
 
     if page.get_field_groups.where(slug: 'home-customer-background-image-fields').blank?
       home_field_group = page.add_field_group({ name: 'Customer Background Image Fields', slug: 'home-customer-background-image-fields' })
-      home_field_group.add_field({ name: 'Background Image', slug: 'home-background-image' }, { field_key: 'image', required: true})
+      home_field_group.add_field({ name: 'Background Image', slug: 'home-background-image' }, { field_key: 'image'})
     end
   end
 
@@ -115,19 +119,24 @@ module Themes::OscarWebsite::MainHelper
 
     if page.get_field_groups.where(slug: 'contact-business-hour-fields').blank?
       contact_field_group = page.add_field_group({ name: 'Business Hours', slug: 'contact-business-hour-fields' })
-      contact_field_group.add_field({ name: 'Business Hour', slug: 'contact-business-hour' }, { field_key: 'text_box', required: true, default_value: 'Monday - Friday - 9am to 5pm', multiple: true})
+      contact_field_group.add_field({ name: 'Business Hour', slug: 'contact-business-hour' }, { field_key: 'text_box', translate: true, default_value: 'Monday - Friday - 9am to 5pm', multiple: true})
     end
 
     if page.get_field_groups.where(slug: 'contact-map-fields').blank?
       contact_field_group = page.add_field_group({ name: 'Map', slug: 'contact-map-fields' })
-      contact_field_group.add_field({ name: 'Map URL', slug: 'contact-map' }, { field_key: 'url', required: true })
+      contact_field_group.add_field({ name: 'Map URL', slug: 'contact-map' }, { field_key: 'url' })
     end
 
     if page.get_field_groups.where(slug: 'contact-us-fields').blank?
       contact_field_group = page.add_field_group({ name: 'Contact Us', slug: 'contact-us-fields' })
-      contact_field_group.add_field({ name: 'Address', slug: 'contact-address' }, { field_key: 'text_box', required: true, default_value: 'Phnom Penh' })
-      contact_field_group.add_field({ name: 'Phone', slug: 'contact-phone' }, { field_key: 'phone', required: true, default_value: "010123456" })
-      contact_field_group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', required: true, default_value: "someone@example.come" })
+      contact_field_group.add_field({ name: 'Address', slug: 'contact-address' }, { field_key: 'text_box', translate: true, default_value: 'Phnom Penh' })
+      contact_field_group.add_field({ name: 'Phone', slug: 'contact-phone' }, { field_key: 'phone', default_value: "010123456" })
+      contact_field_group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', default_value: "someone@example.come" })
+    end
+
+    if page.get_field_groups.where(slug: 'contact-page-fields').blank?
+      contact_field_group = page.add_field_group({ name: 'Contact Page Fields', slug: 'contact-page-fields' })
+      contact_field_group.add_field({ name: 'Text', slug: 'title-contact-page' }, { field_key: 'text_box', translate: true, default_value: 'Contact Us'})
     end
   end
 
@@ -135,8 +144,50 @@ module Themes::OscarWebsite::MainHelper
     page = current_site.the_post_type('page').the_post('blog')
 
     if page.get_field_groups.where(slug: 'blog-fields').blank?
-      pricing_field_group = page.add_field_group({ name: 'Show Blog Fields', slug: 'show-blog-fields' })
-      pricing_field_group.add_field({ name: 'Show', slug: 'blog-show' }, { field_key: 'checkbox'})
+      blog_field_group = page.add_field_group({ name: 'Show Blog Fields', slug: 'show-blog-fields' })
+      blog_field_group.add_field({ name: 'Show', slug: 'blog-show' }, { field_key: 'checkbox'})
+    end
+  end
+
+  def oscar_add_fields_to_service_page
+    page = current_site.the_post_type('page').the_post('services')
+
+    if page.get_field_groups.where(slug: 'service-fields').blank?
+      service_field_group = page.add_field_group({ name: 'Button Service Fields', slug: 'button-service-fields' })
+      service_field_group.add_field({ name: 'Text', slug: 'button-text-service' }, { field_key: 'text_box', translate: true})
+      service_field_group.add_field({ name: 'Url', slug: 'button-url-service' }, { field_key: 'url'})
+    end
+
+    if page.get_field_groups.where(slug: 'service-page-fields').blank?
+      service_field_group = page.add_field_group({ name: 'Service Page Fields', slug: 'service-page-fields' })
+      service_field_group.add_field({ name: 'Text', slug: 'title-service-page' }, { field_key: 'text_box', translate: true, default_value: 'Services'})
+    end
+  end
+
+  def oscar_add_fields_to_feature_page
+    page = current_site.the_post_type('page').the_post('features-set')
+
+    if page.get_field_groups.where(slug: 'feature-page-fields').blank?
+      feature_field_group = page.add_field_group({ name: 'Feature Page Fields', slug: 'feature-page-fields' })
+      feature_field_group.add_field({ name: 'Text', slug: 'title-feature-page' }, { field_key: 'text_box', translate: true, default_value: 'Features'})
+    end
+  end
+
+  def oscar_add_fields_to_pricing_page
+    page = current_site.the_post_type('page').the_post('pricing')
+
+    if page.get_field_groups.where(slug: 'pricing-page-fields').blank?
+      pricing_field_group = page.add_field_group({ name: 'Pricing Page Fields', slug: 'pricing-page-fields' })
+      pricing_field_group.add_field({ name: 'Text', slug: 'title-pricing-page' }, { field_key: 'text_box', translate: true, default_value: 'Pricing'})
+    end
+  end
+
+  def oscar_add_fields_to_faq_page
+    page = current_site.the_post_type('page').the_post('faq')
+
+    if page.get_field_groups.where(slug: 'faq-page-fields').blank?
+      faq_field_group = page.add_field_group({ name: 'Faq Page Fields', slug: 'faq-page-fields' })
+      faq_field_group.add_field({ name: 'Text', slug: 'title-faq-page' }, { field_key: 'text_box', translate: true, default_value: 'Frequently Asked Questions'})
     end
   end
 
@@ -145,7 +196,7 @@ module Themes::OscarWebsite::MainHelper
 
     if page.get_field_groups.where(slug: 'testimonial-fields').blank?
       testimonial_field_group = page.add_field_group({ name: 'Testimonial Fields', slug: 'testimonial-fields' })
-      testimonial_field_group.add_field({ name: 'Background Image', slug: 'testimonial-background-image' }, { field_key: 'image', required: true })
+      testimonial_field_group.add_field({ name: 'Background Image', slug: 'testimonial-background-image' }, { field_key: 'image' })
     end
   end
 
@@ -154,12 +205,14 @@ module Themes::OscarWebsite::MainHelper
 
     if page.get_field_groups.where(slug: 'about-content-fields').blank?
       about_field_group = page.add_field_group({ name: 'About Content Fields', slug: 'about-content-fields' })
-      about_field_group.add_field({ name: 'Slide Words', slug: 'about-slider' }, { field_key: 'text_box', required: true, default_value: 'Technology', multiple: true})
+      about_field_group.add_field({ name: 'Start Sentence', slug: 'about-start-sentence'}, { field_key: 'text_box', translate: true})
+      about_field_group.add_field({ name: 'Slide Words', slug: 'about-slider' }, { field_key: 'text_box', translate: true, default_value: 'Technology', multiple: true})
     end
 
     if page.get_field_groups.where(slug: 'about-who-we-are-fields').blank?
       about_field_group = page.add_field_group({ name: 'About Who We Are Fields', slug: 'about-who-we-are-fields' })
-      about_field_group.add_field({ name: 'Content', slug: 'about-who-we-are-content' }, { field_key: 'text_area', required: true, default_value: 'About Who We Are Content'})
+      about_field_group.add_field({name: 'Title', slug: 'about-who-we-are-title'},{field_key: 'text_box', translate: true, default_value: 'Who We Are'})
+      about_field_group.add_field({ name: 'Content', slug: 'about-who-we-are-content' }, { field_key: 'text_area', translate: true, default_value: 'About Who We Are Content'})
     end
 
     if page.get_field_groups.where(slug: 'about-testimonail-fields').blank?
@@ -169,15 +222,15 @@ module Themes::OscarWebsite::MainHelper
 
     if page.get_field_groups.where(slug: 'about-footer-fields').blank?
       about_field_group = page.add_field_group({ name: 'About Footer', slug: 'about-footer-fields' })
-      about_field_group.add_field({ name: 'Main Sentence', slug: 'about-footer-main-sentence-content' }, { field_key: 'text_box'})
-      about_field_group.add_field({ name: 'Sub Sentence', slug: 'about-footer-sub-sentence-content' }, { field_key: 'text_box'})
-      about_field_group.add_field({ name: 'Button Text', slug: 'about-footer-button-text' }, { field_key: 'text_box'})
+      about_field_group.add_field({ name: 'Main Sentence', slug: 'about-footer-main-sentence-content' }, { field_key: 'text_box', translate: true})
+      about_field_group.add_field({ name: 'Sub Sentence', slug: 'about-footer-sub-sentence-content' }, { field_key: 'text_box', translate: true})
+      about_field_group.add_field({ name: 'Button Text', slug: 'about-footer-button-text' }, { field_key: 'text_box', translate: true})
       about_field_group.add_field({ name: 'Button URL', slug: 'about-footer-button-url' }, { field_key: 'url'})
     end
 
     if page.get_field_groups.where(slug: 'about-video-fields').blank?
       about_field_group = page.add_field_group({ name: 'About Video Fields', slug: 'about-video-fields' })
-      about_field_group.add_field({ name: 'Video', slug: 'about-video' }, { field_key: 'video', required: true })
+      about_field_group.add_field({ name: 'Video', slug: 'about-video' }, { field_key: 'video' })
     end
   end
 
@@ -199,7 +252,7 @@ module Themes::OscarWebsite::MainHelper
       if service.get_field_groups.where(slug: 'service-score-fields').blank?
         service_field_group = service.add_field_group({ name: 'Service Fields', slug: 'service-fields' } )
 
-        service_field_group.add_field({ name: 'Font Awesome Icon Name', slug: 'service-font-awesome-icon-name' }, { field_key: 'text_box', required: true } )
+        service_field_group.add_field({ name: 'Font Awesome Icon Name', slug: 'service-font-awesome-icon-name' }, { field_key: 'text_box', translate: true } )
       end
     end
   end
@@ -240,8 +293,8 @@ module Themes::OscarWebsite::MainHelper
       if pricing.get_field_groups.where(slug: 'pricing-fields').blank?
         pricing_field_group = pricing.add_field_group({ name: 'Pricing Fields', slug: 'pricing-fields' } )
 
-        pricing_field_group.add_field({ name: 'Price', slug: 'pricing-price' }, { field_key: 'numeric', required: true } )
-        pricing_field_group.add_field({ name: 'Item', slug: 'pricing-item' }, { field_key: 'text_box', required: true, multiple: true } )
+        pricing_field_group.add_field({ name: 'Price', slug: 'pricing-price' }, { field_key: 'numeric' } )
+        pricing_field_group.add_field({ name: 'Item', slug: 'pricing-item' }, { field_key: 'text_box', translate: true, multiple: true } )
         pricing_field_group.add_field({ name: 'Popular', slug: 'pricing-popular' }, { field_key: 'checkbox'} )
       end
     end
@@ -265,9 +318,9 @@ module Themes::OscarWebsite::MainHelper
       if about.get_field_groups.where(slug: 'about-score-fields').blank?
         about_field_group = about.add_field_group({ name: 'About Score Fields', slug: 'about-score-fields' } )
 
-        about_field_group.add_field({ name: 'Number', slug: 'about-score-number' }, { field_key: 'numeric', required: true } )
+        about_field_group.add_field({ name: 'Number', slug: 'about-score-number' }, { field_key: 'numeric' } )
         about_field_group.add_field({ name: 'Sign', slug: 'about-score-sign' }, { field_key: 'text_box', required: false } )
-        about_field_group.add_field({ name: 'Text', slug: 'about-score-text' }, { field_key: 'text_box', required: true } )
+        about_field_group.add_field({ name: 'Text', slug: 'about-score-text' }, { field_key: 'text_box', translate: true } )
       end
     end
   end
@@ -291,55 +344,57 @@ module Themes::OscarWebsite::MainHelper
       if about.get_field_groups.where(slug: 'about-us-fields').blank?
         about_field_group = about.add_field_group({ name: 'About Us Fields', slug: 'about-us-fields' } )
 
-        about_field_group.add_field({ name: 'Image', slug: 'about-us-image' }, { field_key: 'image', required: true, multiple: true } )
-        about_field_group.add_field({ name: 'Position', slug: 'about-us-position' }, { field_key: 'text_box', required: true } )
-        about_field_group.add_field({ name: 'Facebook', slug: 'about-us-facebook' }, { field_key: 'url', required: true } )
-        about_field_group.add_field({ name: 'Twitter', slug: 'about-us-twitter' }, { field_key: 'url', required: true } )
-        about_field_group.add_field({ name: 'Linkedin', slug: 'about-us-linkedin' }, { field_key: 'url', required: true } )
+        about_field_group.add_field({ name: 'Image', slug: 'about-us-image' }, { field_key: 'image', multiple: true } )
+        about_field_group.add_field({ name: 'Position', slug: 'about-us-position' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Facebook', slug: 'about-us-facebook' }, { field_key: 'url' } )
+        about_field_group.add_field({ name: 'Twitter', slug: 'about-us-twitter' }, { field_key: 'url' } )
+        about_field_group.add_field({ name: 'Linkedin', slug: 'about-us-linkedin' }, { field_key: 'url' } )
       end
 
       if about.get_field_groups.where(slug: 'about-us-progress-work-fields').blank?
         about_field_group = about.add_field_group({ name: 'Progress work', slug: 'about-us-progress-work-fields' } )
 
-        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-progress-work-name-1st' }, { field_key: 'text_box', required: true } )
-        about_field_group.add_field({ name: 'Percent 1st', slug: 'about-us-progress-work-percent-1st' }, { field_key: 'numeric', required: true } )
-        about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-progress-work-name-2nd' }, { field_key: 'text_box', required: false } )
-        about_field_group.add_field({ name: 'Percent 2nd', slug: 'about-us-progress-work-percent-2nd' }, { field_key: 'numeric', required: false } )
-        about_field_group.add_field({ name: 'Name 3rd', slug: 'about-us-progress-work-name-3rd' }, { field_key: 'text_box', required: false } )
-        about_field_group.add_field({ name: 'Percent 3rd', slug: 'about-us-progress-work-percent-3rd' }, { field_key: 'numeric', required: false } )
-        about_field_group.add_field({ name: 'Name 4th', slug: 'about-us-progress-work-name-4th' }, { field_key: 'text_box', required: false } )
-        about_field_group.add_field({ name: 'Percent 4th', slug: 'about-us-progress-work-percent-4th' }, { field_key: 'numeric', required: false } )
+        about_field_group.add_field({name: 'Show', slug: 'about-us-progress-work-show'},{field_key: 'checkbox'})
+        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-progress-work-name-1st' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Percent 1st', slug: 'about-us-progress-work-percent-1st' }, { field_key: 'numeric' } )
+        about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-progress-work-name-2nd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Percent 2nd', slug: 'about-us-progress-work-percent-2nd' }, { field_key: 'numeric' } )
+        about_field_group.add_field({ name: 'Name 3rd', slug: 'about-us-progress-work-name-3rd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Percent 3rd', slug: 'about-us-progress-work-percent-3rd' }, { field_key: 'numeric' } )
+        about_field_group.add_field({ name: 'Name 4th', slug: 'about-us-progress-work-name-4th' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Percent 4th', slug: 'about-us-progress-work-percent-4th' }, { field_key: 'numeric' } )
       end
 
       if about.get_field_groups.where(slug: 'about-us-referent-fields').blank?
         about_field_group = about.add_field_group({ name: 'Referent', slug: 'about-us-referent-fields' } )
 
-        about_field_group.add_field({ name: 'Background Image', slug: 'about-us-background-image' }, { field_key: 'image', required: true } )
-        about_field_group.add_field({ name: 'Comment 1st', slug: 'about-us-referent-comment-1st' }, { field_key: 'text_area', required: true } )
-        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-referent-name-1st' }, { field_key: 'text_box', required: true } )
-        about_field_group.add_field({ name: 'Positon 1st', slug: 'about-us-referent-position-1st' }, { field_key: 'text_box', required: true } )
-        about_field_group.add_field({ name: 'Comment 2nd', slug: 'about-us-referent-comment-2nd' }, { field_key: 'text_area', required: false } )
-        about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-referent-name-2nd' }, { field_key: 'text_box', required: false } )
-        about_field_group.add_field({ name: 'Positon 2nd', slug: 'about-us-referent-position-2nd' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({name: 'Show', slug: 'about-us-referent-show'},{field_key: 'checkbox'})
+        about_field_group.add_field({ name: 'Background Image', slug: 'about-us-background-image' }, { field_key: 'image' } )
+        about_field_group.add_field({ name: 'Comment 1st', slug: 'about-us-referent-comment-1st' }, { field_key: 'text_area', translate: true } )
+        about_field_group.add_field({ name: 'Name 1st', slug: 'about-us-referent-name-1st' }, { field_key: 'text_box', translate: true} )
+        about_field_group.add_field({ name: 'Positon 1st', slug: 'about-us-referent-position-1st' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Comment 2nd', slug: 'about-us-referent-comment-2nd' }, { field_key: 'text_area', translate: true } )
+        about_field_group.add_field({ name: 'Name 2nd', slug: 'about-us-referent-name-2nd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Positon 2nd', slug: 'about-us-referent-position-2nd' }, { field_key: 'text_box', translate: true } )
       end
 
       if about.get_field_groups.where(slug: 'about-us-my-work-fields').blank?
         about_field_group = about.add_field_group({ name: 'My Work', slug: 'about-us-my-work-fields' } )
 
-        about_field_group.add_field({ name: 'Description', slug: 'about-us-my-work-description' }, { field_key: 'text_area', required: true } )
+        about_field_group.add_field({ name: 'Description', slug: 'about-us-my-work-description' }, { field_key: 'text_area', translate: true } )
 
-        about_field_group.add_field({ name: 'Image 1st', slug: 'about-us-my-work-image-1st' }, { field_key: 'image', required: true } )
-        about_field_group.add_field({ name: 'Title 1st', slug: 'about-us-my-work-title-1st' }, { field_key: 'text_box', required: true } )
-        about_field_group.add_field({ name: 'Sub Title 1st', slug: 'about-us-my-work-sub-title-1st' }, { field_key: 'text_box', required: true } )
+        about_field_group.add_field({ name: 'Image 1st', slug: 'about-us-my-work-image-1st' }, { field_key: 'image' } )
+        about_field_group.add_field({ name: 'Title 1st', slug: 'about-us-my-work-title-1st' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Sub Title 1st', slug: 'about-us-my-work-sub-title-1st' }, { field_key: 'text_box', translate: true } )
         about_field_group.add_field({ name: 'Image 2nd', slug: 'about-us-my-work-image-2nd' }, { field_key: 'image', required: false } )
-        about_field_group.add_field({ name: 'Title 2nd', slug: 'about-us-my-work-title-2nd' }, { field_key: 'text_box', required: false } )
-        about_field_group.add_field({ name: 'Sub Title 2nd', slug: 'about-us-my-work-sub-title-2nd' }, { field_key: 'text_box', required: false } )
-        about_field_group.add_field({ name: 'Image 3rd', slug: 'about-us-my-work-image-3rd' }, { field_key: 'image', required: false } )
-        about_field_group.add_field({ name: 'Title 3rd', slug: 'about-us-my-work-title-3rd' }, { field_key: 'text_box', required: false } )
-        about_field_group.add_field({ name: 'Sub Title 3rd', slug: 'about-us-my-work-sub-title-3rd' }, { field_key: 'text_box', required: false } )
-        about_field_group.add_field({ name: 'Image 4th', slug: 'about-us-my-work-image-4th' }, { field_key: 'image', required: false } )
-        about_field_group.add_field({ name: 'Title 4th', slug: 'about-us-my-work-title-4th' }, { field_key: 'text_box', required: false } )
-        about_field_group.add_field({ name: 'Sub Title 4th', slug: 'about-us-my-work-sub-title-4th' }, { field_key: 'text_box', required: false } )
+        about_field_group.add_field({ name: 'Title 2nd', slug: 'about-us-my-work-title-2nd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Sub Title 2nd', slug: 'about-us-my-work-sub-title-2nd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Image 3rd', slug: 'about-us-my-work-image-3rd' }, { field_key: 'image' } )
+        about_field_group.add_field({ name: 'Title 3rd', slug: 'about-us-my-work-title-3rd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Sub Title 3rd', slug: 'about-us-my-work-sub-title-3rd' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Image 4th', slug: 'about-us-my-work-image-4th' }, { field_key: 'image' } )
+        about_field_group.add_field({ name: 'Title 4th', slug: 'about-us-my-work-title-4th' }, { field_key: 'text_box', translate: true } )
+        about_field_group.add_field({ name: 'Sub Title 4th', slug: 'about-us-my-work-sub-title-4th' }, { field_key: 'text_box', translate: true } )
       end
     end
   end
@@ -361,14 +416,14 @@ module Themes::OscarWebsite::MainHelper
       about.set_meta('_default', options)
       if about.get_field_groups.where(slug: 'about-who-we-are-progress-fields').blank?
         about_field_group = about.add_field_group({ name: 'About Who We Are Progress Fields', slug: 'about-who-we-are-progress-fields' } )
-        about_field_group.add_field({ name: 'Percent', slug: 'about-who-we-are-progress-percent' }, { field_key: 'numeric', required: true } )
+        about_field_group.add_field({ name: 'Percent', slug: 'about-who-we-are-progress-percent' }, { field_key: 'numeric' } )
       end
     end
   end
 
   def oscar_add_home_feature_post_type
-    if current_site.the_post_type('home-feature').blank?
-      feature = current_site.post_types.create(name: 'Features', slug: 'home-feature')
+    if current_site.the_post_type('features').blank?
+      feature = current_site.post_types.create(name: 'Features', slug: 'features')
       options = {
         has_category: false,
         has_content: true,
@@ -381,10 +436,9 @@ module Themes::OscarWebsite::MainHelper
         contents_route_format: 'post_of_posttype'
       }
       feature.set_meta('_default', options)
-      if feature.get_field_groups.where(slug: 'home-feature-fields').blank?
-        feature_field_group = feature.add_field_group({ name: 'Home Feature Fields', slug: 'home-feature-fields' } )
-        feature_field_group.add_field({ name: 'Feature Icon', slug: 'feature-icon' }, { field_key: 'image', required: true } )
-        feature_field_group.add_field({ name: 'Feature Url', slug: 'Feature-url' }, { field_key: 'url', required: true } )
+      if feature.get_field_groups.where(slug: 'feature-fields').blank?
+        feature_field_group = feature.add_field_group({ name: 'Feature Fields', slug: 'feature-fields' } )
+        feature_field_group.add_field({ name: 'Feature Icon', slug: 'feature-icon' }, { field_key: 'text_box' } )
       end
     end
   end
@@ -406,7 +460,7 @@ module Themes::OscarWebsite::MainHelper
       customer.set_meta('_default', options)
       if customer.get_field_groups.where(slug: 'home-customer-image-fields').blank?
         customer_field_group = customer.add_field_group({ name: 'Home Customer Image Fields', slug: 'home-customer-image-fields' } )
-        customer_field_group.add_field({ name: 'Customer Logo', slug: 'customer-logo' }, { field_key: 'image', required: true } )
+        customer_field_group.add_field({ name: 'Customer Logo', slug: 'customer-logo' }, { field_key: 'image' } )
       end
     end
   end
@@ -428,10 +482,10 @@ module Themes::OscarWebsite::MainHelper
       post.set_meta('_default', options)
       if post.get_field_groups.where(slug: 'home-latest-blog-post-fields').blank?
         post_field_group = post.add_field_group({ name: 'Blog Post Fields', slug: 'home-latest-blog-post-fields' } )
-        post_field_group.add_field({ name: 'Image', slug: 'post-image' }, { field_key: 'image', required: true, multiple: true } )
-        post_field_group.add_field({ name: 'Date', slug: 'date' }, { field_key: 'date', required: true } )
-        post_field_group.add_field({ name: 'Author', slug: 'post-author' }, { field_key: 'text_box', required: true } )
-        post_field_group.add_field({ name: 'Tag', slug: 'post-tag' }, { field_key: 'text_box', required: true, multiple: true } )
+        post_field_group.add_field({ name: 'Image', slug: 'post-image' }, { field_key: 'image', multiple: true } )
+        post_field_group.add_field({ name: 'Date', slug: 'date' }, { field_key: 'date' } )
+        post_field_group.add_field({ name: 'Author', slug: 'post-author' }, { field_key: 'text_box', translate: true } )
+        post_field_group.add_field({ name: 'Tag', slug: 'post-tag' }, { field_key: 'text_box', translate: true, multiple: true } )
       end
     end
   end
@@ -453,9 +507,9 @@ module Themes::OscarWebsite::MainHelper
       post.set_meta('_default', options)
       if post.get_field_groups.where(slug: 'home-testimonials-fields').blank?
         post_field_group = post.add_field_group({ name: 'Testimonial Fields', slug: 'home-testimonials-fields' } )
-        post_field_group.add_field({ name: 'Client Image', slug: 'testimonial-image' }, { field_key: 'image', required: true } )
-        post_field_group.add_field({ name: 'Client Name', slug: 'testimonial-name' }, { field_key: 'text_box', required: true } )
-        post_field_group.add_field({ name: 'Client Position', slug: 'testimonial-position' }, { field_key: 'text_box', required: true } )
+        post_field_group.add_field({ name: 'Client Image', slug: 'testimonial-image' }, { field_key: 'image' } )
+        post_field_group.add_field({ name: 'Client Name', slug: 'testimonial-name' }, { field_key: 'text_box', translate: true } )
+        post_field_group.add_field({ name: 'Client Position', slug: 'testimonial-position' }, { field_key: 'text_box', translate: true } )
       end
     end
   end
@@ -477,8 +531,8 @@ module Themes::OscarWebsite::MainHelper
       tweet.set_meta('_default', options)
       if tweet.get_field_groups.where(slug: 'home-latest-tweets-fields').blank?
         post_field_group = tweet.add_field_group({ name: 'Home Tweets Fields', slug: 'home-tweets-fields' } )
-        post_field_group.add_field({ name: 'Tweet Content', slug: 'tweet-content' }, { field_key: 'text_area', required: true } )
-        post_field_group.add_field({ name: 'Tweet Date', slug: 'tweet-date' }, { field_key: 'date', required: true } )
+        post_field_group.add_field({ name: 'Tweet Content', slug: 'tweet-content' }, { field_key: 'text_area', translate: true } )
+        post_field_group.add_field({ name: 'Tweet Date', slug: 'tweet-date' }, { field_key: 'date' } )
       end
     end
   end
@@ -508,6 +562,26 @@ module Themes::OscarWebsite::MainHelper
       end
     }
     draw_menu(option)
+  end
+
+  def oscar_get_menu_get_to_know_us(key = 'get-to-know-us', class_name='footer-custome')
+    option = {
+      menu_slug: key,
+      container_class: class_name,
+    }
+    draw_menu(option)
+  end
+
+  def oscar_get_menu_get_to_know_us(key = 'footer-main-menu', class_name='footer-custome')
+    option = {
+      menu_slug: key,
+      container_class: class_name,
+    }
+    draw_menu(option)
+  end
+
+  def fix_new_line_space(text)
+    text.gsub(/><\//,'>&nbsp;</').html_safe
   end
 
   # callback executed after theme uninstalled
