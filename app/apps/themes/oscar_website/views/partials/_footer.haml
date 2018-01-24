@@ -90,8 +90,9 @@
         .col-lg-4
           %nav#sub-menu
             %ul
-              %li
-                %a{:href => "#{current_site.the_post('faq').the_url}"} FAQ's
+              - if current_site.the_post('faq')
+                %li
+                  %a{:href => "#{current_site.the_post('faq').the_url}"} FAQ's
               %li
                 %a{:href => "/sitemap"}
                   = oscar_translation('ប្លង់គេហទំព័រ','Sitemap')
