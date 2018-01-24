@@ -1,3 +1,5 @@
-.body.headerMarginTop
+.body.header-margin-top-bread-crumb
+  - title = @post.the_title
+  = render 'partials/bread_crumb', locals: {menu: title, sub_menu: title}
   .main{:role => "main"}
     = render 'partials/testimonial_content'

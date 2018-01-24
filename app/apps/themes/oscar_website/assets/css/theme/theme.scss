@@ -300,7 +300,7 @@ li {
 	color: #FFF;
 	display: none;
 	float: right;
-	margin: 0 0 0 1rem;
+	margin: 0 0 0 3rem;
 }
 
 #header.header-narrow .header-body {
@@ -1189,7 +1189,7 @@ html:not(.sticky-header-active) #header.header-transparent-sticky-deactive.heade
 	#header .header-nav-main {
 		position: absolute;
 		background: transparent;
-		width: 100%;
+		width: 111%;
 		top: 100%;
 		left: 50%;
 		-webkit-transform: translate3d(-50%, 0, 0);
@@ -1365,7 +1365,7 @@ html:not(.sticky-header-active) #header.header-transparent-sticky-deactive.heade
 
 	#header.header-transparent .header-nav-main:before, #header.header-semi-transparent .header-nav-main:before, #header.header-semi-transparent-light .header-nav-main:before {
 		width: calc(100% - 30px);
-		border-radius: 4px;
+		border-radius: 0px;
 	}
 
 	#header.header-transparent .header-nav-main nav, #header.header-semi-transparent .header-nav-main nav, #header.header-semi-transparent-light .header-nav-main nav {
@@ -2185,7 +2185,7 @@ html[dir="rtl"] #header .header-search .btn-light {
 }
 
 .parallax blockquote p {
-	font-size: 24px;
+	font-size: 20px;
 	line-height: 30px;
 }
 
@@ -2440,7 +2440,7 @@ aside ul.nav-list > li > a {
 .slider-container .main-label {
 	color: #FFF;
 	font-size: 62px;
-	line-height: 62px;
+	line-height: 80px;
 	font-weight: 800;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
 }
@@ -2705,7 +2705,7 @@ section.section-custom-map-2 section.section {
 }
 
 .home-intro p span {
-	color: #999;
+	color: #ddd;
 	display: block;
 	font-size: 0.8em;
 	padding-top: 5px;
@@ -2963,6 +2963,7 @@ section.section-custom-map-2 section.section {
 .home-concept .our-work {
 	margin-top: 52px;
 	font-size: 2.6em;
+	line-height: 32px;
 }
 
 .home-concept .project-image {

@@ -6,31 +6,43 @@
           .header-column
             .header-row
               .header-logo
-                = link_to current_site.the_url, class: 'logo-link about-me' do
-                  = image_tag current_site.the_logo, class: 'img-responsive img-logo'
+                = link_to current_site.the_url, title: 'Open Source Case Management And Record Keeping',  class: 'logo-link about-me' do
+                  = image_tag current_site.the_logo, class: 'img-responsive img-logo', alt: 'OSCaR logo'
           .header-column.justify-content-end
             .header-row
+              / %span.flag-lang.hidden-md.hidden-lg
+              /   %span
+              /     = link_to oscar_language('km') do
+              /       =image_tag theme_asset_url('images/km.png')
+              /   %span
+              /     = link_to oscar_language('en') do
+              /       =image_tag theme_asset_url('images/en.png')
               .header-nav.header-nav-stripe
                 .header-nav-main.header-nav-main-square.header-nav-main-effect-2.header-nav-main-sub-effect-1
                   %nav.collapse
                     = raw oscar_get_nav_menu('main_menu', 'nav nav-pills #mainNav')
                 %ul.header-social-icons.social-icons.d-none.d-sm-block
-                  %li.social-icons-facebook
-                    = link_to current_theme.the_field('facebook-url'), target: "_blank" do
-                      = fa_icon 'facebook'
-                  %li.social-icons-twitter
-                    = link_to current_theme.the_field('twitter-url'), target: "_blank" do
-                      = fa_icon 'twitter'
-                  %li.social-icons-linkedin
-                    = link_to current_theme.the_field('linkedin-url'), target: "_blank" do
-                      = fa_icon 'linkedin'
+                  - facebook = current_theme.the_field('facebook-url')
+                  - twitter = current_theme.the_field('twitter-url')
+                  - linkedin = current_theme.the_field('linkedin-url')
+                  - if facebook != ''
+                    %li.social-icons-facebook
+                      = link_to facebook, target: "_blank" do
+                        = fa_icon 'facebook'
+                  - if twitter != ''
+                    %li.social-icons-twitter
+                      = link_to twitter, target: "_blank" do
+                        = fa_icon 'twitter'
+                  - if linkedin != ''
+                    %li.social-icons-linkedin
+                      = link_to linkedin, target: "_blank" do
+                        = fa_icon 'linkedin'
                 %button.btn.header-btn-collapse-nav{"data-target" => ".header-nav-main nav", "data-toggle" => "collapse"}
                   %i.fa.fa-bars
-              %span.flag-lang
-                %span
-                  = link_to oscar_language('km') do
-                    =image_tag theme_asset_url('images/km.png')
-                %span
-                  = link_to oscar_language('en') do
-                    =image_tag theme_asset_url('images/en.png')
-
+              / %span.flag-lang.hidden-sm.hidden-xs
+              /   %span
+              /     = link_to oscar_language('km') do
+              /       =image_tag theme_asset_url('images/km.png')
+              /   %span
+              /     = link_to oscar_language('en') do
+              /       =image_tag theme_asset_url('images/en.png')

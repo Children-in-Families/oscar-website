@@ -1,11 +1,11 @@
 .container
   .row
-    .col-lg-12.text-center
+    .col-lg-12.text-center#about
       %h2.word-rotator-title.mb-4
-        = @post.the_title
-        %strong.inverted.inverted-primary
-          %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
-            %span#js-rotating-about
-              = @post.the_fields('about-slider').join(',')
-      %p.welcomeContent
-        = raw @post.the_content
+        = @post.the_field('about-start-sentence') unless @post.the_field('about-start-sentence') == ''
+        - unless @post.the_fields('about-slider').join('') == ''
+          %strong.inverted.inverted-primary
+            %span.word-rotator{"data-plugin-options" => "{'delay': 2000, 'animDelay': 300}"}
+              %span#js-rotating-about
+                = @post.the_fields('about-slider').join(',')
+      = fix_new_line_space(raw(@post.the_content))

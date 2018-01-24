@@ -1,20 +1,21 @@
-%section.video.section.section-text-light.section-video.section-center.mt-0{"data-plugin-options" => "{'posterType': 'jpg', 'position': '50% 50%', 'overlay': true}", "data-plugin-video-background" => "", "data-video-path" => "#{@post.the_field('about-video')}"}
-  .container
-    .row
-      .col-lg-6
-        .owl-carousel.owl-theme.nav-bottom.rounded-nav.mt-4.mb-0{"data-plugin-options" => "{'items': 1, 'loop': false}"}
-          - posts = current_site.the_post_type('home-what-clients-say').the_posts.visible_frontend.decorate
-          - posts.each do |client_say|
-            %div
-              .col
-                .testimonial.testimonial-style-6.testimonial-with-quotes.mb-0
-                  %blockquote
-                    %p
-                      = client_say.the_field('what-client-say')
-                  .testimonial-author
-                    %p
-                      %strong
-                        = client_say.the_field('client-name')
-                      %span
-                        = client_say.the_field('client-position')
+- if @post.the_field('about-testimonail-show') == '1'
+  %section.video.section.section-text-light.section-video.section-center.mt-0{"data-plugin-options" => "{'posterType': 'jpg', 'position': '50% 50%', 'overlay': true}", "data-plugin-video-background" => "", "data-video-path" => "#{@post.the_field('about-video')}"}
+    .container
+      .row
+        .col-lg-6
+          .owl-carousel.owl-theme.nav-bottom.rounded-nav.mt-4.mb-0{"data-plugin-options" => "{'items': 1, 'loop': false}"}
+            - posts = current_site.the_post_type('home-testimonials').the_posts.visible_frontend.decorate
+            - posts.each do |client_say|
+              %div
+                .col
+                  .testimonial.testimonial-style-6.testimonial-with-quotes.mb-0.paddingTestimonial
+                    %blockquote
+                      %p
+                        = fix_new_line_space(raw(client_say.the_content))
+                    .testimonial-author
+                      %p
+                        %strong
+                          = client_say.the_field('testimonail-name')
+                        %span
+                          = client_say.the_field('testimonail-position')
 

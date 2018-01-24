@@ -10,8 +10,7 @@
     %h4.heading-primary.tall.welcomeContent
       = current_site.the_post('home').the_field('sub-description')
 .row.text-center
-  - item = current_site.the_post_type('home-customer-image').the_posts.count
-  .owl-carousel.owl-theme{"data-plugin-options" => "{'items': #{item}, 'autoplay': true, 'autoplayTimeout': 3000}"}
+  .owl-carousel.owl-theme{"data-plugin-options" => "{'items': 5, 'autoplay': true, 'autoplayTimeout': 3000}"}
     - current_site.the_post_type('home-customer-image').the_posts.visible_frontend.decorate.each do |image|
-      #customer_images
-        = image_tag image.the_field('customer-logo'), class: 'img-fluid'
+      #customer-images
+        = image_tag image.the_field('customer-logo'), class: 'img-responsive'

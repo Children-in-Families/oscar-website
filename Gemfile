@@ -18,6 +18,7 @@ gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-se
 gem 'draper',             '~> 3'
 gem 'camaleon_post_order','~> 0.0.2'
 gem 'dotenv-rails',       '~> 2.1', '>= 2.1.1'
+gem 'humanize',           '~> 1.7'
 
 gem 'haml',               '~> 5.0', '>= 5.0.4'
 gem 'bootstrap-sass',     '~> 3.3', '>= 3.3.7'
@@ -40,7 +41,7 @@ group :development do
   gem 'pry', '~> 0.11.3'
 end
 
-group :production do
+group :production, :staging do
   gem 'asset_sync',            '~> 2.0'
   gem 'fog',                   '~> 1.42'
   gem 's3'

@@ -1,8 +1,8 @@
 .container
-  .row.pull-left
-    .col
-      %h2.text-center
-        = oscar_translation('ផ្តល់សក្ខីកម្ម','Testimonial')
+  / .row.pull-left
+  /   .col
+  /     %h2.text-center
+  /       = @post.the_title
 %section.parallax.section.section-text-light.section-parallax.section-center.mt-0.mb-0{"data-image-src" => current_site.the_post('testimonials').the_field('testimonial-background-image'), "data-plugin-options" => "{'speed': 1.5}", "data-plugin-parallax" => ""}
   .container
     .row.justify-content-center
@@ -17,7 +17,7 @@
                     = image_tag testimonial.the_field('testimonial-image'), class: 'img-fluid rounded-circle'
                     %blockquote.paddingTestimonial
                       %p
-                        = raw testimonial.the_content
+                        = fix_new_line_space(raw (testimonial.the_content))
                     .testimonial-author
                       %p
                         %strong

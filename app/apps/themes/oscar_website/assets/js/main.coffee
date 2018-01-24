@@ -28,3 +28,5 @@
 #= require ./navbar
 
 #= require ./morphext.min.js
+
+#= require ./js/mail.js

@@ -2,18 +2,18 @@
   .row
     .col
       %h2.mb-0
-        %strong
-          = oscar_translation('តារាងតំលៃ','Pricing')
-        = oscar_translation('ខ្លី','Tables Shortcodes')
+        %strong#princing
+          - title = @post.the_field('title-pricing-page')
+          = title if title != ''
       %p
-        = raw @post.the_content
+        = fix_new_line_space(raw (@post.the_content))
       %hr.tall/
   .row
     - card = current_site.the_post_type('pricing-card').the_posts.visible_frontend.decorate
     .col
       %h4.mb-2
         %strong
-          = card.length
+          = card.size.humanize.titleize
         = oscar_translation('គម្រោង','Plans')
       %p
         = @post.the_field('pricing-plan-introdution-sentence')
@@ -26,7 +26,7 @@
                   = price.the_title
                   %span
                     = "$#{price.the_field('pricing-price')}"
-                %a.btn.btn-lg.btn-primary.buttonLg{:href => "#"}
+                %a.btn.btn-lg.pricing{:href => "#"}
                   = oscar_translation('ចុះ​ឈ្មោះ','Sign up')
                 %ul
                   - price.the_fields('pricing-item').each do |item|
@@ -42,7 +42,7 @@
                   = price.the_title
                   %span
                     = "$#{price.the_field('pricing-price')}"
-                %a.btn.btn-lg.btn-primary.buttonLg{:href => "#"}
+                %a.btn.btn-lg.pricing{:href => "#"}
                   = oscar_translation('ចុះ​ឈ្មោះ','Sign up')
                 %ul
                   - price.the_fields('pricing-item').each do |item|
