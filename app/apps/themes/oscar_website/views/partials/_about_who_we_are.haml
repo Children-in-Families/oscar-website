@@ -6,16 +6,14 @@
         %h2
           %strong#who
             = @post.the_field('about-who-we-are-title')
-        %p
-          = @post.the_field('about-who-we-are-content')
+        = @post.the_field('about-who-we-are-content')
     - else
       .col-lg-5
         - unless @post.the_field('about-who-we-are-title') == ''
           %h2
             %strong#who
               = @post.the_field('about-who-we-are-title')
-        %p
-          = @post.the_field('about-who-we-are-content')
+        = @post.the_field('about-who-we-are-content')
       .col-lg-7
         .progress-bars.mt-4
           - progress_bar.each do |progress|

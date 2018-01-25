@@ -5,9 +5,8 @@
       = title if title != ''
     .row.align-items-center
       %br
-      .col-lg-10
-        %p.welcomeContent.link-color
-          = fix_new_line_space(raw (@post.the_content))
+      .col-lg-10.welcomeContent.link-color
+        = fix_new_line_space(raw (@post.the_content))
       .col-lg-2
         - button_text = @post.the_field("button-text-service")
         - button_url = @post.the_field("button-url-service")
@@ -31,12 +30,12 @@
                       %span ...
                 - description = service.the_content
                 .readLess{style: 'display: none'}
-                  %p.longDescription.link-color
+                  .longDescription.link-color
                     = strip_tags description
                   %a.learn-more.readLessLink{:href => "javascript:void(0)"}
                     = oscar_translation('អានតិច','Read Less')
                 .readMore
-                  %p.shortDescription.link-color
+                  .shortDescription.link-color
                     = strip_tags description[0..75]
                     - if description.size > 75
                       %span ...
