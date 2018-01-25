@@ -1,6 +1,6 @@
 .container
   .row
-    .col-lg-12.text-center#about
+    .col-lg-12.text-center.link-color
       %h2.word-rotator-title.mb-4
         = @post.the_field('about-start-sentence') unless @post.the_field('about-start-sentence') == ''
         - unless @post.the_fields('about-slider').join('') == ''

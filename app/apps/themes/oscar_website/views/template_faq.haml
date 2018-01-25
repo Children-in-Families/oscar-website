@@ -6,7 +6,7 @@
         = title if title != ''
       .row
         .col
-          %p.lead
+          %p.lead.link-color
             = fix_new_line_space(raw (@post.the_content))
       %hr/
       .row
@@ -14,7 +14,7 @@
           .toggle.toggle-primary{"data-plugin-toggle" => ""}
             - current_site.the_post_type('faq-post-type').the_posts.visible_frontend.decorate.each_with_index do |faq, index|
               - if index == 0
-                %section.toggle.active
+                %section.toggle.active.link-color
                   %label
                     = faq.the_title
                   = fix_new_line_space(raw (faq.the_content))
@@ -22,7 +22,7 @@
                 %section.toggle
                   %label
                     = faq.the_title
-                  %p{style: "height: 0"}
+                  %p.link-color{style: "height: 0"}
                     = fix_new_line_space(raw (strip_tags(faq.the_content)))
 
 

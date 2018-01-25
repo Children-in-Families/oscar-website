@@ -4,7 +4,7 @@
       %h1.word-rotator-title.mb-2
         - title = @post.the_field('title-feature-page')
         = title if title != ''
-      #feature-description
+      #feature-description.link-color
         = fix_new_line_space(raw(@post.the_content))
   .row.mt-5
     - current_site.the_post_type('features').the_posts.visible_frontend.decorate.each do |feature|
@@ -17,5 +17,5 @@
             .feature-box-info
               %h4.mb-1
                 = feature.the_title
-              %p
+              %p.link-color
                 = fix_new_line_space(raw(feature.the_content).truncate(100, omission: '[...]'))
