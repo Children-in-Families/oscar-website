@@ -1,7 +1,7 @@
 .body.header-margin-top-bread-crumb
   - title = @post.the_title
   = render 'partials/bread_crumb', locals: {menu: title, sub_menu: title}
-  #align-center.margin-feature
+  #align-center.margin-feature.link-color
     #simple-page-img
       = image_tag @post.the_thumb_url, { class: 'img-responsive img-thumbnail' }
     %h1#feature-content

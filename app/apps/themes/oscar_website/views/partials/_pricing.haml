@@ -1,12 +1,11 @@
 .container
   .row
-    .col
+    .col.link-color
       %h2.mb-0
         %strong#princing
           - title = @post.the_field('title-pricing-page')
           = title if title != ''
-      %p
-        = fix_new_line_space(raw (@post.the_content))
+      = fix_new_line_space(raw (@post.the_content))
       %hr.tall/
   .row
     - card = current_site.the_post_type('pricing-card').the_posts.visible_frontend.decorate

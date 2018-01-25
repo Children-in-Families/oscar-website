@@ -10,12 +10,10 @@
                 .col
                   .testimonial.testimonial-style-6.testimonial-with-quotes.mb-0.paddingTestimonial
                     %blockquote
-                      %p
-                        = fix_new_line_space(raw(client_say.the_content))
+                      = fix_new_line_space(raw(client_say.the_content))
                     .testimonial-author
-                      %p
-                        %strong
-                          = client_say.the_field('testimonail-name')
-                        %span
-                          = client_say.the_field('testimonail-position')
+                      %strong
+                        = client_say.the_field('testimonail-name')
+                      %span
+                        = client_say.the_field('testimonail-position')
 
