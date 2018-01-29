@@ -5,9 +5,8 @@
         - title = @post.the_field('title-faq-page')
         = title if title != ''
       .row
-        .col
-          %p.lead.link-color
-            = fix_new_line_space(raw (@post.the_content))
+        .col.link-color
+          = fix_new_line_space(raw (@post.the_content))
       %hr/
       .row
         .col
@@ -22,7 +21,7 @@
                 %section.toggle
                   %label
                     = faq.the_title
-                  %p.link-color{style: "height: 0"}
+                  %p{style: "height: 0"}
                     = fix_new_line_space(raw (strip_tags(faq.the_content)))
 
 

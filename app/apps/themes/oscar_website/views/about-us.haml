@@ -9,14 +9,13 @@
               %div
                 %span.img-thumbnail.d-block
                   = image_tag image, class: 'img-fluid'
-        .col-lg-8
+        .col-lg-8.link-color
           %h2.mb-0
             = @post.the_title
           %h4.color-primary
             = @post.the_field('about-us-position')
           %hr.solid/
-          %p.link-color
-            = fix_new_line_space(raw (@post.the_content))
+          = fix_new_line_space(raw (@post.the_content))
       / .row
       /   .col
       /     %hr.solid/
