@@ -455,6 +455,7 @@ h4.heading-primary{
 }
 
 ul.social-icons{
+  box-shadow: none !important;
   li > a > i{
     color: $Tertiary_color;
   }
@@ -664,4 +665,16 @@ span.thumb-info.thumb-info-hide-wrapper-bg{
 #simple-page-img{
   display: flex;
   justify-content: center;
+}
+
+#header .header-btn-collapse-nav{
+  background: $secondary_color;
+}
+
+.pricing-table .most-popular{
+  border-color: $primary_color;
+}
+
+.progress-bar-primary{
+  background-color: $primary_color !important;
 }
