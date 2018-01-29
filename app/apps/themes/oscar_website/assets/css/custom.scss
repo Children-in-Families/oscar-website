@@ -523,7 +523,7 @@ ul.social-icons{
    min-height: 232px;
 }
 
-#align-center{
+.align-center{
   text-align: center;
 }
 
@@ -669,6 +669,12 @@ span.thumb-info.thumb-info-hide-wrapper-bg{
 #simple-page-img{
   display: flex;
   justify-content: center;
+  @media #{$phone} {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+  }
 }
 
 #header .header-btn-collapse-nav{
@@ -681,4 +687,8 @@ span.thumb-info.thumb-info-hide-wrapper-bg{
 
 .progress-bar-primary{
   background-color: $primary_color !important;
+}
+
+#simple-page-title{
+  margin-top: 20px;
 }
