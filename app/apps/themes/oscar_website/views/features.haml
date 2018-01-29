@@ -2,7 +2,7 @@
   - title = @post.the_title
   - feature_title =current_site.the_post('features-set').the_title
   = render 'partials/bread_crumb', locals: {menu: feature_title, sub_menu: title}
-  #align-center.margin-feature.link-color
+  .align-center.margin-feature.link-color
     - icon = @post.the_field('feature-icon')
     %i{class: "#{icon}  icon-featured"}
     %h1#feature-content
