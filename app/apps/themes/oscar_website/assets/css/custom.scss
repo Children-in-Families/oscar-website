@@ -691,4 +691,7 @@ span.thumb-info.thumb-info-hide-wrapper-bg{
 
 #simple-page-title{
   margin-top: 20px;
+  @media #{$phone} {
+    margin-top: 10px;
+  }
 }
