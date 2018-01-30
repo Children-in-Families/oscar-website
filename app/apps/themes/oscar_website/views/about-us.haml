@@ -8,7 +8,7 @@
             - @post.the_fields('about-us-image').each do |image|
               %div
                 %span.img-thumbnail.d-block
-                  = image_tag image, class: 'img-fluid'
+                  = image_tag image.cama_parse_image_version('500x500'), class: 'img-fluid'
         .col-lg-8.link-color
           %h2.mb-0
             = @post.the_title
@@ -140,7 +140,7 @@
                 .portfolio-item
                   %span.thumb-info.thumb-info-lighten
                     %span.thumb-info-wrapper.my-work
-                      = image_tag image2, class: 'img-fluid'
+                      = image_tag image2.cama_parse_image_version('300x300'), class: 'img-fluid'
                       - unless title2.blank? || subTitle2.blank?
                         %span.thumb-info-title
                           %span.thumb-info-inner

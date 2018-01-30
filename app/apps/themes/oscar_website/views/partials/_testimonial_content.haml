@@ -3,7 +3,7 @@
   /   .col
   /     %h2.text-center
   /       = @post.the_title
-%section.parallax.section.section-text-light.section-parallax.section-center.mt-0.mb-0{"data-image-src" => current_site.the_post('testimonials').the_field('testimonial-background-image'), "data-plugin-options" => "{'speed': 1.5}", "data-plugin-parallax" => ""}
+%section.parallax.section.section-text-light.section-parallax.section-center.mt-0.mb-0{"data-image-src" => current_site.the_post('testimonials').the_field('testimonial-background-image').cama_parse_image_version('500x261'), "data-plugin-options" => "{'speed': 1.5}", "data-plugin-parallax" => ""}
   .container
     .row.justify-content-center
       .col-lg-10
@@ -14,7 +14,7 @@
               .col
                 .testimonial.testimonial-style-2.testimonial-with-quotes.mb-0
                   .testimonial-author
-                    = image_tag testimonial.the_field('testimonial-image'), class: 'img-fluid rounded-circle'
+                    = image_tag testimonial.the_field('testimonial-image').cama_parse_image_version(), class: 'img-fluid rounded-circle'
                     %blockquote.paddingTestimonial
                       = fix_new_line_space(raw (testimonial.the_content))
                     .testimonial-author

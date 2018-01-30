@@ -31,7 +31,7 @@
         %span.thumb-info.thumb-info-hide-wrapper-bg
           %span.thumb-info-wrapper
             = link_to us.the_url do
-              = image_tag us.the_field('about-us-image'), class: 'img-fluid about-me'
+              = image_tag us.the_field('about-us-image').cama_parse_image_version('500x500'), class: 'img-fluid about-me'
               %span.thumb-info-title
                 %span.thumb-info-inner
                   = us.the_title
