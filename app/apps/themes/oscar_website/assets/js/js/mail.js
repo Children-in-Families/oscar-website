@@ -19,7 +19,7 @@ $(document).ready(function(){
     formData = {
       name: name,
       email: email,
-      subject: subject,
+      _subject: subject,
       message: message
     };
 
