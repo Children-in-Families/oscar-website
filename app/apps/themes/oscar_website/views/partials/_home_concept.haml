@@ -20,7 +20,7 @@
       %span.cloud
       .col-lg-2.ml-lg-auto
         .process-image
-          = image_tag current_site.the_post('home').the_field('concept-first-image').cama_parse_image_version(), class: 'home-concept-image'
+          = image_tag current_site.the_post('home').the_field('concept-first-image').cama_parse_image_version('300x300'), class: 'home-concept-image'
           /= image_tag theme_asset_url('images/img/home-concept-item-1.png')
           %strong
             = current_site.the_post('home').the_field('concept-first-description')
