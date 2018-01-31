@@ -14,7 +14,7 @@
               .col
                 .testimonial.testimonial-style-2.testimonial-with-quotes.mb-0
                   .testimonial-author
-                    = image_tag testimonial.the_field('testimonial-image').cama_parse_image_version(), class: 'img-fluid rounded-circle'
+                    = image_tag testimonial.the_field('testimonial-image'), class: 'img-fluid rounded-circle'
                     %blockquote.paddingTestimonial
                       = fix_new_line_space(raw (testimonial.the_content))
                     .testimonial-author
