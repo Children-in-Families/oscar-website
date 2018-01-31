@@ -67,7 +67,7 @@
                     %span.percent> 95
                     \%
     - if @post.the_field('about-us-referent-show') == '1'
-      %section.parallax.section.section-parallax.section-center{"data-image-src" => @post.the_field('about-us-background-image').cama_parse_image_version('1000x521'), "data-plugin-options" => "{'speed': 1.5}", "data-plugin-parallax" => ""}
+      %section.parallax.section.section-parallax.section-center{"data-image-src" => @post.the_field('about-us-background-image'), "data-plugin-options" => "{'speed': 1.5}", "data-plugin-parallax" => ""}
         .container
           .row
             .col
