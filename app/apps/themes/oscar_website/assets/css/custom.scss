@@ -455,6 +455,7 @@ h4.heading-primary{
 }
 
 ul.social-icons{
+  box-shadow: none !important;
   li > a > i{
     color: $Tertiary_color;
   }
@@ -475,7 +476,7 @@ ul.social-icons{
   padding: 10px 0 0px !important;
 }
 
-#about{
+.link-color{
   p {
     a {
       color: $secondary_color !important;
@@ -522,7 +523,7 @@ ul.social-icons{
    min-height: 232px;
 }
 
-#align-center{
+.align-center{
   text-align: center;
 }
 
@@ -544,7 +545,7 @@ ul.social-icons{
 }
 
 #usaid-image{
-  padding-left: 145px;
+  padding-left: 105px;
   @media #{$desktop}{
     padding-left: 30px;
   }
@@ -558,6 +559,10 @@ ul.social-icons{
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  img {
+    width: 231px;
+    height: auto;
   }
 }
 #usaid-text{
@@ -659,4 +664,44 @@ ul.social-icons{
 
 span.thumb-info.thumb-info-hide-wrapper-bg{
   min-height: 400px;
+}
+
+#simple-page-img{
+  display: flex;
+  justify-content: center;
+  @media #{$phone} {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+#header .header-btn-collapse-nav{
+  background: $secondary_color;
+}
+
+.pricing-table .most-popular{
+  border-color: $primary_color;
+}
+
+.progress-bar-primary{
+  background-color: $primary_color !important;
+}
+
+#simple-page-title{
+  margin-top: 20px;
+  @media #{$phone} {
+    margin-top: 10px;
+  }
+}
+
+.home-concept-image{
+  width: 145px !important;
+  height: 145px !important;
+}
+
+.home-concept-slide-image{
+  width: 338px !important;
+  height: 338px !important;
 }

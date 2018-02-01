@@ -20,19 +20,19 @@
       %span.cloud
       .col-lg-2.ml-lg-auto
         .process-image
-          = image_tag current_site.the_post('home').the_field('concept-first-image')
+          = image_tag current_site.the_post('home').the_field('concept-first-image').cama_parse_image_version('300x300'), class: 'home-concept-image'
           /= image_tag theme_asset_url('images/img/home-concept-item-1.png')
           %strong
             = current_site.the_post('home').the_field('concept-first-description')
       .col-lg-2
         .process-image
-          = image_tag current_site.the_post('home').the_field('concept-second-image')
+          = image_tag current_site.the_post('home').the_field('concept-second-image').cama_parse_image_version('300x300'), class: 'home-concept-image'
           /= image_tag theme_asset_url('images/img/home-concept-item-2.png')
           %strong
             = current_site.the_post('home').the_field('concept-second-description')
       .col-lg-2
         .process-image
-          = image_tag current_site.the_post('home').the_field('concept-third-image')
+          = image_tag current_site.the_post('home').the_field('concept-third-image').cama_parse_image_version('300x300'), class: 'home-concept-image'
           /= image_tag theme_asset_url('images/img/home-concept-item-3.png')
           %strong
             = current_site.the_post('home').the_field('concept-third-description')
@@ -42,6 +42,6 @@
             %ul.fc-slides
               - @post.the_fields('concept-big-image').each do |imageUrl|
                 %li
-                  = image_tag imageUrl, class: 'img-responsive'
+                  = image_tag imageUrl.cama_parse_image_version('600x600'), class: 'img-responsive home-concept-slide-image'
           %strong.our-work
             = current_site.the_post('home').the_field('concept-big-description')

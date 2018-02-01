@@ -131,7 +131,7 @@ module Themes::OscarWebsite::MainHelper
       contact_field_group = page.add_field_group({ name: 'Contact Us', slug: 'contact-us-fields' })
       contact_field_group.add_field({ name: 'Address', slug: 'contact-address' }, { field_key: 'text_box', translate: true, default_value: 'Phnom Penh' })
       contact_field_group.add_field({ name: 'Phone', slug: 'contact-phone' }, { field_key: 'phone', default_value: "010123456" })
-      contact_field_group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', default_value: "someone@example.come" })
+      contact_field_group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', default_value: "someone@example.com" })
     end
 
     if page.get_field_groups.where(slug: 'contact-page-fields').blank?

@@ -9,7 +9,7 @@
       - posts.each do |testimonial|
         .col
           .testimonial.testimonial-primary
-            %blockquote#home-testimonial
+            %blockquote#home-testimonial.link-color
               = fix_new_line_space(raw(testimonial.the_content))
             .testimonial-arrow-down
             .testimonial-author

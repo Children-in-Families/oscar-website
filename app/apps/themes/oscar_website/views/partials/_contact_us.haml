@@ -13,7 +13,7 @@
         - title = @post.the_field('title-contact-page')
         = title if title != ''
       - email = @post.the_field('contact-email')
-      %form#contactForm{:action => "http://formspree.io/#{email}", :method => "POST"}
+      %form#contactForm{:action => "https://formspree.io/#{email}", :method => "POST"}
         .form-row
           .form-group.col-lg-6
             %label Your name *
@@ -36,13 +36,12 @@
         .form-row
           .form-group.col
             %input#sendMessage.btn{"data-loading-text" => "Loading...", :type => "submit", :value => "Send Message"}/
-    .col-lg-6
+    .col-lg-6.link-color
       %h4.mt-4.color-primary
         = oscar_translation('ទំនាក់ទំនង','Get in')
         %strong
           = oscar_translation('ពួក​យើង','Touch')
-      %p
-        = fix_new_line_space(raw(@post.the_content))
+      = fix_new_line_space(raw(@post.the_content))
       %hr/
       %h4.color-primary
         = oscar_translation('','The')

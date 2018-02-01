@@ -8,15 +8,14 @@
             - @post.the_fields('about-us-image').each do |image|
               %div
                 %span.img-thumbnail.d-block
-                  = image_tag image, class: 'img-fluid'
-        .col-lg-8
+                  = image_tag image.cama_parse_image_version('500x500'), class: 'img-fluid'
+        .col-lg-8.link-color
           %h2.mb-0
             = @post.the_title
           %h4.color-primary
             = @post.the_field('about-us-position')
           %hr.solid/
-          %p
-            = fix_new_line_space(raw (@post.the_content))
+          = fix_new_line_space(raw (@post.the_content))
       / .row
       /   .col
       /     %hr.solid/
@@ -123,7 +122,7 @@
                 .portfolio-item
                   %span.thumb-info.thumb-info-lighten
                     %span.thumb-info-wrapper.my-work
-                      = image_tag image1, class: 'img-fluid'
+                      = image_tag image1.cama_parse_image_version('300x300'), class: 'img-fluid'
                       - unless title1.blank? || subTitle1.blank?
                         %span.thumb-info-title
                           %span.thumb-info-inner
@@ -141,7 +140,7 @@
                 .portfolio-item
                   %span.thumb-info.thumb-info-lighten
                     %span.thumb-info-wrapper.my-work
-                      = image_tag image2, class: 'img-fluid'
+                      = image_tag image2.cama_parse_image_version('300x300'), class: 'img-fluid'
                       - unless title2.blank? || subTitle2.blank?
                         %span.thumb-info-title
                           %span.thumb-info-inner
@@ -159,7 +158,7 @@
                 .portfolio-item
                   %span.thumb-info.thumb-info-lighten
                     %span.thumb-info-wrapper.my-work
-                      = image_tag image3, class: 'img-fluid'
+                      = image_tag image3.cama_parse_image_version('300x300'), class: 'img-fluid'
                       - unless title3.blank? || subTitle3.blank?
                         %span.thumb-info-title
                           %span.thumb-info-inner
@@ -177,7 +176,7 @@
                 .portfolio-item
                   %span.thumb-info.thumb-info-lighten
                     %span.thumb-info-wrapper.my-work
-                      = image_tag image4, class: 'img-fluid'
+                      = image_tag image4.cama_parse_image_version('300x300'), class: 'img-fluid'
                       - unless title4.blank? || subTitle4.blank?
                         %span.thumb-info-title
                           %span.thumb-info-inner
