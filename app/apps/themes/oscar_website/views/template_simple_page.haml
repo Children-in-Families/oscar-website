@@ -2,8 +2,8 @@
   - title = @post.the_title
   = render 'partials/bread_crumb', locals: {menu: title, sub_menu: title}
   .margin-feature.link-color
-    #simple-page-img.align-center
-      = image_tag @post.the_thumb_url, { class: 'img-responsive' }
-    %h1#simple-page-title.align-center
-      = title
+    / #simple-page-img.align-center
+    /   = image_tag @post.the_thumb_url, { class: 'img-responsive' }
+    / %h1#simple-page-title.align-center
+    /   = title
     = fix_new_line_space(raw(@post.the_content))
