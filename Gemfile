@@ -54,3 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #################### Camaleon CMS include all gems for plugins and themes ####################
 require './lib/plugin_routes'
 instance_eval(PluginRoutes.draw_gems)
+
+#################### Camaleon CMS include all gems for plugins and themes #################### 
+require './lib/plugin_routes' 
+instance_eval(PluginRoutes.draw_gems)

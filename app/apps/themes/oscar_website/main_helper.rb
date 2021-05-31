@@ -116,7 +116,7 @@ module Themes::OscarWebsite::MainHelper
 
   def oscar_add_fields_to_contact_us_page
     page = current_site.the_post_type('page').the_post('contact-us')
-
+    binding.pry
     if page.get_field_groups.where(slug: 'contact-business-hour-fields').blank?
       contact_field_group = page.add_field_group({ name: 'Business Hours', slug: 'contact-business-hour-fields' })
       contact_field_group.add_field({ name: 'Business Hour', slug: 'contact-business-hour' }, { field_key: 'text_box', translate: true, default_value: 'Monday - Friday - 9am to 5pm', multiple: true})
@@ -132,6 +132,7 @@ module Themes::OscarWebsite::MainHelper
       contact_field_group.add_field({ name: 'Address', slug: 'contact-address' }, { field_key: 'text_box', translate: true, default_value: 'Phnom Penh' })
       contact_field_group.add_field({ name: 'Phone', slug: 'contact-phone' }, { field_key: 'phone', default_value: "010123456" })
       contact_field_group.add_field({ name: 'Email', slug: 'contact-email' }, { field_key: 'email', default_value: "someone@example.com" })
+      contact_field_group.add_field({ name: 'Fromspree Token', slug: 'contact-token' }, { field_key: 'text_box', default_value: "asdfdwAs" })
     end
 
     if page.get_field_groups.where(slug: 'contact-page-fields').blank?

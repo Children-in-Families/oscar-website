@@ -29,3 +29,4 @@ app/apps/.DS_Store
 app/apps/themes/.DS_Store
 app/views/.DS_Store
 public/media/
+*.dump
