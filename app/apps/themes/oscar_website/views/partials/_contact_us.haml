@@ -13,7 +13,7 @@
         - title = @post.the_field('title-contact-page')
         = title if title != ''
       - email = @post.the_field('contact-email')
-      %form#contactForm{:action => "https://formspree.io/#{email}", :method => "POST"}
+      %form#contactForm{:action => "https://formspree.io/f/#{email}", :method => "POST"}
         .form-row
           .form-group.col-lg-6
             %label Your name *
