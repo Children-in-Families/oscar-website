@@ -1,4 +1,4 @@
-- if current_site.the_post('blog').the_field('blog-show') == '1'
+- if current_site.the_post('blog') && current_site.the_post('blog').the_field('blog-show') == '1'
   .col-lg-6
     .recent-posts.mb-5
       %h2
