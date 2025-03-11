@@ -26,7 +26,6 @@ require 'capistrano/passenger'
 require 'capistrano/rails'
 require 'capistrano/scm/git'
 
-require 'appsignal/capistrano'
 # require 'whenever/capistrano'
 # require 'capistrano/sidekiq'
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined

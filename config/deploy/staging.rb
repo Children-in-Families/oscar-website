@@ -1,8 +1,9 @@
 set :staging
-
+set :rvm_type, :user   # Defaults to: :auto
+set :rvm_ruby_version, '2.5.7'
 set :app_name, 'oscar-website'
 
-server '52.220.9.27', user: 'deployer', roles: %w{app web db}
+server '193.203.160.204', user: 'deployer', roles: %w{app web db}
 
 # server-based syntax
 # ======================

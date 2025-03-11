@@ -45,7 +45,6 @@ group :production, :staging do
   gem 'asset_sync',            '~> 2.0'
   gem 'fog',                   '~> 1.42'
   gem 's3'
-  gem 'appsignal',             '~> 2.0', '>= 2.0.4'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
