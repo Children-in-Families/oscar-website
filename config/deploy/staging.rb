@@ -1,5 +1,4 @@
 set :staging
-set :rvm_type, :user   # Defaults to: :auto
 set :rvm_ruby_version, '2.5.7'
 set :app_name, 'oscar-website'
 
