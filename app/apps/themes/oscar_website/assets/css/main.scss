@@ -31,11 +31,16 @@
 @import 'morphext';
 
 
-html, body {
+html,
+body {
   height: 100%;
 
   .oscar-content {
     min-height: 60%;
     position: relative;
+  }
+
+  ul[style*="list-style-type"] li a {
+    color: #ff9900;
   }
 }
