@@ -9,6 +9,7 @@ else
   ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 end
 
+set :rvm_ruby_version, '2.5.7p206'
 set :deploy_to, "/var/www/#{fetch(:application)}"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets')
@@ -30,5 +31,3 @@ namespace :deploy do
 end
 
 set :passenger_restart_with_touch, true
-
-require 'appsignal/capistrano'
