@@ -43,7 +43,7 @@ end
 
 group :production, :staging do
   gem 'asset_sync',            '~> 2.0'
-  gem 'fog',                   '~> 1.42'
+  gem 'fog',                   '~> 1.42.0'
   gem 's3'
 end
 
